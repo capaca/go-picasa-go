@@ -13,22 +13,8 @@ module Picasa
     attr_reader :id, :albums
     
     def sync
-      resp, body = retrieve_albums
-      parse body
-    end
-    
-    private 
-    
-    def retrieve_albums
-      http = Net::HTTP.new('picasaweb.google.com', 80)
-      http.get "/data/feed/api/user/#{id}"
-    end
-    
-    def parse(xml)
-      doc = Nokogiri::XML(xml)
-      doc.css('entry').each do |entry|
-        @albums << Picasa::Album.new(entry, self)
-      end
+      @albums = Picasa::Album.get_albums self
+      self
     end
     
   end
@@ -51,7 +37,6 @@ module Picasa
       
       @user = user
       @photos = []
-      sync
     end
     
     attr_reader :id, :title, :author_name, :author_uri, :timestamp, :num_photos, 
@@ -62,28 +47,33 @@ module Picasa
     alias_method :thumbnail_url, :media_thumbnail_url
     
     def sync
-      resp, body = retrieve_photos
-      parse body
+      @photos = Picasa::Photo.get_photos self
+      self
+    end
+    
+    def self.get_albums user
+      resp, xml = get_albums_xml user.id
+      parse(xml, user)
     end
     
     private 
     
-    def retrieve_photos
+    def self.get_albums_xml user_id
       http = Net::HTTP.new('picasaweb.google.com', 80)
-      http.get "/data/feed/api/user/#{user.id}/albumid/#{id}"
+      http.get "/data/feed/api/user/#{user_id}"
     end
     
-    def parse(xml)
+    def self.parse(xml, user)
+      albums = []
       doc = Nokogiri::XML(xml)
       doc.css('entry').each do |entry|
-        @photos << Picasa::Photo.new(entry, self)
+        albums << Picasa::Album.new(entry, user).sync
       end
+      albums
     end
   end
 
   class Photo
-
-    @@fotos = []
 
     def initialize(doc, album)
       @id = doc.at_xpath('gphoto:id').content
@@ -119,7 +109,28 @@ module Picasa
     
     def thumbnails_urls
       [thumbnail_url1,thumbnail_url2,thumbnail_url3]
-    end        
+    end
+    
+    def self.get_photos album
+      resp, xml = get_photos_xml album.user.id, album.id
+      parse xml, album
+    end 
+
+    private 
+    
+    def self.get_photos_xml user_id, album_id
+      http = Net::HTTP.new('picasaweb.google.com', 80)
+      http.get "/data/feed/api/user/#{user_id}/albumid/#{album_id}"
+    end
+    
+    def self.parse(xml, album)
+      photos = []
+      doc = Nokogiri::XML(xml)
+      doc.css('entry').each do |entry|
+        photos << Picasa::Photo.new(entry, album)
+      end
+      photos
+    end      
   end
 
 end
