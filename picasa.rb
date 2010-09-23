@@ -63,7 +63,7 @@ module Picasa
         "Authorization" => "GoogleLogin auth=#{user.auth_token}",
         "Content-Type" => "application/atom+xml"
       }
-      uri = URI.parse "http://picasaweb.google.com/data/feed/api/user/#{pedro.capaca}"
+      uri = URI.parse "http://picasaweb.google.com/data/feed/api/user/#{user.id}"
       http = Net::HTTP.new(uri.host, uri.port)
       data = "<entry xmlns='http://www.w3.org/2005/Atom' xmlns:media='http://search.yahoo.com/mrss/' xmlns:gphoto='http://schemas.google.com/photos/2007'><title type='text'>#{title}</title><summary type='text'>#{summary}</summary><gphoto:location>#{location}</gphoto:location><gphoto:access>public</gphoto:access><gphoto:timestamp>#{Time.now.to_i}000</gphoto:timestamp><media:group><media:keywords>#{keywords}</media:keywords></media:group><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/photos/2007#album'></category></entry>"
       resp = http.post(uri.path, data, headers)
@@ -72,17 +72,29 @@ module Picasa
     end
     
     def update
-      user.login unless user.auth_token
+      user.login #unless user.auth_token
       headers = {
         "Authorization" => "GoogleLogin auth=#{user.auth_token}",
-        "Content-Type" => "application/atom+xml"
+        "Content-Type" => "application/atom+xml",
+        "If-Match" => "*"
       }
-      uri = URI.parse "http://picasaweb.google.com/data/entry/api/user/#{user.id}/albumid/#{id}"
+      uri = URI.parse "http://picasaweb.google.com/data/entry/api/user/#{user.id}/albumid/#{id}"#link_edit
       http = Net::HTTP.new(uri.host, uri.port)
-      #data = "<entry xmlns='http://www.w3.org/2005/Atom' xmlns:media='http://search.yahoo.com/mrss/' xmlns:gphoto='http://schemas.google.com/photos/2007'><title type='text'>#{title}</title><summary type='text'>#{summary}</summary><gphoto:location>#{location}</gphoto:location><gphoto:access>public</gphoto:access><gphoto:timestamp>#{Time.now.to_i}000</gphoto:timestamp><media:group><media:keywords>#{keywords}</media:keywords></media:group><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/photos/2007#album'></category></entry>"
-      resp = http.put(uri.path, data, headers)
+      resp = http.send_request('PUT',uri.path, self.to_xml, headers)
       puts resp.inspect
       self
+    end
+    
+    # Generate the xml representation of the album object
+    # PS: the attributes title, summary, location
+    #     are the only ones that change after the album creation.
+    def to_xml
+      xml = Album.retrieve user, id
+      doc = Nokogiri::XML xml
+      doc.at_css('title').content = title
+      doc.at_css('summary').content = summary
+      doc.at_xpath('//gphoto:location').content = location
+      doc.to_xml
     end
     
     def self.retrieve(user, album_id)
@@ -97,8 +109,6 @@ module Picasa
       resp, xml = http.get "/data/entry/api/user/#{user.id}/albumid/#{album_id}", headers
       
       return xml
-      doc = Nokogiri.XML(xml)
-      doc.css('link[@rel="edit"]')
     end
     
     def self.get_albums user
