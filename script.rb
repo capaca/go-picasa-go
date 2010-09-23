@@ -1,6 +1,5 @@
-require 'rubygems'
-require 'xmlsimple'
 require 'picasa'
 
-resp, body = retrieve_albums
-albums = XmlSimple.xml_in body, 'KeyAttr' => 'name'
+@user = Picasa::User.new(:id => 'pedro.capaca', :password => 'ba159ga')
+@user.sync
+
