@@ -1,10 +1,6 @@
-require 'net/https'
-
 module Picasa
-  require 'rubygems'
-  require 'nokogiri'
 
-  class BasicObject
+  module Basic
     def initialize(params = {})
       params.keys.each do |k|
         self.instance_variable_set("@#{k}", params[k])
@@ -12,7 +8,9 @@ module Picasa
     end
   end
 
-  class User < BasicObject
+  module User
+    include Basic
+    
     attr_reader :id, :albums, :auth_token
     
     def login
