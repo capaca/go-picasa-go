@@ -1,6 +1,6 @@
 module Picasa
 
-  module Basic
+  class BasicObject
     def initialize(params = {})
       params.keys.each do |k|
         self.instance_variable_set("@#{k}", params[k])
@@ -8,8 +8,7 @@ module Picasa
     end
   end
 
-  module User
-    include Basic
+  class User < BasicObject
     
     attr_reader :id, :albums, :auth_token
     
