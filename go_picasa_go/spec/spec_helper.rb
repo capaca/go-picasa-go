@@ -2,7 +2,7 @@ require 'lib/go_picasa_go'
 require 'http_response_helper'
 
 def login(email = 'bandmanagertest@gmail.com', password = '$bandmanager$')
-  resp, body = Picasa::HTTP.authenticate email, password
+  resp, body = Picasa::HTTP.authenticate(email, password)
   resp.code.should == "200"
   resp.message.should == "OK"
 

@@ -23,7 +23,7 @@ module Picasa::HTTP
     http = Net::HTTP.new(GOOGLE_HOST, LOGIN_PORT)
     http.use_ssl=true
 
-    data = "accountType=HOSTED_OR_GOOGLE&Email=#{email}&Passwd=#{password}&service=#{PICASA_SERVICE}&source=#{APP_NAME}"
+    data = login_data email, password
     
     headers = {'Content-Type' => 'application/x-www-form-urlencoded'}
     resp, data = http.post(LOGIN_PATH, data, headers)
@@ -38,11 +38,9 @@ module Picasa::HTTP
   # title, summary, location, keywords
 
   def self.post_album user_id, auth_token, params
-    headers = {
-      "Authorization" => "GoogleLogin auth=#{auth_token}",
-      "Content-Type" => "application/atom+xml"
-    }
-    uri = URI.parse "http://picasaweb.google.com/data/feed/api/user/#{user_id}"
+    headers = albums_headers auth_token
+    
+    uri = albums_uri user_id
     http = Net::HTTP.new(uri.host, uri.port)
     
     #TODO Extract the XML below to file and use a template engine to render it.
@@ -60,12 +58,9 @@ module Picasa::HTTP
 
     update_album_xml data, params 
     
-    headers = {
-      "Authorization" => "GoogleLogin auth=#{auth_token}",
-      "Content-Type" => "application/atom+xml",
-      "If-Match" => "*"
-    }
-    uri = URI.parse "http://picasaweb.google.com/data/entry/api/user/#{user_id}/albumid/#{album_id}"
+    headers = albums_headers auth_token, "If-Match" => "*"
+    
+    uri = album_uri user_id, album_id
     http = Net::HTTP.new(uri.host, uri.port)
     http.send_request('PUT',uri.path, data, headers)
   end
@@ -73,12 +68,9 @@ module Picasa::HTTP
   # Do a delete request to delete an album from a user
   
   def self.delete_album user_id, album_id, auth_token
-    headers = {
-      "Authorization" => "GoogleLogin auth=#{auth_token}",
-      "Content-Type" => "application/atom+xml",
-      "If-Match" => "*"
-    }
-    uri = URI.parse "http://picasaweb.google.com/data/entry/api/user/#{user_id}/albumid/#{album_id}"
+    headers = albums_headers auth_token, "If-Match" => "*"
+    
+    uri = album_uri user_id, album_id
     http = Net::HTTP.new(uri.host, uri.port)
     http.send_request('DELETE',uri.path, nil, headers)
   end
@@ -120,6 +112,27 @@ module Picasa::HTTP
     doc.at_css('summary').content = params[:summary]
     doc.at_xpath('//gphoto:location').content = params[:location]
     doc.to_xml
+  end
+  
+  def self.login_data email, password
+    "accountType=HOSTED_OR_GOOGLE&Email=#{email}&Passwd=#{password}&service=#{PICASA_SERVICE}&source=#{APP_NAME}"
+  end
+  
+  def self.albums_headers auth_token, opts = {}
+    headers = {
+      "Authorization" => "GoogleLogin auth=#{auth_token}",
+      "Content-Type" => "application/atom+xml"
+    }
+    
+    headers.merge opts
+  end
+  
+  def self.albums_uri user_id
+    URI.parse "http://picasaweb.google.com/data/feed/api/user/#{user_id}"
+  end
+  
+  def self.album_uri user_id, album_id
+    URI.parse "http://picasaweb.google.com/data/entry/api/user/#{user_id}/albumid/#{album_id}"
   end
   
 end
