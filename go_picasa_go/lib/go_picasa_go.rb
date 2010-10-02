@@ -1,0 +1,6 @@
+require 'net/https'
+require 'rubygems'
+require 'nokogiri'
+require 'picasa'
+require 'http'
+require 'util'

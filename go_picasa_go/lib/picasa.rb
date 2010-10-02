@@ -1,7 +1,3 @@
-require 'net/https'
-require 'rubygems'
-require 'nokogiri'
-
 module Picasa
 
   class BasicObject
@@ -13,6 +9,7 @@ module Picasa
   end
 
   class User < BasicObject
+    
     attr_reader :id, :albums, :auth_token
     
     def login
