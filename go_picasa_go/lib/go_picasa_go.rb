@@ -1,6 +1,10 @@
 require 'net/https'
+require 'erb'
 require 'rubygems'
 require 'nokogiri'
 require 'picasa'
-require 'http'
+require 'http/authentication'
+require 'http/album'
 require 'util'
+require 'album'
+

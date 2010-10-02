@@ -1,28 +1,12 @@
 require 'spec_helper'
 
-describe 'Picasa::HTTP' do
+describe 'Picasa::HTTP::Album' do
   include Picasa::Util
   
   before :each do
-    ids = albums_ids
-    if ids and ids.size > 0 
-      ids.each do |id|
-        delete_album id
-      end
-    end
+    delete_all_albums
   end
   
-  it 'should do a post to authenticate' do
-    resp, body = Picasa::HTTP.authenticate 'bandmanagertest@gmail.com', '$bandmanager$'
-    resp.success?.should be_true
-    resp.message_OK?.should be_true
-  
-    auth_token = extract_auth_token body
-    auth_token.should_not be_nil
-    auth_token.should_not be_empty
-  end
-  
-  #TODO Fazer um after que destrua o album recem criado
   it 'should do a post to create a album for a user' do
     params = {
       :title => 'testing title',
@@ -32,7 +16,7 @@ describe 'Picasa::HTTP' do
     }
     
     auth_token = login
-    resp, body = Picasa::HTTP.post_album 'bandmanagertest', auth_token, params
+    resp, body = Picasa::HTTP::Album.post_album 'bandmanagertest', auth_token, params
     resp.success?.should be_true
     resp.message.should == "Created"
     
@@ -40,7 +24,7 @@ describe 'Picasa::HTTP' do
     body.should_not be_empty
   end
   
-  it 'should do a post request to update albums information' do
+  it 'should do a post request to update an album' do
     album_id = post_album
     auth_token = login
 
@@ -53,17 +37,24 @@ describe 'Picasa::HTTP' do
 
     album_id = post_album
 
-    resp, body = Picasa::HTTP.update_album "bandmanagertest", album_id, auth_token, params
+    resp, body = Picasa::HTTP::Album.update_album "bandmanagertest", album_id, auth_token, params
     resp.success?.should be_true
     resp.message_OK?.should be_true
     
     body.should_not be_nil
     body.should_not be_empty
+    
+    doc = Nokogiri::XML body
+    
+    doc.at_css('title').content.should == params[:title]
+    doc.at_css('summary').content.should == params[:summary]
+    doc.at_xpath('//gphoto:location').content.should == params[:location]
+    doc.at_xpath('//media:keywords').attribute("value") == params[:keywords]
   end
   
   it 'should do a get to retrieve all albums from user' do
     auth_token = login
-    resp, body = Picasa::HTTP.get_albums 'bandmanagertest', auth_token
+    resp, body = Picasa::HTTP::Album.get_albums 'bandmanagertest', auth_token
     resp.success?.should be_true
     resp.message.should == "OK"
     
@@ -75,7 +66,7 @@ describe 'Picasa::HTTP' do
     album_id = post_album
     
     auth_token = login
-    resp, body = Picasa::HTTP.get_album "bandmanagertest", album_id, auth_token
+    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, auth_token
     resp.success?.should be_true
     resp.message_OK?.should be_true
     
@@ -87,11 +78,11 @@ describe 'Picasa::HTTP' do
     album_id = post_album
     
     auth_token = login
-    resp, body = Picasa::HTTP.delete_album "bandmanagertest", album_id, auth_token
+    resp, body = Picasa::HTTP::Album.delete_album "bandmanagertest", album_id, auth_token
     resp.success?.should be_true
     resp.message_OK?.should be_true
     
-    resp, body = Picasa::HTTP.get_album "bandmanagertest", album_id, auth_token
+    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, auth_token
     resp.success?.should_not be_true
     resp.message.should == "Not Found"
   end

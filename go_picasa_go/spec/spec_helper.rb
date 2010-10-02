@@ -1,8 +1,10 @@
 require 'lib/go_picasa_go'
 require 'http_response_helper'
 
+include Picasa::Util
+
 def login(email = 'bandmanagertest@gmail.com', password = '$bandmanager$')
-  resp, body = Picasa::HTTP.authenticate(email, password)
+  resp, body = Picasa::HTTP::Authentication.authenticate(email, password)
   resp.code.should == "200"
   resp.message.should == "OK"
 
@@ -17,12 +19,12 @@ def post_album opts = {}
   params = {
     :title => 'testing title',
     :summary => 'testing summary',
-    :location => 'testing keywords',
+    :location => 'testing location',
     :keywords => 'testing keywords' 
   }
   
   auth_token = login
-  resp, body = Picasa::HTTP.post_album 'bandmanagertest', auth_token, params.merge(opts)
+  resp, body = Picasa::HTTP::Album.post_album 'bandmanagertest', auth_token, params.merge(opts)
   resp.success?.should be_true
   resp.message.should == "Created"
 
@@ -35,14 +37,14 @@ end
 
 def delete_album album_id
   auth_token = login
-  resp, body = Picasa::HTTP.delete_album "bandmanagertest", album_id, auth_token
+  resp, body = Picasa::HTTP::Album.delete_album "bandmanagertest", album_id, auth_token
   resp.success?.should be_true
   resp.message_OK?.should be_true
 end
 
 def albums_ids
   auth_token = login
-  resp, body = Picasa::HTTP.get_albums('bandmanagertest', auth_token)
+  resp, body = Picasa::HTTP::Album.get_albums('bandmanagertest', auth_token)
   
   resp.should_not be_nil
   body.should_not be_nil
@@ -60,4 +62,13 @@ def albums_ids
   end
   
   ids
+end
+
+def delete_all_albums
+  ids = albums_ids
+  if ids and ids.size > 0 
+    ids.each do |id|
+      delete_album id
+    end
+  end
 end
