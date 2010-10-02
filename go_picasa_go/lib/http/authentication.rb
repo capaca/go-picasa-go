@@ -5,7 +5,7 @@ module Picasa
   module HTTP
     module Authentication
       
-      LOGIN_PORT = 443
+      HTTPS_PORT = 443
       
       PICASA_SERVICE = 'lh2'
       APP_NAME = 'BandManager'
@@ -16,7 +16,7 @@ module Picasa
       def self.authenticate email, password
         uri = uri_login
         
-        http = Net::HTTP.new(uri.host, LOGIN_PORT)
+        http = Net::HTTP.new(uri.host, HTTPS_PORT)
         http.use_ssl=true
 
         data = login_data email, password

@@ -1,7 +1,9 @@
 require 'lib/go_picasa_go'
 require 'http_response_helper'
+require 'mock_helper'
 
 include Picasa::Util
+include MockHelper
 
 def login(email = 'bandmanagertest@gmail.com', password = '$bandmanager$')
   resp, body = Picasa::HTTP::Authentication.authenticate(email, password)

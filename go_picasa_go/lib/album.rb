@@ -98,17 +98,10 @@ module Picasa::Album
     end
   end
   
-  ##############################################################################
-  # Private Methods                                                            #
-  ##############################################################################
-
-  private 
-  
   # Authenticate user based on the user_id and password implemented methods and
   # returns the authentication token. If cannot authenticate, raise an exception.
   
   def auth_token
-    
     unless @auth_token
       resp, body = Picasa::HTTP::Authentication.authenticate(user_email, password)
       
@@ -120,7 +113,13 @@ module Picasa::Album
     end
     @auth_token
   end
-  
+
+  ##############################################################################
+  # Private Methods                                                            #
+  ##############################################################################
+
+  private 
+
   # Returns the user email based on the user_id methods
   
   def user_email
