@@ -3,6 +3,10 @@
 #
 #TODO Mock method calls to the HTTP layer
 
+def act_as_picasa_album
+  include Picasa::Album
+end
+
 module Picasa::Album
   include Picasa::Util
 
@@ -71,7 +75,7 @@ module Picasa::Album
     true
   end
   
-  def p_update! params
+  def p_update_attributes! params
     resp, data = Picasa::HTTP::Album.update_album user_id, self.id, auth_token, params
 
     if resp.code != "200" or resp.message != "OK"
@@ -81,9 +85,28 @@ module Picasa::Album
     populate_attributes data
   end
   
-  def p_update params
+  def p_update_attributes params
     begin
-      p_update! params
+      p_update_attributes! params
+    rescue
+      return false
+    end
+    true
+  end
+  
+  def p_update!
+    params = {
+      :title => title,
+      :summary => summary,
+      :location => location,
+      :keywords => keywords
+    }
+    p_update_attributes! params
+  end
+  
+  def p_update
+    begin
+      p_update!
     rescue
       return false
     end

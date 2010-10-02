@@ -70,7 +70,7 @@ describe 'Picasa::Album' do
     album.should be_nil
   end
   
-  it 'should update an album' do
+  it 'should update the title attribute from an album' do
     mock_authentication
     mock_post_album
 
@@ -81,12 +81,35 @@ describe 'Picasa::Album' do
     
     album = create_album
 
-    album.p_update! :title => title1
+    album.p_update_attributes! :title => title1
     album.title.should == title1
 
     mock_update_album :title => title2
 
-    album.p_update(:title => title2).should be_true
+    album.p_update_attributes(:title => title2).should be_true
+    album.title.should == title2
+  end
+  
+  it 'should update an album' do
+    mock_authentication
+    mock_post_album
+
+    title1 = "Another title1"
+    title2 = "Another title2"
+
+    mock_update_album :title => title1
+    
+    album = create_album
+    album.title = title1
+    
+    album.p_update!
+    album.title.should == title1
+
+    mock_update_album :title => title2
+    
+    album.title = title2
+
+    album.p_update.should be_true
     album.title.should == title2
   end
   
