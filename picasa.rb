@@ -1,8 +1,8 @@
 require 'net/https'
+require 'rubygems'
+require 'nokogiri'
 
 module Picasa
-  require 'rubygems'
-  require 'nokogiri'
 
   class BasicObject
     def initialize(params = {})
@@ -67,7 +67,6 @@ module Picasa
       http = Net::HTTP.new(uri.host, uri.port)
       data = "<entry xmlns='http://www.w3.org/2005/Atom' xmlns:media='http://search.yahoo.com/mrss/' xmlns:gphoto='http://schemas.google.com/photos/2007'><title type='text'>#{title}</title><summary type='text'>#{summary}</summary><gphoto:location>#{location}</gphoto:location><gphoto:access>public</gphoto:access><gphoto:timestamp>#{Time.now.to_i}000</gphoto:timestamp><media:group><media:keywords>#{keywords}</media:keywords></media:group><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/photos/2007#album'></category></entry>"
       resp = http.post(uri.path, data, headers)
-      puts resp.inspect
       self
     end
     
