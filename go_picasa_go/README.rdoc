@@ -32,7 +32,7 @@ In your model:
 ==Usage
 
 Better to show than to talk. Take a look at the examples below:
-To create an album...
+To create an album:
 
 album = YourAlbum.new
 album.title = "Title"
@@ -43,13 +43,13 @@ album.keywords = "Keyword, another keyword"
 album.save # Returns true or false
 album.save! # Raise exception in case of not being able to save the album
 
-To update that album...
+To update that album:
 album.title = "Updating the title"
 
 album.update # Return true or false
 album.update # Raise exception in case of not being able to update the album
 
-To destroy an album...
+To destroy an album:
 
 album.destroy # Raise exception incasa of not being able to destroy the album
 
