@@ -3,7 +3,8 @@
 #
 #TODO Implement destroy method not raising exception
 #TODO Implement the all method that returns all albums for a user
-
+#TODO Change the necessity of the password method to auth_token
+# It will be much more safe.
 def act_as_picasa_album
   include Picasa::Album
 end
