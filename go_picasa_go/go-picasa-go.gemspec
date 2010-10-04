@@ -9,13 +9,14 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pedro Dias"]
-  s.date = %q{2010-10-02}
+  s.date = %q{2010-10-04}
   s.description = %q{Go Picasa go encapsulates the HTTP operations provided by Google to manipulate albums and photos.}
   s.email = %q{pedro.capaca@gmail.com}
   s.files = [
     "README.rdoc",
      "Rakefile",
      "VERSION",
+     "go-picasa-go.gemspec",
      "lib/album.rb",
      "lib/go_picasa_go.rb",
      "lib/http/album.rb",
@@ -23,6 +24,7 @@ Gem::Specification.new do |s|
      "lib/picasa.rb",
      "lib/template/album.xml.erb",
      "lib/util.rb",
+     "pkg/go-picasa-go-0.0.1.gem",
      "spec/album_spec.rb",
      "spec/http/album_spec.rb",
      "spec/http/authentication_spec.rb",
@@ -31,7 +33,7 @@ Gem::Specification.new do |s|
      "spec/spec_helper.rb",
      "spec/test_suite.rb"
   ]
-  s.homepage = %q{http://http://github.com/capaca/go-picasa-go}
+  s.homepage = %q{http://github.com/capaca/go-picasa-go}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}

@@ -5,7 +5,7 @@ begin
     gemspec.summary = "API to easly manipulate picasa albums and photos"
     gemspec.description = "Go Picasa go encapsulates the HTTP operations provided by Google to manipulate albums and photos."
     gemspec.email = "pedro.capaca@gmail.com"
-    gemspec.homepage = "http://http://github.com/capaca/go-picasa-go"
+    gemspec.homepage = "http://github.com/capaca/go-picasa-go"
     gemspec.authors = ["Pedro Dias"]
   end
 rescue LoadError
