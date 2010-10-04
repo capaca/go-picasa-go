@@ -1,7 +1,8 @@
 #TODO Implement mechanism that verifys if the methods 
 # user_id and password were implemented
 #
-#TODO Mock method calls to the HTTP layer
+#TODO Implement destroy method not raising exception
+#TODO Implement the all method that returns all albums for a user
 
 def act_as_picasa_album
   include Picasa::Album

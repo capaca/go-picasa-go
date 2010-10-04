@@ -1,0 +1,59 @@
+=Go Picasa go
+
+Go Picasa go is intended as library written in ruby to manipulate 
+Picasa's[http://picasaweb.google.com/] albums and photos in a easy way. The idea
+is to provide behaviors to ordinary objects so they can do basic operations 
+(CRUD) in a more object oritented way, lefting behind all the HTTP talk that was 
+necessary previouly to interect with this service provided by Google.
+
+This library was implemented based on the Protocol Guide
+[http://code.google.com/intl/pt-BR/apis/picasaweb/docs/2.0/developers_guide_protocol.html] 
+version 2.0 of Picasa Web Albums Data API.
+ 
+Go Picasa go is still in development but it will available for use in a short 
+period of time.
+
+==Quick Start
+
+In your model:
+
+  class YourAlbum
+    act_as_picasa_album
+
+    
+    # This method must be implemented so the library knows for what user
+    # the album operations will occur
+
+    def user_id
+      "username" # From the e-mail: username@gmail.com
+    end
+  end
+  
+==Usage
+
+Better to show than to talk. Take a look at the examples below:
+To create an album...
+
+album = YourAlbum.new
+album.title = "Title"
+album.summary = "Summary"
+album.location = "Location"
+album.keywords = "Keyword, another keyword"
+
+album.save # Returns true or false
+album.save! # Raise exception in case of not being able to save the album
+
+To update that album...
+album.title = "Updating the title"
+
+album.update # Return true or false
+album.update # Raise exception in case of not being able to update the album
+
+To destroy an album...
+
+album.destroy # Raise exception incasa of not being able to destroy the album
+
+To retrieve an album
+
+album = YourAlbum.find user_id, album.id, auth_token
+
