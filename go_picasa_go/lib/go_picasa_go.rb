@@ -7,4 +7,5 @@ require 'http/album'
 require 'util'
 require 'authentication'
 require 'album'
+require 'user'
 

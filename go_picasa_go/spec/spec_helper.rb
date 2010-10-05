@@ -5,6 +5,20 @@ require 'mock_helper'
 include Picasa::Util
 include MockHelper
 
+class AlbumObject
+  include Picasa::Album
+  
+  def user_id
+    "bandmanagertest"
+  end
+  
+  def auth_token
+    'DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrljizPKcig62QAR5FvdZNLY6CgeHPl0R1LFQvE9z'+
+    '-DOni2gFHMNrHVObg1yY71DbzoVfZnJN9jGSsMTw4pVTLA9XKifzirGtrr2EUoFncGXVBIbDUrom'+
+    'n7hK3Bb14Kp--HzGcQj4pg1hXZch3Gg'
+  end
+end
+
 def login(email = 'bandmanagertest@gmail.com', password = '$bandmanager$')
   resp, body = Picasa::HTTP::Authentication.authenticate(email, password)
   resp.code.should == "200"
@@ -73,4 +87,15 @@ def delete_all_albums
       delete_album id
     end
   end
+end
+
+def create_album
+  album = AlbumObject.new
+  album.title = "Album Title"
+  album.summary = "Album Summary"
+  album.location = "Album location"
+  album.keywords = "Album keywords"
+  
+  album.picasa_save!
+  album
 end

@@ -1,10 +1,4 @@
-#TODO Implement mechanism that verifys if the methods 
-# user_id and password were implemented
-#
-#TODO Implement destroy method not raising exception
 #TODO Implement the all method that returns all albums for a user
-#TODO Change the necessity of the password method to auth_token
-# It will be much more safe.
 def act_as_picasa_album
   include Picasa::Album
 end
@@ -19,7 +13,7 @@ module Picasa::Album
     # Find an album by user_id and album_id. It's mandatory to inform the 
     # authentication token. If no album is found, then an exception is raised.
     
-    def find user_id, album_id, auth_token
+    def picasa_find user_id, album_id, auth_token
       resp, data = Picasa::HTTP::Album.get_album user_id, album_id, auth_token
       
       if resp.code != "200" or resp.message != "OK"
@@ -27,8 +21,28 @@ module Picasa::Album
       end
       
       album = new
-      album.send(:populate_attributes, data)
+      album.send(:populate_attributes_from_xml, data)
       album
+    end
+    
+    # Find an album by user_id and album_id. It's mandatory to inform the 
+    # authentication token. If no album is found, then an exception is raised.
+    
+    def picasa_find_all user_id, auth_token
+      albums = []
+      resp, data = Picasa::HTTP::Album.get_albums user_id, auth_token
+      
+      if resp.code != "200" or resp.message != "OK"
+        return nil
+      end
+      
+      doc = Nokogiri::XML(data)
+      doc.css('entry').each do |entry|
+        album = new
+        album.send(:populate_attributes, entry)
+        albums << album
+      end
+      albums
     end
   end
 
@@ -40,7 +54,7 @@ module Picasa::Album
               :user, :nickname, :commenting_enable, :comment_count, 
               :media_content_url, :media_thumbnail_url, :user, :photos, :link_edit
 
-  attr_accessor :title, :summary, :location, :keywords
+  attr_accessor :title, :summary, :location, :keywords, :user_id, :auth_token
 
   alias_method :cover_url, :media_content_url
   alias_method :thumbnail_url, :media_thumbnail_url
@@ -48,7 +62,7 @@ module Picasa::Album
   # Create an album into Picasa's repository. 
   # If cannot create the album throws an exception.
   
-  def p_save!
+  def picasa_save!
     params = {
       :title => title,
       :summary => summary,
@@ -62,60 +76,75 @@ module Picasa::Album
       raise Exception, "Error creating album: #{resp.message}."
     end
     
-    populate_attributes data
+    populate_attributes_from_xml data
   end
   
   # Create an album into Picasa's repository. 
   # If cannot create the album return false.
   
-  def p_save
+  def picasa_save
     begin
-      p_save!
+      picasa_save!
     rescue Exception
       return false
     end
     true
   end
   
-  def p_update_attributes! params
+  # Update the attributes of an album.
+  # If cannot update, an exception is raised.
+  
+  def picasa_update_attributes! params
     resp, data = Picasa::HTTP::Album.update_album user_id, self.id, auth_token, params
 
     if resp.code != "200" or resp.message != "OK"
       raise Exception, "Error updating album."
     end
     
-    populate_attributes data
+    populate_attributes_from_xml data
   end
   
-  def p_update_attributes params
+  # Update the attributes of an album.
+  # If cannot update, return false.
+  
+  def picasa_update_attributes params
     begin
-      p_update_attributes! params
+      picasa_update_attributes! params
     rescue
       return false
     end
     true
   end
   
-  def p_update!
+  # Update the whole album.
+  # If cannot update, an exception is raised.
+  
+  def picasa_update!
     params = {
       :title => title,
       :summary => summary,
       :location => location,
       :keywords => keywords
     }
-    p_update_attributes! params
+    picasa_update_attributes! params
   end
   
-  def p_update
+  # Update the whole album.
+  # If cannot update, returns false.
+  
+  def picasa_update
     begin
-      p_update!
+      picasa_update!
     rescue
       return false
     end
     true
   end
   
-  def p_destroy
+  # Destroy the current album. 
+  # If cannot destroy it, an exception is raised.
+  
+  def picasa_destroy!
     resp, data = Picasa::HTTP::Album.delete_album user_id, self.id, auth_token
     
     if resp.code != "200" or resp.message != "OK"
@@ -123,22 +152,18 @@ module Picasa::Album
     end
   end
   
-  # Authenticate user based on the user_id and password implemented methods and
-  # returns the authentication token. If cannot authenticate, raise an exception.
+  # Destroy the current album and returns true. 
+  # If cannot destroy it, returns false.
   
-  def auth_token
-    unless @auth_token
-      resp, body = Picasa::HTTP::Authentication.authenticate(user_email, password)
-      
-      if resp.code != "200" or resp.message != "OK"
-        raise Exception, "Error authenticating user. Code = #{resp.code}, Message = #{resp.message}"
-      end
-
-      @auth_token = extract_auth_token body
+  def picasa_destroy
+    begin
+      picasa_destroy!
+    rescue
+      return false
     end
-    @auth_token
+    true
   end
-
+  
   ##############################################################################
   # Private Methods                                                            #
   ##############################################################################
@@ -153,14 +178,20 @@ module Picasa::Album
   
   # Populates the attributes of the object based on the xml
   
-  def populate_attributes xml
-    doc = Nokogiri::XML xml
-    entry = doc.css('entry')
-    hash = doc_to_hash entry
+  def populate_attributes doc
+    #doc = Nokogiri::XML xml
+    #entry = doc.css('entry')
+    hash = doc_to_hash doc
     
     hash.keys.each do |k|
       self.instance_variable_set("@#{k}", hash[k])
     end
+  end
+  
+  def populate_attributes_from_xml xml
+    doc = Nokogiri::XML xml
+    entry = doc.css('entry')
+    populate_attributes entry
   end
   
   # Generate a hash representing the attributes of the album from a Nokogiri 
@@ -168,7 +199,7 @@ module Picasa::Album
   
   def doc_to_hash(doc)
     hash = {
-      :id => doc.at_xpath('gphoto:id').content,
+      :id => doc.at_xpath('//gphoto:id').content,
       :title => doc.at_css('title').content,
       :author_name => doc.at_css('author name').content,
       :author_uri => doc.at_css('author uri').content,

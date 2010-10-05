@@ -1,5 +1,5 @@
 module Picasa::Authentication
-  include Picasa::Util
+  extend Picasa::Util
 
   # Authenticate user and returns the authorization token 
   # if the operation succedes. If the authorization cannot be acomplished
