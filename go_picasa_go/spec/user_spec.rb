@@ -2,18 +2,13 @@ require 'spec_helper'
 
 describe 'Picasa::User' do
 
-  class UserObject
-    act_as_picasa_user
-    has_many_picasa_albums :class_name => AlbumObject
-  end
-  
   it 'should raise exception when missconfigurate the class that includes User module' do
     lambda {
       class UserObject
         act_as_picasa_user
         
-        # The class_name param should be class not String
-        has_many_picasa_albums :class_name => "AlbumObject" 
+        # The class_name param should be String not class
+        has_many_picasa_albums :class_name => String.class
       end
     }.should raise_exception
   end
@@ -47,6 +42,10 @@ describe 'Picasa::User' do
     albums = user.find_all_albums
     albums.should_not be_nil
     albums.size.should > 0
+    
+    albums.each do |album|
+      album.user.user_id.should == user.user_id
+    end
   end
   
   it 'should find an album from a user' do

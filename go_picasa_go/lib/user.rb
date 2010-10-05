@@ -12,12 +12,12 @@ module Picasa::User
     # Picasa::Album module.
     
     def has_many_picasa_albums params
-      unless params[:class_name] and params[:class_name].class == Class
-        raise Exception, 'You should pass the class that includes Picasa::Album.'
+      unless params[:class_name] and params[:class_name].class == String
+        raise Exception, 'You should pass the string of the class name that includes Picasa::Album.'
       end
       
       define_method :album_class do
-        params[:class_name]
+        eval(params[:class_name])
       end
     end
   end
@@ -34,16 +34,26 @@ module Picasa::User
   # an exception is raised.
   
   def authenticate
-    @auth_token = Picasa::Authentication.authenticate user_id, @password
+    unless @auth_token
+      @auth_token = Picasa::Authentication.authenticate user_id, @password
+    end
+    
+    @auth_token
   end
   
   # Find an album from the current user using the album_id
   
   def find_album album_id
-    album_class.picasa_find user_id, album_id, auth_token
+    album = album_class.picasa_find user_id, album_id, auth_token
+    album.user = self
+    album
   end
   
   def find_all_albums
-    album_class.picasa_find_all user_id, auth_token
+    albums = album_class.picasa_find_all user_id, auth_token
+    albums.each do |a|
+      a.user = self
+    end
+    albums
   end
 end

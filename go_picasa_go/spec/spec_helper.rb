@@ -5,8 +5,13 @@ require 'mock_helper'
 include Picasa::Util
 include MockHelper
 
+class UserObject
+  act_as_picasa_user
+  has_many_picasa_albums :class_name => "AlbumObject"
+end
+
 class AlbumObject
-  include Picasa::Album
+  act_as_picasa_album
   
   def user_id
     "bandmanagertest"

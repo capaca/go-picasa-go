@@ -10,6 +10,12 @@ module Picasa::Album
     
   module ClassMethods
     
+    def belongs_to_picasa_user params
+      unless params[:class_name] and params[:class_name].class == String
+        raise Exception, 'You should pass the string of the class name that includes Picasa::User.'
+      end
+    end
+    
     # Find an album by user_id and album_id. It's mandatory to inform the 
     # authentication token. If no album is found, then an exception is raised.
     
@@ -51,10 +57,10 @@ module Picasa::Album
   end
   
   attr_reader :id, :author_name, :author_uri, :timestamp, :num_photos, 
-              :user, :nickname, :commenting_enable, :comment_count, 
+              :nickname, :commenting_enable, :comment_count, 
               :media_content_url, :media_thumbnail_url, :user, :photos, :link_edit
 
-  attr_accessor :title, :summary, :location, :keywords, :user_id, :auth_token
+  attr_accessor :title, :summary, :location, :keywords, :user
 
   alias_method :cover_url, :media_content_url
   alias_method :thumbnail_url, :media_thumbnail_url
@@ -205,7 +211,6 @@ module Picasa::Album
       :author_uri => doc.at_css('author uri').content,
       :timestamp => Time.at(doc.at_xpath('gphoto:timestamp').content.slice(0..9).to_i),
       :num_photos => doc.at_xpath('gphoto:numphotos').content.to_i,
-      :user => doc.at_xpath('gphoto:user').content,
       :nickname => doc.at_xpath('gphoto:nickname').content,
       :commenting_enable => doc.at_xpath('gphoto:commentingEnabled').content == "true" ? true : false,
       :comment_count => doc.at_xpath('gphoto:commentCount').content.to_i,
@@ -214,4 +219,13 @@ module Picasa::Album
       :link_edit => doc.at_css('link[@rel="edit"]').attr('href')
     }
   end
+  
+  def user_id
+    @user.user_id
+  end
+  
+  def auth_token
+    @user.auth_token
+  end
+
 end

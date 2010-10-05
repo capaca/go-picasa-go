@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "lib/http/authentication.rb",
      "lib/picasa.rb",
      "lib/template/album.xml.erb",
+     "lib/user.rb",
      "lib/util.rb",
      "pkg/go-picasa-go-0.0.1.gem",
      "spec/album_spec.rb",
@@ -33,7 +34,8 @@ Gem::Specification.new do |s|
      "spec/http_response_helper.rb",
      "spec/mock_helper.rb",
      "spec/spec_helper.rb",
-     "spec/test_suite.rb"
+     "spec/test_suite.rb",
+     "spec/user_spec.rb"
   ]
   s.homepage = %q{http://github.com/capaca/go-picasa-go}
   s.rdoc_options = ["--charset=UTF-8"]
