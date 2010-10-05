@@ -14,6 +14,16 @@ module Picasa::Album
       unless params[:class_name] and params[:class_name].class == String
         raise Exception, 'You should pass the string of the class name that includes Picasa::User.'
       end
+      
+      (class << self; self; end).instance_eval { 
+        define_method :user_class do
+          eval(params[:class_name])  
+        end 
+      }
+      
+      define_method :user_class do
+        eval(params[:class_name])
+      end
     end
     
     # Find an album by user_id and album_id. It's mandatory to inform the 
@@ -28,6 +38,7 @@ module Picasa::Album
       
       album = new
       album.send(:populate_attributes_from_xml, data)
+      album.user = create_user user_id, auth_token
       album
     end
     
@@ -46,9 +57,19 @@ module Picasa::Album
       doc.css('entry').each do |entry|
         album = new
         album.send(:populate_attributes, entry)
+        album.user = create_user user_id, auth_token
         albums << album
       end
       albums
+    end
+    
+    private
+    
+    def create_user user_id, auth_token
+      user = user_class.new
+      user.user_id = user_id
+      user.auth_token = auth_token
+      user 
     end
   end
 

@@ -47,6 +47,12 @@ describe 'Picasa::Album' do
     
     album.should_not be_nil
     album.id.should == album_id
+    
+    album.user.should_not be_nil
+    album.user.user_id.should_not be_nil
+    album.user.user_id.should_not be_empty
+    album.auth_token.should_not be_nil
+    album.auth_token.should_not be_empty
   end
   
   it 'should get nil if album not found' do
@@ -68,6 +74,14 @@ describe 'Picasa::Album' do
     albums = AlbumObject.picasa_find_all 'bandmanagertest', auth_token
     albums.should_not be_nil
     albums.size.should > 0
+    
+    albums.each do |album|
+      album.user.should_not be_nil
+      album.user.user_id.should_not be_nil
+      album.user.user_id.should_not be_empty
+      album.auth_token.should_not be_nil
+      album.auth_token.should_not be_empty
+    end
   end
   
   it 'should update the title attribute from an album' do
@@ -132,6 +146,13 @@ describe 'Picasa::Album' do
     AlbumObject.picasa_find('bandmanagertest', album.id, auth_token).should be_nil
     album = create_album
     album.picasa_destroy!
+  end
+  
+  it 'should have the method user_class' do
+    AlbumObject.user_class
+    
+    album = AlbumObject.new
+    album.user_class
   end
   
 end

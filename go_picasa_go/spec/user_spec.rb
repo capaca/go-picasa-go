@@ -64,5 +64,12 @@ describe 'Picasa::User' do
     album2.should_not be_nil
     album2.id.should == album1.id
   end
+  
+  it 'should have the album_class method' do
+    UserObject.album_class
+    
+    user = UserObject.new
+    user.album_class
+  end
 
 end

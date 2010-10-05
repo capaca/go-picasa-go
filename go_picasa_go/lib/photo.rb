@@ -1,0 +1,3 @@
+module Picasa::Album
+  
+end

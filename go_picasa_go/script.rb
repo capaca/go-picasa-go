@@ -3,6 +3,7 @@ require 'go_picasa_go'
 
 class MeuAlbum
   act_as_picasa_album
+  belongs_to_picasa_user :class_name => "MeuUsuario"
 end
 
 class MeuUsuario

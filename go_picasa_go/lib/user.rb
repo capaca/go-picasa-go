@@ -16,6 +16,12 @@ module Picasa::User
         raise Exception, 'You should pass the string of the class name that includes Picasa::Album.'
       end
       
+      (class << self; self; end).instance_eval { 
+        define_method :album_class do
+          eval(params[:class_name])  
+        end 
+      }
+      
       define_method :album_class do
         eval(params[:class_name])
       end
@@ -45,15 +51,11 @@ module Picasa::User
   
   def find_album album_id
     album = album_class.picasa_find user_id, album_id, auth_token
-    album.user = self
     album
   end
   
   def find_all_albums
     albums = album_class.picasa_find_all user_id, auth_token
-    albums.each do |a|
-      a.user = self
-    end
     albums
   end
 end
