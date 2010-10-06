@@ -1,0 +1,15 @@
+--END_OF_PART
+Content-Type: application/atom+xml
+
+<entry xmlns='http://www.w3.org/2005/Atom'>
+  <title><%= File.basename file.path %></title>
+  <summary><%= summary %></summary>
+  <category scheme="http://schemas.google.com/g/2005#kind"
+    term="http://schemas.google.com/photos/2007#photo"/>
+</entry>
+--END_OF_PART
+Content-Type: image/jpeg
+
+<%= IO.read file.path %>
+--END_OF_PART--
+
