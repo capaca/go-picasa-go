@@ -19,4 +19,14 @@ class MeuUsuario
   end
 end
 
+class MinhaFoto
+  act_as_picasa_photo
+  belongs_to_picasa_album :class_name => "MeuAlbum"
+end
+
 @user = MeuUsuario.new
+@album = MeuAlbum.new
+@album.user = @user
+
+@photo = MinhaPhoto.new
+@photo.album = @album

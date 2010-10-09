@@ -1,7 +1,15 @@
 module MockHelper
   def mock_authentication
     resp_arr = build_resp_mock_array "200", "OK", 
-      "SID=DQAAAHgAAAAPNCL6mdI-GHhLWNxobTWfGwlWtFFVjZDatJrrcdx6UxlaP4WCll4yj0c_JEHcEp6RhracBN5ZYLhtmwpOgzMy4FlpJnNTuBAYwaraMmYdGIHBTqQKlOXTFHj-_igz9bF5vVaTOKM1r4VC4DOVadpad81CH86sWw6rzjNbRluYiw\nLSID=DQAAAHsAAABUvbolIC84hXe4_1zu17gr4ZkReQJvsnWyI5Ntivn4VfNaXClPbafabGnT11_gWOahnzmYL0YubbAlos6pghoXwVp68RswbHlWMj3mC0e5UnqpHBZmUkljb5FXjt-XfhRAYkGjxB1LqPre3wcAPSWaoB-nJjoRS2yI6lHoqDTjWA\nAuth=DQAAAHoAAABUvbolIC84hXe4_1zu17gr4ZkReQJvsnWyI5Ntivn4VfNaXClPbafabGnT11_gWOZzriSF26k49zZh1xeMgE67UkzjY7Y1qnlH8_gAyc_YEYoSwk42-40BDnHi8d7bU-mlt5oL53qfS2Eno1mZvEfgGxQaHNUFoXL-xXaLsawbcQ\n"
+      "SID=DQAAAHgAAAAPNCL6mdI-GHhLWNxobTWfGwlWtFFVjZDatJrrcdx6UxlaP4WCll4yj0c_"+
+      "JEHcEp6RhracBN5ZYLhtmwpOgzMy4FlpJnNTuBAYwaraMmYdGIHBTqQKlOXTFHj-_igz9bF5v"+
+      "VaTOKM1r4VC4DOVadpad81CH86sWw6rzjNbRluYiw\nLSID=DQAAAHsAAABUvbolIC84hXe4_"+
+      "1zu17gr4ZkReQJvsnWyI5Ntivn4VfNaXClPbafabGnT11_gWOahnzmYL0YubbAlos6pghoXwVp"+
+      "68RswbHlWMj3mC0e5UnqpHBZmUkljb5FXjt-XfhRAYkGjxB1LqPre3wcAPSWaoB-nJjoRS2yI6"+
+      "lHoqDTjWA\nAuth="+
+      'DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrljizPKcig62QAR5FvdZNLY6CgeHPl0R1LFQvE9z'+
+      '-DOni2gFHMNrHVObg1yY71DbzoVfZnJN9jGSsMTw4pVTLA9XKifzirGtrr2EUoFncGXVBIbDUrom'+
+      'n7hK3Bb14Kp--HzGcQj4pg1hXZch3Gg'
     
     Picasa::HTTP::Authentication.stub!(:authenticate).and_return(resp_arr)
   end

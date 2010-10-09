@@ -8,11 +8,6 @@ include MockHelper
 class UserObject
   act_as_picasa_user
   has_many_picasa_albums :class_name => "AlbumObject"
-end
-
-class AlbumObject
-  act_as_picasa_album
-  belongs_to_picasa_user :class_name => "UserObject"
   
   def user_id
     "bandmanagertest"
@@ -23,6 +18,16 @@ class AlbumObject
     '-DOni2gFHMNrHVObg1yY71DbzoVfZnJN9jGSsMTw4pVTLA9XKifzirGtrr2EUoFncGXVBIbDUrom'+
     'n7hK3Bb14Kp--HzGcQj4pg1hXZch3Gg'
   end
+end
+
+class AlbumObject
+  act_as_picasa_album
+  belongs_to_picasa_user :class_name => "UserObject"
+end
+
+class PhotoObject
+  act_as_picasa_photo
+  belongs_to_picasa_album :class_name => 'AlbumObject'
 end
 
 def login(email = 'bandmanagertest@gmail.com', password = '$bandmanager$')
@@ -97,6 +102,7 @@ end
 
 def create_album
   album = AlbumObject.new
+  album.user = UserObject.new
   album.title = "Album Title"
   album.summary = "Album Summary"
   album.location = "Album location"
@@ -124,4 +130,17 @@ def post_photo
   doc = Nokogiri::XML data
   photo_id = doc.at_xpath('//gphoto:id').content
   [album_id, photo_id, auth_token]
+end
+
+def create_photo
+  album = create_album
+  file = File.open 'spec/fixture/photo.jpg'
+  
+  photo = PhotoObject.new
+  photo.album = album
+  photo.summary = "Photo summary"
+  photo.file = file
+  
+  photo.picasa_save.should be_true
+  photo
 end

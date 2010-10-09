@@ -32,7 +32,6 @@ describe 'Picasa::HTTP::Photo' do
     
     file = File.open 'spec/fixture/photo.jpg'
       
-
     resp, data = Picasa::HTTP::Photo.post_photo(
       'bandmanagertest', album_id, auth_token, "Summary", file
     )

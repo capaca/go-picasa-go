@@ -6,7 +6,10 @@ describe 'Picasa::Album' do
     mock_authentication
     mock_post_album
     
+    user = UserObject.new
+    
     album = AlbumObject.new
+    album.user = user
     album.title = "Album Title"
     album.summary = "Album Summary"
     album.location = "Album location"
@@ -51,8 +54,6 @@ describe 'Picasa::Album' do
     album.user.should_not be_nil
     album.user.user_id.should_not be_nil
     album.user.user_id.should_not be_empty
-    album.auth_token.should_not be_nil
-    album.auth_token.should_not be_empty
   end
   
   it 'should get nil if album not found' do
@@ -79,8 +80,6 @@ describe 'Picasa::Album' do
       album.user.should_not be_nil
       album.user.user_id.should_not be_nil
       album.user.user_id.should_not be_empty
-      album.auth_token.should_not be_nil
-      album.auth_token.should_not be_empty
     end
   end
   

@@ -206,8 +206,6 @@ module Picasa::Album
   # Populates the attributes of the object based on the xml
   
   def populate_attributes doc
-    #doc = Nokogiri::XML xml
-    #entry = doc.css('entry')
     hash = doc_to_hash doc
     
     hash.keys.each do |k|
