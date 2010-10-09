@@ -1,4 +1,3 @@
-#TODO Implement the all method that returns all albums for a user
 def act_as_picasa_album
   include Picasa::Album
 end
@@ -15,15 +14,7 @@ module Picasa::Album
         raise Exception, 'You should pass the string of the class name that includes Picasa::User.'
       end
       
-      (class << self; self; end).instance_eval { 
-        define_method :user_class do
-          eval(params[:class_name])  
-        end 
-      }
-      
-      define_method :user_class do
-        eval(params[:class_name])
-      end
+      define_dependent_class_methods :user_class, params[:class_name]
     end
     
     # Find an album by user_id and album_id. It's mandatory to inform the 
@@ -110,12 +101,9 @@ module Picasa::Album
   # If cannot create the album return false.
   
   def picasa_save
-    begin
+    raise_exception? do
       picasa_save!
-    rescue Exception
-      return false
     end
-    true
   end
   
   # Update the attributes of an album.
@@ -135,12 +123,9 @@ module Picasa::Album
   # If cannot update, return false.
   
   def picasa_update_attributes params
-    begin
+    raise_exception? do
       picasa_update_attributes! params
-    rescue
-      return false
     end
-    true
   end
   
   # Update the whole album.
@@ -160,12 +145,9 @@ module Picasa::Album
   # If cannot update, returns false.
   
   def picasa_update
-    begin
+    raise_exception? do
       picasa_update!
-    rescue
-      return false
     end
-    true
   end
   
   # Destroy the current album. 
@@ -183,12 +165,9 @@ module Picasa::Album
   # If cannot destroy it, returns false.
   
   def picasa_destroy
-    begin
+    raise_exception? do
       picasa_destroy!
-    rescue
-      return false
     end
-    true
   end
   
   ##############################################################################

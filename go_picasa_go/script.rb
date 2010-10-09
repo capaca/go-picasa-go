@@ -19,7 +19,7 @@ class MeuUsuario
   end
 end
 
-class MinhaFoto
+class MinhaPhoto
   act_as_picasa_photo
   belongs_to_picasa_album :class_name => "MeuAlbum"
 end

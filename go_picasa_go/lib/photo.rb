@@ -11,15 +11,7 @@ module Picasa::Photo
         raise Exception, 'You should pass the string of the class name that includes Picasa::Album.'
       end
       
-      (class << self; self; end).instance_eval { 
-        define_method :album_class do
-          eval(params[:class_name])  
-        end 
-      }
-      
-      define_method :album_class do
-        eval(params[:class_name])
-      end
+      define_dependent_class_methods :album_class, params[:class_name]
     end
   end
   
@@ -45,7 +37,7 @@ module Picasa::Photo
   end
   
   def picasa_save
-    is_operation_valid? do
+    raise_exception? do
       self.picasa_save!
     end
   end
@@ -63,7 +55,7 @@ module Picasa::Photo
   end
   
   def picasa_update
-    is_operation_valid? do
+    raise_exception? do
       self.picasa_update!
     end
   end
@@ -72,12 +64,12 @@ module Picasa::Photo
     resp, data = Picasa::HTTP::Photo.delete_photo user_id, album_id, id, auth_token
     
     if resp.code != "200" or resp.message != "OK"
-      raise Exception, "Error updating photo: #{resp.message}."
+      raise Exception, "Error destroying photo: #{resp.message}."
     end
   end
   
   def destroy
-    is_operation_valid? do
+    raise_exception? do
       self.destroy
     end
   end
@@ -94,7 +86,7 @@ module Picasa::Photo
     hash = doc_to_hash doc
     
     hash.keys.each do |k|
-      self.instance_variable_set("@#{k.to_s}", hash[k])
+      self.instance_variable_set("@#{k}", hash[k])
     end    
   end
 
@@ -126,14 +118,5 @@ module Picasa::Photo
   
   def auth_token
     @album.user.auth_token
-  end
-  
-  def is_operation_valid?
-    begin
-      yield
-    rescue
-      return false
-    end
-    true
   end
 end

@@ -2,15 +2,16 @@ require 'spec_helper'
 
 describe "Picasa::Photo" do
 
-  before :each do
-    delete_all_albums
-  end
-  
   it "should have the album class" do
     photo = PhotoObject.new
+    photo.album_class
   end
 
   it "should save a new photo in a album" do
+    mock_authentication
+    mock_post_album
+    mock_post_photo
+    
     album = create_album
     file = File.open 'spec/fixture/photo.jpg'
     
@@ -29,6 +30,11 @@ describe "Picasa::Photo" do
   end
   
   it "should update a photo" do
+    mock_authentication
+    mock_post_album
+    mock_post_photo
+    mock_update_photo
+    
     photo = create_photo
     
     photo.summary = "Photo summary updated"
@@ -37,6 +43,11 @@ describe "Picasa::Photo" do
   end
   
   it "should destroy a photo" do
+    mock_authentication
+    mock_post_album
+    mock_post_photo
+    mock_delete_photo
+    
     photo = create_photo
     photo.destroy!
     
@@ -45,6 +56,10 @@ describe "Picasa::Photo" do
   end
   
   it "should raise exception if can not post photo" do
+    mock_authentication
+    mock_post_album
+    mock_post_photo_failure
+    
     album = create_album
     
     photo = PhotoObject.new

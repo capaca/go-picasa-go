@@ -15,44 +15,80 @@ period of time.
 
 ==Quick Start
 
-In your model:
+In your models:
 
-  class YourAlbum
-    act_as_picasa_album
-
+  class MyUser
+    act_as_picasa_user
+    has_many_picasa_albums :class_name => "MyAlbum"
     
-    # This method must be implemented so the library knows for what user
-    # the album operations will occur
-
+    # Implement the method that returns the user_id the way you prefer.
+    
     def user_id
-      "username" # From the e-mail: username@gmail.com
+      'bandmanagertest'
     end
+    
+    # Implement the method that returns the authentication token for a user.
+    #
+    #   Ps: In the usage section there's one example of 
+    #       how to generate the authentication token.
+
+    def auth_token
+      'DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrljizPKcig62QAR5FvdZNLY6CgeHPl0...
+    end
+  end
+
+  class MyAlbum
+    act_as_picasa_album
+    belongs_to_picasa_user :class_name => "MyUser"
+  end
+
+  class MinhaPhoto
+    act_as_picasa_photo
+    belongs_to_picasa_album :class_name => "MyAlbum"
   end
   
 ==Usage
 
-Better to show than to talk. Take a look at the examples below:
+Better to show than to talk. Take a look at the examples below<br/>
+To generate the authentication token:
+
+  # Instantiate a new user
+  
+  user = MyUser.new
+  user.user_id = 'chucknorris'
+  user.password = 'thestrongest'
+  
+  # Sets the authentication token on the auth_token variable an returns the value
+  
+  user.authenticate
+  => "DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrl...
+  
+  @user.auth_token
+  => "DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrl...
+  
 To create an album:
 
   album = YourAlbum.new
+  album.user = user
   album.title = "Title"
   album.summary = "Summary"
   album.location = "Location"
   album.keywords = "Keyword, another keyword"
 
-  album.save # Returns true or false
-  album.save! # Raise exception in case of not being able to save the album
+  album.picasa_save # Returns true or false
+  album.picasa_save! # Raise exception in case of not being able to save the album
 
 To update that album:
 
   album.title = "Updating the title"
 
-  album.update # Return true or false
-  album.update! # Raise exception in case of not being able to update the album
+  album.picasa_update # Return true or false
+  album.picasa_update! # Raise exception in case of not being able to update the album
 
 To destroy an album:
 
-  album.destroy # Raise exception incasa of not being able to destroy the album
+  album.picasa_destroy # Returns true or false
+  album.picasa_destroy! # Raise exception in case of not being able to destroy the album
 
 To retrieve an album
 
