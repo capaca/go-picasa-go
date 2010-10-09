@@ -105,3 +105,23 @@ def create_album
   album.picasa_save!
   album
 end
+
+def post_photo
+  album_id = post_album
+  auth_token = login
+
+  file = File.open 'spec/fixture/photo.jpg'
+
+  resp, data = Picasa::HTTP::Photo.post_photo(
+    'bandmanagertest', album_id, auth_token, "Summary", file
+  )
+
+  resp.code.should == "201"
+  resp.message.should == "Created"
+  data.should_not be_nil
+  data.should_not be_empty
+
+  doc = Nokogiri::XML data
+  photo_id = doc.at_xpath('//gphoto:id').content
+  [album_id, photo_id, auth_token]
+end
