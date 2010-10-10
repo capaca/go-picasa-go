@@ -21,8 +21,6 @@ module Picasa
       end
       
       # Do a post request to save a new photo.
-      # It's necessary to inform the authentication token, the summary of the 
-      # photo, and the file to be tranfered.
       
       def self.post_photo user_id, album_id, auth_token, summary, file
         uri = photos_uri user_id, album_id

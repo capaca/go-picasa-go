@@ -49,9 +49,7 @@ module Picasa
       
       
       # Do a get request to retrieve all the albums from a user using the user_id. 
-      # The auth_token parameter is optional since it only retrieves more 
-      # information about each album.
-      
+
       def self.get_albums user_id, auth_token
         headers = albums_headers auth_token
         

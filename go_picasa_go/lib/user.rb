@@ -1,8 +1,12 @@
+# Module that offers methods to do high level operations concerning
+# a google user within Picasa.
+
 module Picasa::User
 
   # Class methods that will be included in the class that include this module.
 
   module ClassMethods
+    
     # Method used to tell the gem what is the class that implementes the
     # Picasa::Album module.
     
@@ -28,11 +32,7 @@ module Picasa::User
   # an exception is raised.
   
   def authenticate
-    unless @auth_token
-      @auth_token = Picasa::Authentication.authenticate user_id, @password
-    end
-    
-    @auth_token
+    @auth_token ||= Picasa::Authentication.authenticate user_id, @password
   end
   
   # Find an album from the current user using the album_id
@@ -41,6 +41,8 @@ module Picasa::User
     album = album_class.picasa_find user_id, album_id, auth_token
     album
   end
+  
+  # Find all albums from the current user
   
   def find_all_albums
     albums = album_class.picasa_find_all user_id, auth_token

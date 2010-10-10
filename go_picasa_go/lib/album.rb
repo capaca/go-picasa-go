@@ -1,3 +1,6 @@
+# Module that offers methods to do high level operations concerning
+# a album within Picasa.
+
 module Picasa::Album
 
   # Class methods to be added to the class that will include this module.
@@ -5,8 +8,9 @@ module Picasa::Album
   module ClassMethods
     include Picasa::Util    
     
+    # Sets the user class configured so it can be used later.
+    
     def belongs_to_picasa_user params
-      puts "Executando belongs to..."
       unless params[:class_name] and params[:class_name].class == String
         raise Exception, 'You should pass the string of the class name that includes Picasa::User.'
       end
@@ -74,8 +78,8 @@ module Picasa::Album
   alias_method :cover_url, :media_content_url
   alias_method :thumbnail_url, :media_thumbnail_url
   
-  # Create an album into Picasa's repository. 
-  # If cannot create the album throws an exception.
+  # Post an album into Picasa. 
+  # If cannot create the album an exception is raised.
   
   def picasa_save!
     params = {
@@ -92,10 +96,11 @@ module Picasa::Album
     end
     
     populate_attributes_from_xml data
+    self
   end
-  
-  # Create an album into Picasa's repository. 
-  # If cannot create the album return false.
+
+  # Post an album into Picasa.
+  # If cannot create the album returns false.
   
   def picasa_save
     raise_exception? do
@@ -103,7 +108,7 @@ module Picasa::Album
     end
   end
   
-  # Update the attributes of an album.
+  # Update the attributes of the current album.
   # If cannot update, an exception is raised.
   
   def picasa_update_attributes! params
@@ -116,7 +121,7 @@ module Picasa::Album
     populate_attributes_from_xml data
   end
   
-  # Update the attributes of an album.
+  # Update the attributes of the current album.
   # If cannot update, return false.
   
   def picasa_update_attributes params
@@ -125,7 +130,7 @@ module Picasa::Album
     end
   end
   
-  # Update the whole album.
+  # Update all attributes of the current album.
   # If cannot update, an exception is raised.
   
   def picasa_update!
@@ -137,8 +142,8 @@ module Picasa::Album
     }
     picasa_update_attributes! params
   end
-  
-  # Update the whole album.
+
+  # Update all attributes of the current album.
   # If cannot update, returns false.
   
   def picasa_update
@@ -146,6 +151,7 @@ module Picasa::Album
       picasa_update!
     end
   end
+  
   
   # Destroy the current album. 
   # If cannot destroy it, an exception is raised.

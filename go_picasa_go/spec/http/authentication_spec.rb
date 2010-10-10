@@ -12,12 +12,4 @@ describe 'Picasa::HTTP::Authentication' do
     auth_token.should_not be_nil
     auth_token.should_not be_empty
   end
-  
-  it 'should upgrade the authentication token' do
-    auth_token = login
-    resp, data = Picasa::HTTP::Authentication.upgrade_auth_token auth_token
-    
-    puts resp.inspect
-    puts data.inspect
-  end
 end

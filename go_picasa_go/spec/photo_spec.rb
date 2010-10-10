@@ -65,6 +65,43 @@ describe "Picasa::Photo" do
     lambda { photo.picasa_save! }.should raise_error
   end
   
+  it "should find all photos from an album" do
+    mock_authentication
+    mock_post_album
+    mock_post_photo
+    mock_get_album
+    mock_get_photos
+    
+    photo = create_photo
+    
+    photos = PhotoObject.picasa_find_all photo.album.user.user_id, 
+      photo.album.id, photo.album.user.auth_token
+    
+    photos.should_not be_nil
+    photos.each do |p|
+      p.album.id.should == photo.album.id
+    end
+  end
+  
+  it "should find a photo" do
+    mock_authentication
+    mock_post_album
+    mock_post_photo
+    mock_get_album
+    mock_get_photo
+    
+    photo1 = create_photo
+    user_id = photo1.album.user.user_id
+    album_id = photo1.album.id
+    photo_id = photo1.id
+    auth_token = photo1.album.user.auth_token
+    
+    photo2 = PhotoObject.picasa_find user_id, album_id, photo_id, auth_token
+    
+    photo2.id.should == photo1.id
+    photo2.album.should_not be_nil
+  end
+  
   it "should have the album class" do
     PhotoObject.album_class
     photo = PhotoObject.new

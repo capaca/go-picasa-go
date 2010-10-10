@@ -1,9 +1,11 @@
+# Module that offers methods to do the basic HTTP requests to authenticate
+# an user with a google account.
+
 module Picasa::Authentication
   extend Picasa::Util
 
   # Authenticate user and returns the authorization token 
-  # if the operation succedes. If the authorization cannot be acomplished
-  # is raised an exception.
+  # if the operation succeeds other whise an exception is raised.
   
   def self.authenticate user_id, password
     resp, body = Picasa::HTTP::Authentication.authenticate user_id, password

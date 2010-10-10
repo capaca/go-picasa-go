@@ -101,8 +101,11 @@ def delete_all_albums
 end
 
 def create_album
+  user = UserObject.new
+  user.user_id = "bandmanagertest"
+  
   album = AlbumObject.new
-  album.user = UserObject.new
+  album.user = user
   album.title = "Album Title"
   album.summary = "Album Summary"
   album.location = "Album location"

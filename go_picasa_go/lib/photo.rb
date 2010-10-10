@@ -1,6 +1,13 @@
+# Module that offers methods to do high level operations concerning
+# a album within Picasa.
+
 module Picasa::Photo
+  
+  # Class methods to be added to the class that will include this module.
     
   module ClassMethods
+  
+    # Sets the user class configured so it can be used later.
   
     def belongs_to_picasa_album params
       unless params[:class_name] and params[:class_name].class == String
@@ -8,6 +15,44 @@ module Picasa::Photo
       end
       
       define_dependent_class_methods :album_class, params[:class_name]
+    end
+    
+    # Find a photo by user_id, album_id and photo_id
+    # If no album is found, then an exception is raised.
+    
+    def picasa_find user_id, album_id, photo_id, auth_token
+      
+      resp, data = Picasa::HTTP::Photo.get_photo user_id, album_id, photo_id
+      
+      if resp.code != "200" or resp.message != "OK"
+        raise Exception, "Photo not found"
+      end
+      
+      photo = new
+      photo.send(:populate_attributes_from_xml, data)
+      photo.album = album_class.picasa_find user_id, album_id, auth_token
+      photo
+    end
+    
+    # Find all photos from an album using user_id, album_id
+    # If no album is found, then an exception is raised.
+    
+    def picasa_find_all user_id, album_id, auth_token
+      photos = []
+      resp, data = Picasa::HTTP::Photo.get_photos user_id, album_id
+      
+      if resp.code != "200" or resp.message != "OK"
+        return nil
+      end
+      
+      doc = Nokogiri::XML(data)
+      doc.css('entry').each do |entry|
+        photo = new
+        photo.send(:populate_attributes, entry)
+        photo.album = album_class.picasa_find user_id, album_id, auth_token
+        photos << photo
+      end
+      photos
     end
   end
   
@@ -22,6 +67,9 @@ module Picasa::Photo
   
   attr_accessor :album, :summary, :file
   
+  # Post a photo into a picasa album.
+  # If cannot post, an exception is raised.
+  
   def picasa_save!
     resp, data = Picasa::HTTP::Photo.post_photo user_id, album_id, auth_token, summary, file
     
@@ -32,11 +80,17 @@ module Picasa::Photo
     populate_attributes_from_xml data
   end
   
+  # Post a photo into a picasa album.
+  # If cannot post, returns false.
+  
   def picasa_save
     raise_exception? do
       self.picasa_save!
     end
   end
+  
+  # Update photo's file and metadata.
+  # If cannot update, an exception is raised.
   
   def picasa_update!
     resp, data = Picasa::HTTP::Photo.update_photo(
@@ -50,11 +104,17 @@ module Picasa::Photo
     populate_attributes_from_xml data
   end
   
+  # Update photo's file and metadata.
+  # If cannot update, returns false.
+  
   def picasa_update
     raise_exception? do
       self.picasa_update!
     end
   end
+  
+  # Delete the current photo from album.
+  # If cannot delete, an exception is raised.
   
   def destroy!
     resp, data = Picasa::HTTP::Photo.delete_photo user_id, album_id, id, auth_token
@@ -63,6 +123,9 @@ module Picasa::Photo
       raise Exception, "Error destroying photo: #{resp.message}."
     end
   end
+  
+  # Delete the current photo from album.
+  # If cannot delete, an exception is raised.
   
   def destroy
     raise_exception? do
