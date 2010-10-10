@@ -1,17 +1,5 @@
 module Picasa::Util
   
-  def act_as_picasa_user
-    include Picasa::User
-  end
-  
-  def act_as_picasa_album
-    include Picasa::Album
-  end
-  
-  def act_as_picasa_photo
-    include Picasa::Photo
-  end
-  
   def extract_auth_token body
     body[/Auth=(.*)/, 1]
   end

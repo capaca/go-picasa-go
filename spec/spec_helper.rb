@@ -6,7 +6,7 @@ include Picasa::Util
 include MockHelper
 
 class UserObject
-  act_as_picasa_user
+  acts_as_picasa_user
   has_many_picasa_albums :class_name => "AlbumObject"
   
   def picasa_id
@@ -21,12 +21,12 @@ class UserObject
 end
 
 class AlbumObject
-  act_as_picasa_album
+  acts_as_picasa_album
   belongs_to_picasa_user :class_name => "UserObject"
 end
 
 class PhotoObject
-  act_as_picasa_photo
+  acts_as_picasa_photo
   belongs_to_picasa_album :class_name => 'AlbumObject'
 end
 

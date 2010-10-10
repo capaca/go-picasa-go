@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{go-picasa-go}
+  s.name = %q{go_picasa_go}
   s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
     "README.rdoc",
      "Rakefile",
      "VERSION",
-     "go-picasa-go.gemspec",
      "lib/album.rb",
      "lib/authentication.rb",
      "lib/go_picasa_go.rb",

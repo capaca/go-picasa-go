@@ -1,7 +1,7 @@
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "go-picasa-go"
+    gemspec.name = "go_picasa_go"
     gemspec.summary = "API to easly manipulate picasa albums and photos"
     gemspec.description = "Go Picasa go is intended as library written in ruby to manipulate Picasa albums and photos in a easy way. The idea is to provide behaviors to ordinary objects so they can create, retrieve, update and delete albums and photos in a more object oritented way, lefting behind all the HTTP talk that was necessary previouly to interect with this service provided by Google."
       

@@ -3,6 +3,7 @@ require 'erb'
 require 'rubygems'
 require 'nokogiri'
 require 'patchs/ssl'
+require 'patchs/object'
 require 'http/authentication'
 require 'http/album'
 require 'http/photo'
@@ -12,4 +13,3 @@ require 'user'
 require 'album'
 require 'photo'
 
-include Picasa::Util
