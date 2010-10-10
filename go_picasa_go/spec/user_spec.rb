@@ -17,7 +17,7 @@ describe 'Picasa::User' do
     mock_authentication
     
     user = UserObject.new
-    user.user_id = "bandmanagertest"
+    user.picasa_id = "bandmanagertest"
     user.password = "$bandmanager$"
     auth_token = user.authenticate
     
@@ -33,7 +33,7 @@ describe 'Picasa::User' do
     mock_get_albums
     
     user = UserObject.new
-    user.user_id = 'bandmanagertest'
+    user.picasa_id = 'bandmanagertest'
     user.password = "$bandmanager$"
     user.authenticate.should_not be_nil
     
@@ -44,7 +44,7 @@ describe 'Picasa::User' do
     albums.size.should > 0
     
     albums.each do |album|
-      album.user.user_id.should == user.user_id
+      album.user.picasa_id.should == user.picasa_id
     end
   end
   
@@ -53,16 +53,16 @@ describe 'Picasa::User' do
     mock_get_album
     
     user = UserObject.new
-    user.user_id = 'bandmanagertest'
+    user.picasa_id = 'bandmanagertest'
     user.auth_token = 'DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrljizPKcig62QAR5FvdZNL'+
       'Y6CgeHPl0R1LFQvE9z-DOni2gFHMNrHVObg1yY71DbzoVfZnJN9jGSsMTw4pVTLA9XKifzirG'+
       'trr2EUoFncGXVBIbDUromn7hK3Bb14Kp--HzGcQj4pg1hXZch3Gg'
     
     album1 = create_album
     
-    album2 = user.find_album album1.id
+    album2 = user.find_album album1.picasa_id
     album2.should_not be_nil
-    album2.id.should == album1.id
+    album2.picasa_id.should == album1.picasa_id
   end
   
   it 'should have the album_class method' do

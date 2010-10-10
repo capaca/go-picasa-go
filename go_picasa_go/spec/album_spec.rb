@@ -49,11 +49,11 @@ describe 'Picasa::Album' do
     album = AlbumObject.picasa_find 'bandmanagertest', album_id, auth_token
     
     album.should_not be_nil
-    album.id.should == album_id
+    album.picasa_id.should == album_id
     
     album.user.should_not be_nil
-    album.user.user_id.should_not be_nil
-    album.user.user_id.should_not be_empty
+    album.user.picasa_id.should_not be_nil
+    album.user.picasa_id.should_not be_empty
   end
   
   it 'should get nil if album not found' do
@@ -78,8 +78,8 @@ describe 'Picasa::Album' do
     
     albums.each do |album|
       album.user.should_not be_nil
-      album.user.user_id.should_not be_nil
-      album.user.user_id.should_not be_empty
+      album.user.picasa_id.should_not be_nil
+      album.user.picasa_id.should_not be_empty
     end
   end
   
@@ -136,13 +136,13 @@ describe 'Picasa::Album' do
     album.picasa_destroy
     
     auth_token = login
-    AlbumObject.picasa_find('bandmanagertest', album.id, auth_token).should be_nil
+    AlbumObject.picasa_find('bandmanagertest', album.picasa_id, auth_token).should be_nil
     
     album = create_album
     album.picasa_destroy.should be_true
     
     auth_token = login
-    AlbumObject.picasa_find('bandmanagertest', album.id, auth_token).should be_nil
+    AlbumObject.picasa_find('bandmanagertest', album.picasa_id, auth_token).should be_nil
     album = create_album
     album.picasa_destroy!
   end

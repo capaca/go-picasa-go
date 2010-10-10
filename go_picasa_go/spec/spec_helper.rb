@@ -9,7 +9,7 @@ class UserObject
   act_as_picasa_user
   has_many_picasa_albums :class_name => "AlbumObject"
   
-  def user_id
+  def picasa_id
     "bandmanagertest"
   end
   
@@ -102,7 +102,7 @@ end
 
 def create_album
   user = UserObject.new
-  user.user_id = "bandmanagertest"
+  user.picasa_id = "bandmanagertest"
   
   album = AlbumObject.new
   album.user = user

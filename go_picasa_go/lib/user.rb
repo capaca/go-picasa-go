@@ -24,7 +24,7 @@ module Picasa::User
     base.extend(ClassMethods)
   end
   
-  attr_accessor :user_id, :auth_token
+  attr_accessor :picasa_id, :auth_token
   attr_writer :password
   
   # Authenticates user using the attributes of the instance.
@@ -32,20 +32,20 @@ module Picasa::User
   # an exception is raised.
   
   def authenticate
-    @auth_token ||= Picasa::Authentication.authenticate user_id, @password
+    @auth_token ||= Picasa::Authentication.authenticate picasa_id, @password
   end
   
   # Find an album from the current user using the album_id
   
   def find_album album_id
-    album = album_class.picasa_find user_id, album_id, auth_token
+    album = album_class.picasa_find picasa_id, album_id, auth_token
     album
   end
   
   # Find all albums from the current user
   
   def find_all_albums
-    albums = album_class.picasa_find_all user_id, auth_token
+    albums = album_class.picasa_find_all picasa_id, auth_token
     albums
   end
 end

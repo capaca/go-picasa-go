@@ -2,16 +2,14 @@
 
 Go Picasa go is intended as library written in ruby to manipulate 
 Picasa[http://picasaweb.google.com/] albums and photos in a easy way. The idea
-is to provide behaviors to ordinary objects so they can do basic operations 
-(CRUD) in a more object oritented way, lefting behind all the HTTP talk that was 
-necessary previouly to interect with this service provided by Google.
+is to provide behaviors to ordinary objects so they can create, retrieve, 
+update and delete albums and photos in a more object oritented way, lefting 
+behind all the HTTP talk that was necessary previouly to interect with this service 
+provided by Google.
 
 This library was implemented based on the 
 Protocol Guide[http://code.google.com/intl/pt-BR/apis/picasaweb/docs/2.0/developers_guide_protocol.html] 
 version 2.0 of Picasa Web Albums Data API.
- 
-Go Picasa go is still in development but it will available for use in a short 
-period of time.
 
 ==Quick Start
 
@@ -23,7 +21,7 @@ In your models:
     
     # Implement the method that returns the user_id the way you prefer.
     
-    def user_id
+    def picasa_id
       'bandmanagertest'
     end
     
@@ -42,20 +40,26 @@ In your models:
     belongs_to_picasa_user :class_name => "MyUser"
   end
 
-  class MinhaPhoto
+  class MyPhoto
     act_as_picasa_photo
     belongs_to_picasa_album :class_name => "MyAlbum"
   end
   
 ==Usage
 
-Better to show than to talk. Take a look at the examples below<br/>
-To generate the authentication token:
+===Authenticating
+
+To generate the authentication token for the user picasauser@gmail.com:
+
+  Picasa::Authentication.authenticate 'youruserid', '$bandmanager$'
+  => "DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrl...
+
+You can also do using the user class you implemented:
 
   # Instantiate a new user
   
   user = MyUser.new
-  user.user_id = 'chucknorris'
+  user.picasa_id = 'chucknorris'
   user.password = 'thestrongest'
   
   # Sets the authentication token on the auth_token variable an returns the value
@@ -65,6 +69,8 @@ To generate the authentication token:
   
   @user.auth_token
   => "DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrl...
+  
+===Working with albums
   
 To create an album:
 
@@ -82,7 +88,7 @@ To update that album:
 
   album.title = "Updating the title"
 
-  album.picasa_update # Return true or false
+  album.picasa_update # Returns true or false
   album.picasa_update! # Raise exception in case of not being able to update the album
 
 To destroy an album:
@@ -90,7 +96,36 @@ To destroy an album:
   album.picasa_destroy # Returns true or false
   album.picasa_destroy! # Raise exception in case of not being able to destroy the album
 
-To retrieve an album
+To retrieve all albums from an user:
+  
+  user.find_all_albums
 
-  album = YourAlbum.find user_id, album.id, auth_token
+To retrieve one specific album
+  
+  user.find_album album.picasa_id
+  
+===Working with photos
 
+To create a new photo:
+  
+  photo = PhotoObject.new
+  photo.album = album
+  photo.summary = "Photo summary"
+  photo.file = File.open 'path/photo.jpg'
+  
+  photo.picasa_save # Returns true or false
+  photo.picasa_save! # Raise exception in case of not being able to save the photo
+  
+To update an existing photo:
+
+  photo.title = "Updating title"
+  photo.summary = "Updating summary"
+  photo.file = File.open 'path/new_photo.jpg'
+  
+  photo.picasa_update # Returns true or false
+  photo.picasa_update! # Raise exception in case of not being able to update the photo
+  
+To destroying an existing photo:
+
+  photo.picasa_destroy # Returns true or false
+  photo.picasa_destroy! # Raise exception in case of not being able to delete the photo

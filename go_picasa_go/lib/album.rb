@@ -57,9 +57,9 @@ module Picasa::Album
     
     private
     
-    def create_user user_id, auth_token
+    def create_user picasa_id, auth_token
       user = user_class.new
-      user.user_id = user_id
+      user.picasa_id = picasa_id
       user.auth_token = auth_token
       user 
     end
@@ -69,7 +69,7 @@ module Picasa::Album
     base.extend(ClassMethods)
   end
   
-  attr_reader :id, :author_name, :author_uri, :timestamp, :num_photos, 
+  attr_reader :picasa_id, :author_name, :author_uri, :timestamp, :num_photos, 
               :nickname, :commenting_enable, :comment_count, 
               :media_content_url, :media_thumbnail_url, :user, :photos, :link_edit
 
@@ -112,7 +112,7 @@ module Picasa::Album
   # If cannot update, an exception is raised.
   
   def picasa_update_attributes! params
-    resp, data = Picasa::HTTP::Album.update_album user_id, self.id, auth_token, params
+    resp, data = Picasa::HTTP::Album.update_album user_id, self.picasa_id, auth_token, params
 
     if resp.code != "200" or resp.message != "OK"
       raise Exception, "Error updating album."
@@ -157,7 +157,7 @@ module Picasa::Album
   # If cannot destroy it, an exception is raised.
   
   def picasa_destroy!
-    resp, data = Picasa::HTTP::Album.delete_album user_id, self.id, auth_token
+    resp, data = Picasa::HTTP::Album.delete_album user_id, self.picasa_id, auth_token
     
     if resp.code != "200" or resp.message != "OK"
       raise Exception, "Error destroying album."
@@ -206,7 +206,7 @@ module Picasa::Album
   
   def doc_to_hash(doc)
     hash = {
-      :id => doc.at_xpath('//gphoto:id').content,
+      :picasa_id => doc.at_xpath('//gphoto:id').content,
       :title => doc.at_css('title').content,
       :author_name => doc.at_css('author name').content,
       :author_uri => doc.at_css('author uri').content,
@@ -222,7 +222,7 @@ module Picasa::Album
   end
   
   def user_id
-    @user.user_id
+    @user.picasa_id
   end
   
   def auth_token

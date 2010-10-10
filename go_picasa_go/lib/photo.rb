@@ -60,7 +60,7 @@ module Picasa::Photo
     base.extend(ClassMethods)
   end
   
-  attr_reader :id, :albumid, :width, :height, :size, :timestamp, :comment_count,
+  attr_reader :picasa_id, :albumid, :width, :height, :size, :timestamp, :comment_count,
               :media_title, :media_description, :media_content_url,
               :media_thumbnail_url1, :media_thumbnail_url2, 
               :media_thumbnail_url3, :album
@@ -94,7 +94,7 @@ module Picasa::Photo
   
   def picasa_update!
     resp, data = Picasa::HTTP::Photo.update_photo(
-      'bandmanagertest', album_id, id, auth_token, summary, file
+      'bandmanagertest', album_id, picasa_id, auth_token, summary, file
     )
     
     if resp.code != "200" or resp.message != "OK"
@@ -117,7 +117,7 @@ module Picasa::Photo
   # If cannot delete, an exception is raised.
   
   def destroy!
-    resp, data = Picasa::HTTP::Photo.delete_photo user_id, album_id, id, auth_token
+    resp, data = Picasa::HTTP::Photo.delete_photo user_id, album_id, picasa_id, auth_token
     
     if resp.code != "200" or resp.message != "OK"
       raise Exception, "Error destroying photo: #{resp.message}."
@@ -151,7 +151,7 @@ module Picasa::Photo
 
   def doc_to_hash doc
     hash = {
-      :id => doc.at_xpath('gphoto:id').content,
+      :picasa_id => doc.at_xpath('gphoto:id').content,
       :albumid => doc.at_xpath('gphoto:albumid').content,
       :width => doc.at_xpath('gphoto:width').content.to_i,
       :height => doc.at_xpath('gphoto:height').content.to_i,  
@@ -168,11 +168,11 @@ module Picasa::Photo
   end
   
   def user_id
-    @album.user.user_id
+    @album.user.picasa_id
   end
   
   def album_id
-    @album.id
+    @album.picasa_id
   end
   
   def auth_token

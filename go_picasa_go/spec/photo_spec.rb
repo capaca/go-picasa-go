@@ -74,12 +74,12 @@ describe "Picasa::Photo" do
     
     photo = create_photo
     
-    photos = PhotoObject.picasa_find_all photo.album.user.user_id, 
-      photo.album.id, photo.album.user.auth_token
+    photos = PhotoObject.picasa_find_all photo.album.user.picasa_id, 
+      photo.album.picasa_id, photo.album.user.auth_token
     
     photos.should_not be_nil
     photos.each do |p|
-      p.album.id.should == photo.album.id
+      p.album.picasa_id.should == photo.album.picasa_id
     end
   end
   
@@ -91,14 +91,14 @@ describe "Picasa::Photo" do
     mock_get_photo
     
     photo1 = create_photo
-    user_id = photo1.album.user.user_id
-    album_id = photo1.album.id
-    photo_id = photo1.id
+    user_id = photo1.album.user.picasa_id
+    album_id = photo1.album.picasa_id
+    photo_id = photo1.picasa_id
     auth_token = photo1.album.user.auth_token
     
     photo2 = PhotoObject.picasa_find user_id, album_id, photo_id, auth_token
     
-    photo2.id.should == photo1.id
+    photo2.picasa_id.should == photo1.picasa_id
     photo2.album.should_not be_nil
   end
   
