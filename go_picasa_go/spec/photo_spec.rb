@@ -2,11 +2,6 @@ require 'spec_helper'
 
 describe "Picasa::Photo" do
 
-  it "should have the album class" do
-    photo = PhotoObject.new
-    photo.album_class
-  end
-
   it "should save a new photo in a album" do
     mock_authentication
     mock_post_album
@@ -68,6 +63,12 @@ describe "Picasa::Photo" do
     photo.file = nil
     
     lambda { photo.picasa_save! }.should raise_error
+  end
+  
+  it "should have the album class" do
+    PhotoObject.album_class
+    photo = PhotoObject.new
+    photo.album_class
   end
   
 end

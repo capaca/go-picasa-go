@@ -1,7 +1,3 @@
-def act_as_picasa_photo
-  include Picasa::Photo
-end
-
 module Picasa::Photo
     
   module ClassMethods

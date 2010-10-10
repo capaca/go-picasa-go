@@ -1,15 +1,12 @@
-def act_as_picasa_album
-  include Picasa::Album
-end
-
 module Picasa::Album
-  include Picasa::Util
 
   # Class methods to be added to the class that will include this module.
     
   module ClassMethods
+    include Picasa::Util    
     
     def belongs_to_picasa_user params
+      puts "Executando belongs to..."
       unless params[:class_name] and params[:class_name].class == String
         raise Exception, 'You should pass the string of the class name that includes Picasa::User.'
       end

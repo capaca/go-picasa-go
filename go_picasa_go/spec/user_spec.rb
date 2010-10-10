@@ -66,10 +66,10 @@ describe 'Picasa::User' do
   end
   
   it 'should have the album_class method' do
-    UserObject.album_class
+    UserObject.album_class.should == AlbumObject
     
     user = UserObject.new
-    user.album_class
+    user.album_class.should == AlbumObject
   end
 
 end

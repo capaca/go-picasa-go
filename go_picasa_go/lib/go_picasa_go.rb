@@ -10,3 +10,5 @@ require 'authentication'
 require 'user'
 require 'album'
 require 'photo'
+
+include Picasa::Util

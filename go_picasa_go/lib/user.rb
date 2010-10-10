@@ -1,13 +1,8 @@
-def act_as_picasa_user
-  include Picasa::User
-end
-
 module Picasa::User
 
   # Class methods that will be included in the class that include this module.
 
   module ClassMethods
-    
     # Method used to tell the gem what is the class that implementes the
     # Picasa::Album module.
     
@@ -15,20 +10,13 @@ module Picasa::User
       unless params[:class_name] and params[:class_name].class == String
         raise Exception, 'You should pass the string of the class name that includes Picasa::Album.'
       end
-      
-      (class << self; self; end).instance_eval { 
-        define_method :album_class do
-          eval(params[:class_name])  
-        end 
-      }
-      
-      define_method :album_class do
-        eval(params[:class_name])
-      end
+
+      define_dependent_class_methods :album_class, params[:class_name]      
     end
   end
 
   def self.included(base)
+    ClassMethods.extend Picasa::Util
     base.extend(ClassMethods)
   end
   
