@@ -19,7 +19,7 @@ In your models:
     act_as_picasa_user
     has_many_picasa_albums :class_name => "MyAlbum"
     
-    # Implement the method that returns the user_id the way you prefer.
+    # Implement the method that returns the picasa_id of the user the way you prefer.
     
     def picasa_id
       'bandmanagertest'
@@ -51,18 +51,19 @@ In your models:
 
 To generate the authentication token for the user picasauser@gmail.com:
 
-  Picasa::Authentication.authenticate 'youruserid', '$bandmanager$'
+  Picasa::Authentication.authenticate 'picasauser', 'picasapassword'
   => "DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrl...
 
-You can also do using the user class you implemented:
+Or you can also do using the user class you implemented:
 
   # Instantiate a new user
   
   user = MyUser.new
-  user.picasa_id = 'chucknorris'
-  user.password = 'thestrongest'
+  user.picasa_id = 'picasauser'
+  user.password = 'picasapassword'
   
-  # Sets the authentication token on the auth_token variable an returns the value
+  # The authentication method return the authentication token .
+  # The token is also set on the auth_token variable of the user object
   
   user.authenticate
   => "DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrl...
