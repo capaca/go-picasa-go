@@ -15,7 +15,9 @@ module Picasa
         http = Net::HTTP.new(uri.host, uri.port)
         
         # Render the album template
-        template = ERB.new File.open("lib/template/album.xml.erb").read
+        template_path = File.dirname(__FILE__) + '/../../template/'
+        template = ERB.new File.open(template_path+"album.xml.erb").read
+        
         data = template.result(binding)
         
         return http.post(uri.path, data, headers)

@@ -13,3 +13,5 @@ require 'picasa/album'
 require 'picasa/photo'
 require 'patchs/object'
 
+include Picasa::Util
+
