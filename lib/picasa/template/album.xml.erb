@@ -6,7 +6,7 @@
   <summary type='text'><%= params[:summary] %></summary>
   
   <gphoto:location><%= params[:location] %></gphoto:location>
-  <gphoto:access>public</gphoto:access>
+  <gphoto:access><%= params[:access] %></gphoto:access>
   <gphoto:timestamp><%= "#{Time.now.to_i}000" %></gphoto:timestamp>
   
   <media:group>

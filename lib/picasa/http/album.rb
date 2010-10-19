@@ -63,7 +63,7 @@ module Picasa
       
       # Do a get request to retrieve one specific album from a user
       
-      def self.get_album user_id, album_id, auth_token
+      def self.get_album user_id, album_id, auth_token = nil
         headers = albums_headers auth_token
         
         uri = album_uri user_id, album_id
@@ -84,10 +84,12 @@ module Picasa
       end
       
       def self.albums_headers auth_token, opts = {}
-        headers = {
-          "Authorization" => "GoogleLogin auth=#{auth_token}",
-          "Content-Type" => "application/atom+xml"
-        }
+        headers = {}
+        headers["Content-Type"] = "application/atom+xml"
+        
+        if auth_token and auth_token.length > 0
+          headers["Authorization"] = "GoogleLogin auth=#{auth_token}"
+        end
         
         headers.merge opts
       end

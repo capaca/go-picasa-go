@@ -57,7 +57,7 @@ def post_album opts = {}
 
   body.should_not be_nil
   body.should_not be_empty
-
+  
   doc = Nokogiri::XML body
   doc.at_xpath('//gphoto:id').content
 end

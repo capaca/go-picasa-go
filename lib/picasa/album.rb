@@ -73,7 +73,7 @@ module Picasa::Album
               :nickname, :commenting_enable, :comment_count, 
               :media_content_url, :media_thumbnail_url, :user, :photos, :link_edit
 
-  attr_accessor :title, :summary, :location, :keywords, :user
+  attr_accessor :title, :summary, :location, :keywords, :user, :access
 
   alias_method :cover_url, :media_content_url
   alias_method :thumbnail_url, :media_thumbnail_url
@@ -217,7 +217,8 @@ module Picasa::Album
       :comment_count => doc.at_xpath('gphoto:commentCount').content.to_i,
       :media_content_url => doc.at_xpath('//media:content').attr('url'),
       :media_thumbnail_url => doc.at_xpath('//media:thumbnail').attr('url'),
-      :link_edit => doc.at_css('link[@rel="edit"]').attr('href')
+      :link_edit => doc.at_css('link[@rel="edit"]').attr('href'),
+      :access => doc.at_xpath('gphoto:access').content
     }
   end
   

@@ -56,7 +56,7 @@ describe 'Picasa::Album' do
     album.user.picasa_id.should_not be_empty
   end
   
-  it 'should get nil if album not found' do
+  it 'should get nil if album is not found' do
     mock_authentication
     mock_get_album_failure
     
