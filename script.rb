@@ -3,31 +3,44 @@ require 'go_picasa_go'
 
 
 class MeuUsuario
-  act_as_picasa_user
+  acts_as_picasa_user
   has_many_picasa_albums :class_name => "MeuAlbum"
   
-  def user_id
+  def picasa_id
     'bandmanagertest'
   end
   
   def auth_token
-    'DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrljizPKcig62QAR5FvdZNLY6CgeHPl0R1LFQvE9z-DOni2gFHMNrHVObg1yY71DbzoVfZnJN9jGSsMTw4pVTLA9XKifzirGtrr2EUoFncGXVBIbDUromn7hK3Bb14Kp--HzGcQj4pg1hXZch3Gg'
+    "DQAAAHsAAAAdMyvdNfPg_iTFD-T_u6bBb-9BegOP7CGWnjah7FCJvnu8aiOoHXJMAJ-6HS_8vOE"+
+    "2zFLXaSzp3oe4mB9lJexTpxxM-CmChSTs-9OBd6nAwNji5yWnLUFv_Q7-ibXMx7820aFdnU7mr6"+
+    "qqvHUhXESdhBEnD1QP_o8dqsP-6T-oig"
   end
+
 end
 
 class MeuAlbum
-  act_as_picasa_album
+  acts_as_picasa_album
   belongs_to_picasa_user :class_name => "MeuUsuario"
 end
 
 class MinhaPhoto
-  act_as_picasa_photo
+  acts_as_picasa_photo
   belongs_to_picasa_album :class_name => "MeuAlbum"
 end
 
 @user = MeuUsuario.new
+
 @album = MeuAlbum.new
 @album.user = @user
+@album.title = 'title'
+@album.summary = 'summary'
+@album.location = 'location'
+@album.keywords = 'keywords'
+@album.access = 'public'
+@album.picasa_save!
 
 @photo = MinhaPhoto.new
 @photo.album = @album
+@photo.summary = 'summary'
+@photo.file = File.open 'spec/fixture/photo.jpg', 'r'
+@photo.picasa_save!

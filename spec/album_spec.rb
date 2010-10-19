@@ -154,4 +154,34 @@ describe 'Picasa::Album' do
     album.user_class
   end
   
+  it 'should get all photos from an album' do
+    mock_authentication
+    mock_post_album
+    mock_get_album
+    mock_post_photo
+    mock_get_photos
+    
+    photo = create_photo
+    
+    album = photo.album
+    photos = album.photos
+    photos.should_not be_nil
+    photos.size.should > 0
+  end
+  
+  it 'should get one specific photo from an album' do
+    mock_authentication
+    mock_post_album
+    mock_get_album
+    mock_post_photo
+    mock_get_photo
+    
+    photo = create_photo
+    
+    album = photo.album
+    photo2 = album.find_photo photo.picasa_id
+    photo2.should_not be_nil
+    photo2.picasa_id.should == photo.picasa_id
+  end
+  
 end

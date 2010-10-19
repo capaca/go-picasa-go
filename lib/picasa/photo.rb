@@ -21,8 +21,7 @@ module Picasa::Photo
     # If no album is found, then an exception is raised.
     
     def picasa_find user_id, album_id, photo_id, auth_token
-      
-      resp, data = Picasa::HTTP::Photo.get_photo user_id, album_id, photo_id
+      resp, data = Picasa::HTTP::Photo.get_photo user_id, album_id, photo_id, auth_token
       
       if resp.code != "200" or resp.message != "OK"
         raise Exception, "Photo not found"
@@ -39,10 +38,11 @@ module Picasa::Photo
     
     def picasa_find_all user_id, album_id, auth_token
       photos = []
-      resp, data = Picasa::HTTP::Photo.get_photos user_id, album_id
+      resp, data = Picasa::HTTP::Photo.get_photos user_id, album_id, auth_token
       
       if resp.code != "200" or resp.message != "OK"
-        return nil
+        raise Exception, "Error while retrieving photos. Code: #{resp.code}, Message: #{resp.message}\n"+
+          "#{user_id}, #{album_id}, #{auth_token}"
       end
       
       doc = Nokogiri::XML(data)

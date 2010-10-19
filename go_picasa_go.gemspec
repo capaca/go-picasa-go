@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pedro Dias"]
-  s.date = %q{2010-10-10}
+  s.date = %q{2010-10-19}
   s.description = %q{Go Picasa go is intended as library written in ruby to manipulate Picasa albums and photos in a easy way. The idea is to provide behaviors to ordinary objects so they can create, retrieve, update and delete albums and photos in a more object oritented way, lefting behind all the HTTP talk that was necessary previouly to interect with this service provided by Google.}
   s.email = %q{pedro.capaca@gmail.com}
   s.extra_rdoc_files = [
@@ -30,6 +30,8 @@ Gem::Specification.new do |s|
      "lib/picasa/http/authentication.rb",
      "lib/picasa/http/photo.rb",
      "lib/picasa/photo.rb",
+     "lib/picasa/template/album.xml.erb",
+     "lib/picasa/template/photo.erb",
      "lib/picasa/user.rb",
      "lib/picasa/util.rb",
      "script.rb",
@@ -53,17 +55,17 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{API to easly manipulate picasa albums and photos}
   s.test_files = [
-    "spec/test_suite.rb",
+    "spec/photo_spec.rb",
+     "spec/spec_helper.rb",
+     "spec/mock_helper.rb",
      "spec/user_spec.rb",
      "spec/authentication_spec.rb",
      "spec/album_spec.rb",
+     "spec/test_suite.rb",
      "spec/http_response_helper.rb",
-     "spec/spec_helper.rb",
-     "spec/http/authentication_spec.rb",
-     "spec/http/album_spec.rb",
      "spec/http/photo_spec.rb",
-     "spec/mock_helper.rb",
-     "spec/photo_spec.rb"
+     "spec/http/authentication_spec.rb",
+     "spec/http/album_spec.rb"
   ]
 
   if s.respond_to? :specification_version then

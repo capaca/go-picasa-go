@@ -39,7 +39,7 @@ describe 'Picasa::User' do
     
     album1 = create_album
     
-    albums = user.find_all_albums
+    albums = user.albums
     albums.should_not be_nil
     albums.size.should > 0
     
@@ -54,9 +54,9 @@ describe 'Picasa::User' do
     
     user = UserObject.new
     user.picasa_id = 'bandmanagertest'
-    user.auth_token = 'DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrljizPKcig62QAR5FvdZNL'+
-      'Y6CgeHPl0R1LFQvE9z-DOni2gFHMNrHVObg1yY71DbzoVfZnJN9jGSsMTw4pVTLA9XKifzirG'+
-      'trr2EUoFncGXVBIbDUromn7hK3Bb14Kp--HzGcQj4pg1hXZch3Gg'
+    user.auth_token =  "DQAAAHsAAAAdMyvdNfPg_iTFD-T_u6bBb-9BegOP7CGWnjah7FCJvnu8aiOoHXJMAJ-6HS_8vOE"+
+                       "2zFLXaSzp3oe4mB9lJexTpxxM-CmChSTs-9OBd6nAwNji5yWnLUFv_Q7-ibXMx7820aFdnU7mr6"+
+                       "qqvHUhXESdhBEnD1QP_o8dqsP-6T-oig"
     
     album1 = create_album
     

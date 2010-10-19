@@ -14,15 +14,16 @@ class UserObject
   end
   
   def auth_token
-    'DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrljizPKcig62QAR5FvdZNLY6CgeHPl0R1LFQvE9z'+
-    '-DOni2gFHMNrHVObg1yY71DbzoVfZnJN9jGSsMTw4pVTLA9XKifzirGtrr2EUoFncGXVBIbDUrom'+
-    'n7hK3Bb14Kp--HzGcQj4pg1hXZch3Gg'
+    "DQAAAHsAAAAdMyvdNfPg_iTFD-T_u6bBb-9BegOP7CGWnjah7FCJvnu8aiOoHXJMAJ-6HS_8vOE"+
+    "2zFLXaSzp3oe4mB9lJexTpxxM-CmChSTs-9OBd6nAwNji5yWnLUFv_Q7-ibXMx7820aFdnU7mr6"+
+    "qqvHUhXESdhBEnD1QP_o8dqsP-6T-oig"
   end
 end
 
 class AlbumObject
   acts_as_picasa_album
   belongs_to_picasa_user :class_name => "UserObject"
+  has_many_picasa_photos :class_name => 'PhotoObject'
 end
 
 class PhotoObject
@@ -110,6 +111,7 @@ def create_album
   album.summary = "Album Summary"
   album.location = "Album location"
   album.keywords = "Album keywords"
+  album.access = "public"
   
   album.picasa_save!
   album

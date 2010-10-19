@@ -6,18 +6,18 @@ module Picasa
       
       # Do a get request to retrieve all the photos from an album
       
-      def self.get_photos user_id, album_id
+      def self.get_photos user_id, album_id, auth_token
         uri = photos_uri user_id, album_id
         http = Net::HTTP.new(uri.host)
-        http.get uri.path
+        http.get uri.path, auth_header(auth_token)
       end
       
       # Do a get request to retrieve one photo from an album
       
-      def self.get_photo user_id, album_id, photo_id
+      def self.get_photo user_id, album_id, photo_id, auth_token
         uri = photo_uri user_id, album_id, photo_id
         http = Net::HTTP.new(uri.host)
-        http.get uri.path
+        http.get uri.path, auth_header(auth_token)
       end
       
       # Do a post request to save a new photo.
@@ -52,7 +52,7 @@ module Picasa
       # Do a put request to update a photo from an album
       
       def self.update_photo user_id, album_id, photo_id, auth_token, summary, file
-        uri = photo_uri user_id, album_id, photo_id
+        uri = photo_media_uri user_id, album_id, photo_id
         
         template_path = File.dirname(__FILE__) + '/../template/'
   
@@ -77,6 +77,16 @@ module Picasa
       
       def self.photo_uri user_id, album_id, photo_id
         URI.parse "http://picasaweb.google.com/data/entry/api/user/#{user_id}/albumid/#{album_id}/photoid/#{photo_id}"
+      end
+      
+      def self.photo_media_uri user_id, album_id, photo_id
+        URI.parse "http://picasaweb.google.com/data/media/api/user/#{user_id}/albumid/#{album_id}/photoid/#{photo_id}"
+      end
+      
+      def self.auth_header auth_token
+        headers = {
+          "Authorization" => "GoogleLogin auth=#{auth_token}"
+        }
       end
       
       def self.photos_headers auth_token, opts = {}

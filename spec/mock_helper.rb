@@ -7,9 +7,9 @@ module MockHelper
       "1zu17gr4ZkReQJvsnWyI5Ntivn4VfNaXClPbafabGnT11_gWOahnzmYL0YubbAlos6pghoXwVp"+
       "68RswbHlWMj3mC0e5UnqpHBZmUkljb5FXjt-XfhRAYkGjxB1LqPre3wcAPSWaoB-nJjoRS2yI6"+
       "lHoqDTjWA\nAuth="+
-      'DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrljizPKcig62QAR5FvdZNLY6CgeHPl0R1LFQvE9z'+
-      '-DOni2gFHMNrHVObg1yY71DbzoVfZnJN9jGSsMTw4pVTLA9XKifzirGtrr2EUoFncGXVBIbDUrom'+
-      'n7hK3Bb14Kp--HzGcQj4pg1hXZch3Gg'
+      "DQAAAHsAAAAdMyvdNfPg_iTFD-T_u6bBb-9BegOP7CGWnjah7FCJvnu8aiOoHXJMAJ-6HS_8vOE"+
+      "2zFLXaSzp3oe4mB9lJexTpxxM-CmChSTs-9OBd6nAwNji5yWnLUFv_Q7-ibXMx7820aFdnU7mr6"+
+      "qqvHUhXESdhBEnD1QP_o8dqsP-6T-oig"
     
     Picasa::HTTP::Authentication.stub!(:authenticate).and_return(resp_arr)
   end

@@ -7,9 +7,10 @@ describe 'Picasa::HTTP::Photo' do
   end
   
   it 'should get all photos from an album' do
+    auth_token = login
     album_id = post_album
     
-    resp, data = Picasa::HTTP::Photo.get_photos 'bandmanagertest', album_id
+    resp, data = Picasa::HTTP::Photo.get_photos 'bandmanagertest', album_id, auth_token
     
     resp.should be_success
     data.should_not be_nil
@@ -17,9 +18,10 @@ describe 'Picasa::HTTP::Photo' do
   end
   
   it 'should get one photo from an album' do
+    auth_token = login
     album_id, photo_id = post_photo
     
-    resp, data = Picasa::HTTP::Photo.get_photo 'bandmanagertest', album_id, photo_id
+    resp, data = Picasa::HTTP::Photo.get_photo 'bandmanagertest', album_id, photo_id, auth_token
     
     resp.should be_success
     data.should_not be_nil

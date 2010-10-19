@@ -11,7 +11,7 @@ module Picasa::Authentication
     resp, body = Picasa::HTTP::Authentication.authenticate user_id, password
     
     if resp.code != '200' or resp.message != 'OK'
-      raise Exception, 'Could not authenticate user.'
+      raise Exception, "Could not authenticate user. Code: #{resp.code}. Message: #{resp.message}"
     end
     
     extract_auth_token body

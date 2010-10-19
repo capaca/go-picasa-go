@@ -18,6 +18,17 @@ module Picasa::Album
       define_dependent_class_methods :user_class, params[:class_name]
     end
     
+    # Method used to tell the gem what is the class that implements the
+    # Picasa::Photo module.
+    
+    def has_many_picasa_photos params
+      unless params[:class_name] and params[:class_name].class == String
+        raise Exception, 'You should pass the string of the class name that includes Picasa::Album.'
+      end
+
+      define_dependent_class_methods :photo_class, params[:class_name]      
+    end
+    
     # Find an album by user_id and album_id. It's mandatory to inform the 
     # authentication token. If no album is found, then an exception is raised.
     
@@ -71,7 +82,7 @@ module Picasa::Album
   
   attr_reader :picasa_id, :author_name, :author_uri, :timestamp, :num_photos, 
               :nickname, :commenting_enable, :comment_count, 
-              :media_content_url, :media_thumbnail_url, :user, :photos, :link_edit
+              :media_content_url, :media_thumbnail_url, :user, :link_edit
 
   attr_accessor :title, :summary, :location, :keywords, :user, :access
 
@@ -171,6 +182,19 @@ module Picasa::Album
     raise_exception? do
       picasa_destroy!
     end
+  end
+  
+  def find_photo photo_id
+    photo_class.picasa_find user_id, picasa_id, photo_id, auth_token
+  end
+  
+  # Find all photos from the current album. The operation is done only one time
+  # for an instance, if it it's needed to do it to refresh the data you can 
+  # pass the parameter true so it can be reloaded.
+  
+  def photos(reload = false)
+    @photos = photo_class.picasa_find_all user_id, picasa_id, auth_token if reload
+    @photos ||= photo_class.picasa_find_all user_id, picasa_id, auth_token
   end
   
   ##############################################################################

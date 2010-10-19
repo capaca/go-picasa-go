@@ -7,7 +7,7 @@ module Picasa::User
 
   module ClassMethods
     
-    # Method used to tell the gem what is the class that implementes the
+    # Method used to tell the gem what is the class that implements the
     # Picasa::Album module.
     
     def has_many_picasa_albums params
@@ -42,10 +42,12 @@ module Picasa::User
     album
   end
   
-  # Find all albums from the current user
+  # Find all albums from the current user. The operation is done only one time
+  # for an instance, if it it's needed to do it to refresh the data you can 
+  # pass the parameter true so it can be reloaded.
   
-  def find_all_albums
-    albums = album_class.picasa_find_all picasa_id, auth_token
-    albums
+  def albums(reload = false)
+    @albums = album_class.picasa_find_all(picasa_id, auth_token) if reload
+    @albums ||= album_class.picasa_find_all(picasa_id, auth_token)
   end
 end

@@ -5,6 +5,7 @@ describe "Picasa::Photo" do
   it "should save a new photo in a album" do
     mock_authentication
     mock_post_album
+    mock_get_album
     mock_post_photo
     
     album = create_album
@@ -27,6 +28,7 @@ describe "Picasa::Photo" do
   it "should update a photo" do
     mock_authentication
     mock_post_album
+    mock_get_album
     mock_post_photo
     mock_update_photo
     
@@ -40,6 +42,7 @@ describe "Picasa::Photo" do
   it "should destroy a photo" do
     mock_authentication
     mock_post_album
+    mock_get_album
     mock_post_photo
     mock_delete_photo
     
@@ -53,6 +56,8 @@ describe "Picasa::Photo" do
   it "should raise exception if can not post photo" do
     mock_authentication
     mock_post_album
+    mock_get_album
+    mock_get_albums
     mock_post_photo_failure
     
     album = create_album
