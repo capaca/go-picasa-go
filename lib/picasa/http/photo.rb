@@ -25,7 +25,7 @@ module Picasa
       def self.post_photo user_id, album_id, auth_token, summary, file
         uri = photos_uri user_id, album_id
 
-        template_path = File.dirname(__FILE__) + '/../../template/'
+        template_path = File.dirname(__FILE__) + '/../template/'
   
         template = ERB.new File.open(template_path+"photo.erb").read
         body = template.result(binding)
@@ -54,7 +54,9 @@ module Picasa
       def self.update_photo user_id, album_id, photo_id, auth_token, summary, file
         uri = photo_uri user_id, album_id, photo_id
         
-        template = ERB.new File.open("lib/template/photo.erb").read
+        template_path = File.dirname(__FILE__) + '/../template/'
+  
+        template = ERB.new File.open(template_path+"photo.erb").read
         body = template.result(binding)
         
         http = Net::HTTP.new(uri.host, uri.port)

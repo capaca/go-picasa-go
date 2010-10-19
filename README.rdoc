@@ -126,7 +126,7 @@ To update an existing photo:
   photo.picasa_update # Returns true or false
   photo.picasa_update! # Raise exception in case of not being able to update the photo
   
-To destroying an existing photo:
+To destroy an existing photo:
 
   photo.picasa_destroy # Returns true or false
   photo.picasa_destroy! # Raise exception in case of not being able to delete the photo
