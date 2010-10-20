@@ -13,16 +13,16 @@ version 2.0 of Picasa Web Albums Data API.
 
 ==Quick Start
 
-In your models:
+Just create a class to represent your picasa user and implement the methods picasa_id and auth_token:
 
-  class MyUser
-    act_as_picasa_user
-    has_many_picasa_albums :class_name => "MyAlbum"
+  # Your class must be subclass of Picasa::DefaultUser  
+  
+  class MyUser < Picasa::DefaultUser
     
     # Implement the method that returns the picasa_id of the user the way you prefer.
     
     def picasa_id
-      'bandmanagertest'
+      "bandmanagertest"
     end
     
     # Implement the method that returns the authentication token for a user.
@@ -31,18 +31,8 @@ In your models:
     #       how to generate the authentication token.
 
     def auth_token
-      'DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrljizPKcig62QAR5FvdZNLY6CgeHPl0...
+      "DQAAAHsAAAAdMyvdNfPg_iTFD-T_u6bBb...
     end
-  end
-
-  class MyAlbum
-    act_as_picasa_album
-    belongs_to_picasa_user :class_name => "MyUser"
-  end
-
-  class MyPhoto
-    act_as_picasa_photo
-    belongs_to_picasa_album :class_name => "MyAlbum"
   end
   
 ==Usage
@@ -75,12 +65,13 @@ Or you can also do using the user class you implemented:
   
 To create an album:
 
-  album = YourAlbum.new
+  album = Picasa::DefaultAlbum.new
   album.user = user
   album.title = "Title"
   album.summary = "Summary"
   album.location = "Location"
   album.keywords = "Keyword, another keyword"
+  album.access = 'private'
 
   album.picasa_save # Returns true or false
   album.picasa_save! # Raise exception in case of not being able to save the album
@@ -99,7 +90,7 @@ To destroy an album:
 
 To retrieve all albums from an user:
   
-  user.find_all_albums
+  user.albums
 
 To retrieve one specific album
   
@@ -109,7 +100,7 @@ To retrieve one specific album
 
 To create a new photo:
   
-  photo = PhotoObject.new
+  photo = Picasa::DefaultPhoto.new
   photo.album = album
   photo.summary = "Photo summary"
   photo.file = File.open 'path/photo.jpg'
@@ -130,3 +121,34 @@ To destroy an existing photo:
 
   photo.picasa_destroy # Returns true or false
   photo.picasa_destroy! # Raise exception in case of not being able to delete the photo
+  
+To retrieve all photos from an album:
+
+  album.photos
+  
+To find an specific photo from an album:
+
+  album.find_photo photo.id
+  
+== More detailed configuration
+
+If you need your own classes to interact to Picasa you can do it like this:
+
+  class MyUser
+    act_as_picasa_user
+    has_many_picasa_albums :class_name => "MyAlbum"
+    
+    # The rest is the same as shown on the quick start
+    ...
+  end
+
+  class MyAlbum
+    act_as_picasa_album
+    belongs_to_picasa_user :class_name => "MyUser"
+  end
+
+  class MyPhoto
+    act_as_picasa_photo
+    belongs_to_picasa_album :class_name => "MyAlbum"
+  end
+
