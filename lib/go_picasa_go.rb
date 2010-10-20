@@ -15,3 +15,8 @@ require 'patchs/object'
 
 include Picasa::Util
 
+require 'picasa/default_user'
+require 'picasa/default_photo'
+require 'picasa/default_album'
+
+
