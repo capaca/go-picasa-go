@@ -143,12 +143,13 @@ If you need your own classes to interact to Picasa you can do it like this:
   end
 
   class MyAlbum
-    act_as_picasa_album
+    acts_as_picasa_album
     belongs_to_picasa_user :class_name => "MyUser"
+    has_many_picasa_photos :class_name => "MyPhoto"
   end
 
   class MyPhoto
-    act_as_picasa_photo
+    acts_as_picasa_photo
     belongs_to_picasa_album :class_name => "MyAlbum"
   end
 
