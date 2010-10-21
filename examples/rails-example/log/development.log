@@ -1,0 +1,472 @@
+/!\ FAILSAFE /!\  Sun Oct 10 12:41:18 -0300 2010
+  Status: 500 Internal Server Error
+  no such file to load -- sqlite3
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:156:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:156:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/kernel/requires.rb:7:in `require_library_or_gem'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/kernel/requires.rb:5:in `require_library_or_gem'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/sqlite3_adapter.rb:10:in `sqlite3_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    /usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-10 12:42:55) [GET]
+Rendering albums/index
+Completed in 27ms (View: 25 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 12:43:01) [GET]
+Rendering albums/new
+ERROR: compiling _run_erb_app47views47albums47new46html46erb RAISED compile error
+/home/pedro/workspace/image-gallery/app/views/albums/new.html.erb:3: syntax error, unexpected tASSOC, expecting '}'
+;  form_tag {:controller => :albums, :action => :create} ...
+                           ^
+/home/pedro/workspace/image-gallery/app/views/albums/new.html.erb:3: syntax error, unexpected kDO, expecting kEND
+...albums, :action => :create} do ; @output_buffer.concat "\n  ...
+                              ^
+/home/pedro/workspace/image-gallery/app/views/albums/new.html.erb:12: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47albums47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>New album</h1>\n\n"
+
+;  form_tag {:controller => :albums, :action => :create} do ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( text_field_tag 'album[title]' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( text_field_tag 'album[summary]' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( text_field_tag 'album[location]' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( text_field_tag 'album[keywords]' ).to_s); @output_buffer.concat "\n  \n  "
+
+; @output_buffer.concat(( submit_tag 'Salvar' ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/pedro/workspace/image-gallery/app/views/albums/new.html.erb:12:in `compile!'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/pedro/workspace/image-gallery/app/views/albums/new.html.erb:3: syntax error, unexpected tASSOC, expecting '}'
+;  form_tag {:controller => :albums, :action => :create} ...
+                           ^
+/home/pedro/workspace/image-gallery/app/views/albums/new.html.erb:3: syntax error, unexpected kDO, expecting kEND
+...albums, :action => :create} do ; @output_buffer.concat "\n  ...
+                              ^
+/home/pedro/workspace/image-gallery/app/views/albums/new.html.erb:12: syntax error, unexpected kENSURE, expecting $end) on line #3 of app/views/albums/new.html.erb:
+1: <h1>New album</h1>
+2: 
+3: <% form_tag {:controller => :albums, :action => :create} do %>
+4:   <%= text_field_tag 'album[title]' %>
+5:   <%= text_field_tag 'album[summary]' %>
+6:   <%= text_field_tag 'album[location]' %>
+
+    app/views/albums/new.html.erb:12:in `compile!'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (112.8ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 12:43:27) [GET]
+Rendering albums/new
+Completed in 59ms (View: 57 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 12:44:46) [GET]
+Rendering albums/new
+Completed in 13ms (View: 10 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 12:44:54) [GET]
+Rendering albums/new
+Completed in 14ms (View: 11 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 12:45:02) [GET]
+Rendering albums/new
+Completed in 13ms (View: 10 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 12:45:04) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"9NlxXjLue0PS7pYWtuzrg6F2GY4WE/GJgk3J9jv86b8=", "album"=>{"location"=>"", "title"=>"", "summary"=>"", "keywords"=>""}}
+
+ActionView::MissingTemplate (Missing template albums/create.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 12:46:33) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"9NlxXjLue0PS7pYWtuzrg6F2GY4WE/GJgk3J9jv86b8=", "album"=>{"location"=>"", "title"=>"", "summary"=>"", "keywords"=>""}}
+
+NameError (undefined local variable or method `act_as_picasa_album' for Album:Class):
+  app/models/album.rb:2
+  app/controllers/albums_controller.rb:9:in `create'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (121.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 14:38:20) [GET]
+Rendering albums/new
+Completed in 35ms (View: 32 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 14:39:15) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"9NlxXjLue0PS7pYWtuzrg6F2GY4WE/GJgk3J9jv86b8=", "album"=>{"location"=>"location", "title"=>"Testando no Rails", "summary"=>"Resumo do teste", "keywords"=>"Keyword"}}
+
+ActionView::MissingTemplate (Missing template albums/create.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 14:40:46) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"9NlxXjLue0PS7pYWtuzrg6F2GY4WE/GJgk3J9jv86b8=", "album"=>{"location"=>"location", "title"=>"Testando no Rails", "summary"=>"Resumo do teste", "keywords"=>"Keyword"}}
+
+NoMethodError (undefined method `render_template' for #<AlbumsController:0xb705c1b8>):
+  app/controllers/albums_controller.rb:22:in `create'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.9ms)
+Rendered rescues/_request_and_response (2.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 14:41:05) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"9NlxXjLue0PS7pYWtuzrg6F2GY4WE/GJgk3J9jv86b8=", "album"=>{"location"=>"location", "title"=>"Testando no Rails", "summary"=>"Resumo do teste", "keywords"=>"Keyword"}}
+Rendering albums/new
+Completed in 22ms (View: 10 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 14:41:40) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"9NlxXjLue0PS7pYWtuzrg6F2GY4WE/GJgk3J9jv86b8=", "album"=>{"location"=>"asdasd", "title"=>"asdadasd", "summary"=>"asdada", "keywords"=>"asdasd"}}
+Rendering albums/new
+Completed in 77ms (View: 4 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 14:49:12) [GET]
+Rendering albums/new
+Completed in 35ms (View: 32 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 14:49:13) [GET]
+Rendering albums/new
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 14:49:15) [GET]
+Rendering albums/new
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 14:49:15) [GET]
+Rendering albums/new
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 14:49:23) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"9NlxXjLue0PS7pYWtuzrg6F2GY4WE/GJgk3J9jv86b8=", "album"=>{"location"=>"location", "title"=>"Testando no Rails", "summary"=>"Resumo do teste", "keywords"=>"Keyword"}}
+Rendering albums/new
+Completed in 15ms (View: 4 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 14:50:51) [GET]
+Rendering albums/new
+Completed in 38ms (View: 35 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 14:50:52) [GET]
+Rendering albums/new
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 14:50:53) [GET]
+Rendering albums/new
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 14:50:58) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"9NlxXjLue0PS7pYWtuzrg6F2GY4WE/GJgk3J9jv86b8=", "album"=>{"location"=>"location", "title"=>"Testando no Rails", "summary"=>"Resumo do teste", "keywords"=>"Keyword"}}
+Rendering albums/new
+Completed in 15ms (View: 4 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:22:45) [GET]
+Rendering albums/new
+Completed in 144ms (View: 141 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 15:22:50) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+VUpLYwjr7Ve5uAbfdkfGKLe/Kt5ofQhskqZ2WR4KbU=", "album"=>{"location"=>"location", "title"=>"Testando no Rails", "summary"=>"Resumo do teste", "keywords"=>"Keyword"}}
+Rendering albums/new
+Completed in 46ms (View: 4 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:24:14) [GET]
+Rendering albums/new
+Completed in 34ms (View: 31 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:24:16) [GET]
+Rendering albums/new
+Completed in 7ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:24:17) [GET]
+Rendering albums/new
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 15:24:23) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+VUpLYwjr7Ve5uAbfdkfGKLe/Kt5ofQhskqZ2WR4KbU=", "album"=>{"location"=>"location", "title"=>"Testando no Rails", "summary"=>"Resumo do teste", "keywords"=>"Keyword"}}
+Rendering albums/new
+Completed in 15ms (View: 4 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:48:30) [GET]
+Rendering albums/new
+Completed in 35ms (View: 32 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:48:31) [GET]
+Rendering albums/new
+Completed in 7ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:48:32) [GET]
+Rendering albums/new
+Completed in 7ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 15:48:38) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+VUpLYwjr7Ve5uAbfdkfGKLe/Kt5ofQhskqZ2WR4KbU=", "album"=>{"location"=>"location", "title"=>"Testando no Rails", "summary"=>"Resumo do teste", "keywords"=>"Keyword"}}
+
+Exception (Error creating album: Bad Request.):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:95:in `picasa_save!'
+  app/controllers/albums_controller.rb:17:in `create'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:48:52) [GET]
+Rendering albums/new
+Completed in 7ms (View: 4 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:48:52) [GET]
+Rendering albums/new
+Completed in 7ms (View: 4 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 15:49:56) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+VUpLYwjr7Ve5uAbfdkfGKLe/Kt5ofQhskqZ2WR4KbU=", "album"=>{"location"=>"asdasd", "title"=>"alo", "summary"=>"asdasd", "keywords"=>"aasd"}}
+
+Exception (Error creating album: Bad Request.):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:95:in `picasa_save!'
+  app/controllers/albums_controller.rb:17:in `create'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-10 15:50:50) [GET]
+Rendering albums/new
+Completed in 7ms (View: 4 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 15:50:58) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+VUpLYwjr7Ve5uAbfdkfGKLe/Kt5ofQhskqZ2WR4KbU=", "album"=>{"location"=>"location", "title"=>"Testando no Rails", "summary"=>"Resumo do teste", "keywords"=>"Keyword"}}
+Rendering albums/new
+Completed in 743ms (View: 5 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 15:52:02) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+VUpLYwjr7Ve5uAbfdkfGKLe/Kt5ofQhskqZ2WR4KbU=", "album"=>{"location"=>"e aeee", "title"=>"Outro album", "summary"=>"resumo", "keywords"=>"palavras chaves"}}
+Rendering albums/new
+Completed in 1377ms (View: 4 | 200 OK [http://localhost/albums/create]
