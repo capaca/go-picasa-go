@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "bin/go-picasa-go",
+     "generators/template/user_class.erb",
      "generators/user_class_generator.rb",
      "go_picasa_go.gemspec",
      "init.rb",
