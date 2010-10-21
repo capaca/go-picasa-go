@@ -12,6 +12,8 @@ require 'picasa/user'
 require 'picasa/album'
 require 'picasa/photo'
 require 'patchs/object'
+require 'singleton'
+require 'generators/user_class_generator'
 
 include Picasa::Util
 

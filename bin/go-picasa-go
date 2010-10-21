@@ -1,8 +1,24 @@
 require 'rubygems'
 require 'go_picasa_go'
 
+def validate arg
+  if arg and arg.length > 0
+    return true
+  end
+  false
+end
+
 file_name = ARGV[0]
 picasa_id = ARGV[1]
 password = ARGV[2]
 
-UserClassGenerator.generate file_name, picasa_id, password
+if validate file_name and validate picasa_id and validate password
+  UserClassGenerator.generate file_name, picasa_id, password
+  puts "File generated succefully!"
+else
+  puts "Usage: go-picasa-go UserClassName picasa_id password"
+end
+
+
+
+
