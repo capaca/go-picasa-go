@@ -1,3 +1,8 @@
-#!/bin/sh
+require 'rubygems'
+require 'go_picasa_go'
 
-echo teste
+file_name = ARGV[0]
+picasa_id = ARGV[1]
+password = ARGV[2]
+
+UserClassGenerator.generate file_name, picasa_id, password
