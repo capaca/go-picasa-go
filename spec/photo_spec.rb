@@ -162,6 +162,29 @@ describe "Picasa::Photo" do
     album.photos(true).size.should == num_photos.should
   end
   
+  it "should only uptade photo if it already exists when calling save method" do
+    mock_authentication
+    mock_post_album
+    mock_post_photo
+    mock_get_album
+    mock_get_photo
+    mock_get_photos
+    mock_update_photo
+    mock_delete_photo
+    mock_download_image
+    
+    photo = create_photo
+
+    photo.save
+    photo.save!
+    photo.update
+    photo.update!
+    photo.update_attributes
+    photo.update_attributes!
+    photo.destroy
+    photo.destroy!
+  end
+  
 end
 
 

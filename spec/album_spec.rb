@@ -213,4 +213,27 @@ describe 'Picasa::Album' do
     album2 = user.find_album album.picasa_id
   end
   
+  it "should have the methods shortcuts" do
+    mock_authentication
+    mock_post_album
+    mock_get_album
+    mock_get_albums
+    mock_post_photo
+    mock_get_photo
+    mock_delete_album
+    mock_update_album :title => 'Changing title'
+    mock_download_image
+    
+    album = create_album
+    
+    album.save
+    album.save!
+    album.update
+    album.update!
+    album.update_attributes
+    album.update_attributes!
+    album.destroy
+    album.destroy!
+  end
+  
 end

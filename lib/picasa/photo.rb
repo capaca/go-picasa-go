@@ -3,6 +3,8 @@
 
 module Picasa::Photo
   
+  include Picasa::Missing
+  
   # Class methods to be added to the class that will include this module.
     
   module ClassMethods
