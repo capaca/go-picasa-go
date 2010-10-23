@@ -1,6 +1,4 @@
-class <%= class_name %>
-  acts_as_picasa_user
-  
+class <%= class_name %> < Picasa::DefaultUser
   def picasa_id
     "<%= picasa_id %>"
   end

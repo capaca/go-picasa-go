@@ -30,6 +30,7 @@ module Picasa::Photo
       photo = new
       photo.send(:populate_attributes_from_xml, data)
       photo.album = album_class.picasa_find user_id, album_id, auth_token
+      photo.file = Picasa::HTTP::Photo.download_image photo.media_content_url
       photo
     end
     
@@ -53,7 +54,7 @@ module Picasa::Photo
         photos << photo
       end
       photos
-    end
+    end    
   end
   
   def self.included(base)
@@ -71,6 +72,10 @@ module Picasa::Photo
   # If cannot post, an exception is raised.
   
   def picasa_save!
+    if self.picasa_id and self.picasa_id.length > 0
+      return picasa_update!
+    end
+    
     resp, data = Picasa::HTTP::Photo.post_photo user_id, album_id, auth_token, summary, file
     
     if resp.code != "201" or resp.message != "Created"
@@ -166,7 +171,7 @@ module Picasa::Photo
       :media_thumbnail_url3 => doc.xpath('//media:thumbnail')[2].attr('url')
     }
   end
-  
+
   def user_id
     @album.user.picasa_id
   end

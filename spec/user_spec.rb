@@ -71,5 +71,4 @@ describe 'Picasa::User' do
     user = UserObject.new
     user.album_class.should == AlbumObject
   end
-
 end

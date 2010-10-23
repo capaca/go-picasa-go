@@ -1,6 +1,12 @@
+# Class used to generate code for a default go-picasa-go user model.
+
 class UserClassGenerator
   include Singleton
   
+  # Generates the file representing the user class.
+  # Needs the name of the file, the picasa_id and password to authenticate
+  # and generate the authentication token
+
   def generate file_name, picasa_id, password
     file_name = underscore file_name
     class_name = camelize file_name

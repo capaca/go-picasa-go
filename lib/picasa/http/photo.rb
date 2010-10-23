@@ -69,6 +69,21 @@ module Picasa
         http.request(request)
       end 
       
+      def self.download_image link
+        uri = URI.parse link
+        
+        file_name = link.split("/").last
+        
+        http = Net::HTTP.new(uri.host)
+        resp = http.get uri.path
+        
+        tempfilename = File.join(Dir.tmpdir, file_name)
+        tempfile = File.new(tempfilename, "w")
+        tempfile.write resp.body
+        tempfile.close
+        tempfile
+      end
+      
       private 
       
       def self.photos_uri user_id, album_id

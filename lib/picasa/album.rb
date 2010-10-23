@@ -93,6 +93,10 @@ module Picasa::Album
   # If cannot create the album an exception is raised.
   
   def picasa_save!
+    if self.picasa_id and picasa_id.length > 0
+      return self.picasa_update!
+    end
+    
     params = {
       :title => title,
       :summary => summary,

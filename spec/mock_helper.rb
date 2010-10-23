@@ -95,6 +95,11 @@ module MockHelper
     Picasa::HTTP::Photo.stub!(:post_photo).and_return(resp_arr)
   end
   
+  def mock_download_image
+    file = File.open File.dirname(__FILE__)+"/fixture/photo.jpg"
+    Picasa::HTTP::Photo.stub!(:download_image).and_return(file)
+  end
+  
   private 
   
   def build_resp_mock_array code, message, data, success = true

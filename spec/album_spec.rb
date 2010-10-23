@@ -5,6 +5,8 @@ describe 'Picasa::Album' do
   it 'should save a new album' do
     mock_authentication
     mock_post_album
+    mock_get_album
+    mock_update_album :title => 'title'
     
     user = UserObject.new
     
@@ -175,6 +177,7 @@ describe 'Picasa::Album' do
     mock_get_album
     mock_post_photo
     mock_get_photo
+    mock_download_image
     
     photo = create_photo
     
@@ -182,6 +185,32 @@ describe 'Picasa::Album' do
     photo2 = album.find_photo photo.picasa_id
     photo2.should_not be_nil
     photo2.picasa_id.should == photo.picasa_id
+  end
+  
+  it 'should only uptade an album if it already exists when calling save method' do
+    mock_authentication
+    mock_post_album
+    mock_get_album
+    mock_get_albums
+    mock_post_photo
+    mock_get_photo
+    mock_update_album :title => 'Changing title'
+    mock_download_image
+    
+    user = UserObject.new
+    
+    album = AlbumObject.new
+    album.user = user
+    album.title = "Album Title"
+    
+    album.picasa_save.should be_true
+    num_albums = user.albums.size
+    
+    album.title = 'Changing title'
+    album.picasa_save.should be_true
+    
+    user.albums(true).size.should == num_albums
+    album2 = user.find_album album.picasa_id
   end
   
 end

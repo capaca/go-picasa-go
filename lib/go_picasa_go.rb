@@ -1,5 +1,6 @@
 require 'net/https'
 require 'erb'
+require 'tmpdir'
 require 'rubygems'
 require 'nokogiri'
 require 'patchs/ssl'

@@ -49,5 +49,9 @@ module Picasa::User
   def albums(reload = false)
     @albums = album_class.picasa_find_all(picasa_id, auth_token) if reload
     @albums ||= album_class.picasa_find_all(picasa_id, auth_token)
-  end
+  end 
 end
+
+
+
+

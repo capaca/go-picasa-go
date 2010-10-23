@@ -1,23 +1,61 @@
 require 'rubygems'
 require 'go_picasa_go'
 
-def validate arg
-  if arg and arg.length > 0
-    return true
+class Generator
+  
+  def run args
+    @args = args
+    @generation = @args[0]
+    generate
   end
-  false
+
+  private
+  
+  def generate
+    case @generation
+    when "user_class"
+     generate_user_class
+    when "auth_token"
+      generate_auth_token
+    else
+      puts "Usage:\n\tgo-picasa-go user_class [class_name]] [picasa_id] [password]\n\tgo-picasa-go auth_token [picasa_id] [password]"
+    end
+  end
+
+  def generate_user_class
+    file_name = @args[1]
+    picasa_id = @args[2]
+    password = @args[3]
+    
+    if validate file_name and validate picasa_id and validate password
+      UserClassGenerator.generate file_name, picasa_id, password
+      puts "File generated succefully!"
+    else
+      puts "Usage for user_class generation:\n\t go-picasa-go user_class [class_name] [picasa_id] [password]"
+    end
+  end
+    
+  def generate_auth_token
+    picasa_id = @args[1]
+    password = @args[2]
+    
+    if validate picasa_id and validate password
+      Picasa::Authentication.authenticate picasa_id, password
+    else
+      puts "Usage for auth_token generation:\n\t go-picasa-go auth_token [picasa_id] [password]"
+    end
+  end
+  
+  def validate arg
+    if arg and arg.length > 0
+      return true
+    end
+    false
+  end
+  
 end
 
-file_name = ARGV[0]
-picasa_id = ARGV[1]
-password = ARGV[2]
-
-if validate file_name and validate picasa_id and validate password
-  UserClassGenerator.generate file_name, picasa_id, password
-  puts "File generated succefully!"
-else
-  puts "Usage: go-picasa-go UserClassName picasa_id password"
-end
+Generator.new.run ARGV
 
 
 
