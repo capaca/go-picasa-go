@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pedro Dias"]
-  s.date = %q{2010-10-22}
+  s.date = %q{2010-10-24}
   s.default_executable = %q{go-picasa-go}
   s.description = %q{Go Picasa go is intended as library written in ruby to manipulate Picasa albums and photos in a easy way. The idea is to provide behaviors to ordinary objects so they can create, retrieve, update and delete albums and photos in a more object oritented way, lefting behind all the HTTP talk that was necessary previouly to interect with this service provided by Google.}
   s.email = %q{pedro.capaca@gmail.com}
@@ -28,9 +28,6 @@ Gem::Specification.new do |s|
      "examples/rails-example/app/controllers/application_controller.rb",
      "examples/rails-example/app/helpers/albums_helper.rb",
      "examples/rails-example/app/helpers/application_helper.rb",
-     "examples/rails-example/app/models/album.rb",
-     "examples/rails-example/app/models/photo.rb",
-     "examples/rails-example/app/models/user.rb",
      "examples/rails-example/app/views/albums/edit.html.erb",
      "examples/rails-example/app/views/albums/index.html.erb",
      "examples/rails-example/app/views/albums/new.html.erb",
@@ -79,6 +76,7 @@ Gem::Specification.new do |s|
      "examples/rails-example/test/performance/browsing_test.rb",
      "examples/rails-example/test/test_helper.rb",
      "examples/rails-example/test/unit/helpers/albums_helper_test.rb",
+     "generators/authentication_token_generator.rb",
      "generators/template/user_class.erb",
      "generators/user_class_generator.rb",
      "go_picasa_go.gemspec",
@@ -94,6 +92,7 @@ Gem::Specification.new do |s|
      "lib/picasa/http/album.rb",
      "lib/picasa/http/authentication.rb",
      "lib/picasa/http/photo.rb",
+     "lib/picasa/missing.rb",
      "lib/picasa/photo.rb",
      "lib/picasa/template/album.xml.erb",
      "lib/picasa/template/photo.erb",
@@ -105,6 +104,7 @@ Gem::Specification.new do |s|
      "spec/default_classes_spec.rb",
      "spec/fixture/photo.jpg",
      "spec/fixture/photo2.jpg",
+     "spec/generators/user_class_generator_spec.rb",
      "spec/http/album_spec.rb",
      "spec/http/authentication_spec.rb",
      "spec/http/photo_spec.rb",
@@ -155,10 +155,7 @@ Gem::Specification.new do |s|
      "examples/rails-example/app/helpers/application_helper.rb",
      "examples/rails-example/app/helpers/albums_helper.rb",
      "examples/rails-example/app/controllers/albums_controller.rb",
-     "examples/rails-example/app/controllers/application_controller.rb",
-     "examples/rails-example/app/models/photo.rb",
-     "examples/rails-example/app/models/user.rb",
-     "examples/rails-example/app/models/album.rb"
+     "examples/rails-example/app/controllers/application_controller.rb"
   ]
 
   if s.respond_to? :specification_version then
