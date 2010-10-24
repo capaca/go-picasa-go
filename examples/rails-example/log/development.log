@@ -470,3 +470,1556 @@ Processing AlbumsController#create (for 127.0.0.1 at 2010-10-10 15:52:02) [POST]
   Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+VUpLYwjr7Ve5uAbfdkfGKLe/Kt5ofQhskqZ2WR4KbU=", "album"=>{"location"=>"e aeee", "title"=>"Outro album", "summary"=>"resumo", "keywords"=>"palavras chaves"}}
 Rendering albums/new
 Completed in 1377ms (View: 4 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 09:06:09) [GET]
+Rendering albums/new
+Completed in 103ms (View: 100 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 09:06:23) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"New album", "summary"=>"Summary", "keywords"=>"Keywords"}}
+
+NameError (uninitialized constant AlbumsController::Album):
+  app/controllers/albums_controller.rb:9:in `create'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (43.4ms)
+Rendered rescues/_request_and_response (2.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 09:07:03) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"New album", "summary"=>"Summary", "keywords"=>"Keywords"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 865ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 09:07:03) [GET]
+Rendering albums/new
+Completed in 7ms (View: 4 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 09:13:10) [GET]
+Rendering albums/new
+Completed in 14ms (View: 11 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 09:17:29) [GET]
+Rendering albums/new
+Completed in 14ms (View: 12 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 09:17:52) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"", "title"=>"", "access"=>"public", "summary"=>"", "keywords"=>""}}
+
+Exception (Error creating album: Bad Request.):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:112:in `picasa_save!'
+  app/controllers/albums_controller.rb:17:in `create'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (42.0ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 09:19:12) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"", "title"=>"", "access"=>"public", "summary"=>"", "keywords"=>""}}
+Rendering albums/new
+
+ActionController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/albums_controller.rb:24:in `create'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (99.8ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 09:19:52) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"", "title"=>"", "access"=>"public", "summary"=>"", "keywords"=>""}}
+Rendering albums/new
+Completed in 498ms (View: 4 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 09:20:02) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"", "title"=>"", "access"=>"public", "summary"=>"", "keywords"=>""}}
+Rendering albums/new
+Completed in 685ms (View: 9 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 09:20:05) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"", "title"=>"", "access"=>"public", "summary"=>"", "keywords"=>""}}
+Rendering albums/new
+Completed in 531ms (View: 11 | 200 OK [http://localhost/albums/create]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 09:20:36) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"public", "summary"=>"Summary", "keywords"=>"Keywords"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 614ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 09:20:37) [GET]
+Rendering albums/new
+Completed in 7ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 09:21:31) [GET]
+Rendering albums/new
+Completed in 15ms (View: 12 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:21:35) [GET]
+Rendering albums/index
+Completed in 10ms (View: 7 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:26:52) [GET]
+Rendering albums/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #19 of app/views/albums/index.html.erb:
+16:       Access
+17:     </th>
+18:   </tr>
+19:   <% @albums.each do |album| %>
+20:     <tr>
+21:       <td>
+22:         <%= album.title %>
+
+    app/views/albums/index.html.erb:19
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (125.4ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:27:35) [GET]
+Rendering albums/index
+Completed in 11ms (View: 8 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:28:03) [GET]
+Rendering albums/index
+Completed in 10ms (View: 8 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:28:54) [GET]
+Rendering albums/index
+Completed in 5486ms (View: 1 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:29:25) [GET]
+Rendering albums/index
+Completed in 759ms (View: 1 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:29:54) [GET]
+Rendering albums/index
+Completed in 412ms (View: 2 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:47:56) [GET]
+Rendering albums/index
+Completed in 501ms (View: 25 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:48:37) [GET]
+Rendering albums/index
+Completed in 722ms (View: 8 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:50:42) [GET]
+Rendering albums/index
+Completed in 537ms (View: 28 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 09:52:14) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (2.6ms)
+Completed in 22ms (View: 19 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 09:53:08) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+
+ActionView::TemplateError (undefined method `title' for nil:NilClass) on line #2 of app/views/albums/_form.html.erb:
+1: Title:<br/>
+2: <%= text_field_tag 'album[title]', @album.title %><br/>
+3: 
+4: Summary:<br/>
+5: <%= text_field_tag 'album[summary]', @album.summary %><br/>
+
+    app/views/albums/_form.html.erb:2
+    app/views/albums/edit.html.erb:7
+    app/views/albums/edit.html.erb:6
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (73.8ms)
+Rendered rescues/_request_and_response (2.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 09:54:10) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+
+ActionView::TemplateError (undefined method `stringify_keys' for "private":String) on line #11 of app/views/albums/_form.html.erb:
+8: <%= text_field_tag 'album[location]', @album.location %><br/>
+9: 
+10: Access:<br/>
+11: <%= select_tag 'album[access]', options_for_select(access_options), @album.access %><br/>
+12: 
+13: 
+14: <br/>
+
+    app/views/albums/_form.html.erb:11
+    app/views/albums/edit.html.erb:7
+    app/views/albums/edit.html.erb:6
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (147.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 09:54:50) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (10.4ms)
+Completed in 371ms (View: 22 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:54:58) [GET]
+Rendering albums/index
+Completed in 515ms (View: 2 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 09:56:23) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (2.7ms)
+Completed in 462ms (View: 12 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 09:56:25) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (6.7ms)
+Completed in 471ms (View: 20 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 09:57:13) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (2.9ms)
+Completed in 459ms (View: 15 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:57:20) [GET]
+Rendering albums/index
+Completed in 758ms (View: 2 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:58:04) [GET]
+Rendering albums/index
+Completed in 2677ms (View: 10 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:58:15) [GET]
+Rendering albums/index
+Completed in 482ms (View: 2 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:58:21) [GET]
+Rendering albums/index
+Completed in 503ms (View: 10 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 09:58:39) [GET]
+Rendering albums/index
+Completed in 764ms (View: 9 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 09:58:41) [GET]
+Rendering albums/new
+Rendered albums/_form (1.7ms)
+Completed in 14ms (View: 12 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 09:58:48) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 436ms (View: 6 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:03:32) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"New album changed", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+
+ActionView::TemplateError (undefined method `title' for nil:NilClass) on line #2 of app/views/albums/_form.html.erb:
+1: Title:<br/>
+2: <%= text_field_tag 'album[title]', @album.title %><br/>
+3: 
+4: Summary:<br/>
+5: <%= text_field_tag 'album[summary]', @album.summary %><br/>
+
+    app/views/albums/_form.html.erb:2
+    app/views/albums/edit.html.erb:7
+    app/views/albums/edit.html.erb:6
+    app/controllers/albums_controller.rb:45:in `update'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (72.0ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:05:01) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 514ms (View: 21 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:05:23) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"Updated album", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 2074ms (View: 6 | 200 OK [http://localhost/albums/update/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:05:52) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (3.1ms)
+Completed in 955ms (View: 7 | 200 OK [http://localhost/albums/update/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:06:29) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.9ms)
+Completed in 1210ms (View: 10 | 200 OK [http://localhost/albums/update/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:07:17) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+TypeError (Symbol as array index):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:79:in `[]'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:79:in `update_album_xml'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:33:in `update_album'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:132:in `picasa_update_attributes!'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `send'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `method_missing'
+  app/controllers/albums_controller.rb:41:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:11:16) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (2.3ms)
+Completed in 900ms (View: 6 | 200 OK [http://localhost/albums/update/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:12:51) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+TypeError (Symbol as array index):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:79:in `[]'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:79:in `update_album_xml'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:33:in `update_album'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:132:in `picasa_update_attributes!'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `send'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `method_missing'
+  app/controllers/albums_controller.rb:42:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (117.0ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:17:25) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (3.0ms)
+Completed in 514ms (View: 41 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:17:33) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+TypeError (Symbol as array index):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:81:in `[]'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:81:in `update_album_xml'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:33:in `update_album'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:132:in `picasa_update_attributes!'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `send'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `method_missing'
+  app/controllers/albums_controller.rb:42:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (50.6ms)
+Rendered rescues/_request_and_response (2.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:18:56) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (3.3ms)
+Completed in 520ms (View: 39 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:19:04) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+TypeError (Symbol as array index):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `[]'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `update_album_xml'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:35:in `update_album'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:133:in `picasa_update_attributes!'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `send'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `method_missing'
+  app/controllers/albums_controller.rb:42:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.3ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:24:32) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (2.8ms)
+Completed in 1340ms (View: 40 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:24:35) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+TypeError (Symbol as array index):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `[]'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `update_album_xml'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:35:in `update_album'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:133:in `picasa_update_attributes!'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `send'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `method_missing'
+  app/controllers/albums_controller.rb:42:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (49.5ms)
+Rendered rescues/_request_and_response (2.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:28:04) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (3.2ms)
+Completed in 539ms (View: 53 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:28:14) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (1.9ms)
+Completed in 485ms (View: 6 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:28:22) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+TypeError (Symbol as array index):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `[]'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `update_album_xml'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:35:in `update_album'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:133:in `picasa_update_attributes!'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `send'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `method_missing'
+  app/controllers/albums_controller.rb:42:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (124.3ms)
+Rendered rescues/_request_and_response (2.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:28:59) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+TypeError (Symbol as array index):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `[]'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `update_album_xml'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:35:in `update_album'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:133:in `picasa_update_attributes!'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `send'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `method_missing'
+  app/controllers/albums_controller.rb:42:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:30:43) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+NoMethodError (undefined method `album_hash' for #<AlbumsController:0xb6fb79d8>):
+  app/controllers/albums_controller.rb:40:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.7ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:30:58) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+TypeError (Symbol as array index):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `[]'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `update_album_xml'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:35:in `update_album'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:133:in `picasa_update_attributes!'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `send'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `method_missing'
+  app/controllers/albums_controller.rb:43:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (53.8ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:31:33) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+
+TypeError (Symbol as array index):
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `[]'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:83:in `update_album_xml'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/http/album.rb:35:in `update_album'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/album.rb:133:in `picasa_update_attributes!'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `send'
+  /usr/lib/ruby/gems/1.8/gems/go_picasa_go-0.1.1/lib/picasa/missing.rb:15:in `method_missing'
+  app/controllers/albums_controller.rb:43:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (51.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:38:37) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 724ms (View: 6 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:38:39) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit
+Completed in 989ms | 302 Found [http://localhost/albums/update/5531571006143882513]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:38:40) [GET]
+Rendering albums/edit
+
+ActionView::TemplateError (undefined method `picasa_id' for nil:NilClass) on line #6 of app/views/albums/edit.html.erb:
+3: 
+4: <h1>Edit album</h1>
+5: 
+6: <% form_tag :controller => :albums, :action => :update, :id => @album.picasa_id do %>
+7:   <%= render :partial => 'form' %>
+8: <% end %>
+9: 
+
+    app/views/albums/edit.html.erb:6
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (59.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:39:46) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 1041ms (View: 6 | 200 OK [http://localhost/albums/update/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:39:56) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531571006143882513
+Completed in 1196ms | 302 Found [http://localhost/albums/update/5531571006143882513]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:39:57) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (2.1ms)
+Completed in 501ms (View: 6 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:40:04) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531571006143882513", "album"=>{"location"=>"Location", "title"=>"Update album", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531571006143882513
+Completed in 951ms | 302 Found [http://localhost/albums/update/5531571006143882513]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:40:05) [GET]
+  Parameters: {"id"=>"5531571006143882513"}
+Rendering albums/edit
+Rendered albums/_form (2.0ms)
+Completed in 456ms (View: 7 | 200 OK [http://localhost/albums/edit/5531571006143882513]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 10:40:50) [GET]
+Rendering albums/index
+Completed in 501ms (View: 22 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 10:40:53) [GET]
+Rendering albums/new
+Rendered albums/_form (1.6ms)
+Completed in 15ms (View: 12 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 10:41:06) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"public", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 670ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 10:41:07) [GET]
+Rendering albums/new
+Rendered albums/_form (1.5ms)
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 10:41:10) [GET]
+Rendering albums/index
+Completed in 528ms (View: 3 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:41:13) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (2.3ms)
+Completed in 461ms (View: 7 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:41:21) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle Updated", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531591747537957841
+Completed in 1156ms | 302 Found [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:41:22) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (2.3ms)
+Completed in 488ms (View: 6 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 10:41:46) [GET]
+Rendering albums/index
+Completed in 793ms (View: 2 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:41:50) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 459ms (View: 6 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:42:23) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle update!", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 1016ms (View: 7 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:42:48) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (5.7ms)
+Completed in 1038ms (View: 14 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:43:14) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (2.0ms)
+Completed in 1182ms (View: 10 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:44:44) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.6ms)
+Completed in 962ms (View: 6 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:45:19) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (2.0ms)
+Completed in 983ms (View: 7 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:45:51) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (3.4ms)
+Completed in 518ms (View: 55 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:45:54) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 1087ms (View: 9 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:47:43) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531591747537957841
+Completed in 1794ms | 302 Found [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:47:45) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 608ms (View: 6 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:47:55) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531591747537957841
+Completed in 1574ms | 302 Found [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 10:47:56) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (6.3ms)
+Completed in 496ms (View: 20 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:49:22) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (2.7ms)
+Completed in 1000ms (View: 41 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:50:14) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (6.2ms)
+Completed in 1193ms (View: 18 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:50:33) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.6ms)
+Completed in 983ms (View: 8 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:50:53) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.9ms)
+Completed in 1228ms (View: 6 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:50:58) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.6ms)
+Completed in 1161ms (View: 6 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:51:38) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.9ms)
+Completed in 1012ms (View: 6 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:52:24) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (2.1ms)
+Completed in 1368ms (View: 11 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:53:41) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (2.1ms)
+Completed in 992ms (View: 6 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:57:27) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.6ms)
+Completed in 1472ms (View: 6 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 10:58:15) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 926ms (View: 6 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:02:20) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (11.8ms)
+Completed in 10949ms (View: 31 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:02:33) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.6ms)
+Completed in 11001ms (View: 8 | 200 OK [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:05:35) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531591747537957841
+Completed in 1880ms | 302 Found [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:05:37) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 491ms (View: 6 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:05:43) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle Updated", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531591747537957841
+Completed in 1691ms | 302 Found [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:05:45) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 598ms (View: 6 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:06:31) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle Alow!", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531591747537957841
+Completed in 1706ms | 302 Found [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:06:32) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (1.6ms)
+Completed in 441ms (View: 7 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:06:35) [GET]
+Rendering albums/index
+Completed in 487ms (View: 11 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:07:01) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 493ms (View: 6 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:07:06) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531591747537957841", "album"=>{"location"=>"Location", "title"=>"TItle Updated", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531591747537957841
+Completed in 2183ms | 302 Found [http://localhost/albums/update/5531591747537957841]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:07:08) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 641ms (View: 71 | 200 OK [http://localhost/albums/edit/5531591747537957841]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:07:13) [GET]
+Rendering albums/index
+Completed in 504ms (View: 3 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:07:28) [GET]
+Rendering albums/new
+Rendered albums/_form (1.6ms)
+Completed in 15ms (View: 12 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 11:07:34) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"public", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 691ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:07:34) [GET]
+Rendering albums/new
+Rendered albums/_form (1.5ms)
+Completed in 7ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 11:07:54) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 771ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:07:55) [GET]
+Rendering albums/new
+Rendered albums/_form (1.5ms)
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:10:00) [GET]
+Rendering albums/index
+Completed in 403ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:11:07) [GET]
+Rendering albums/index
+Completed in 771ms (View: 5 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:11:09) [GET]
+  Parameters: {"id"=>"5531598655613792241"}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 527ms (View: 6 | 200 OK [http://localhost/albums/edit/5531598655613792241]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:11:14) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531598655613792241", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"protected", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531598655613792241
+Completed in 2386ms | 302 Found [http://localhost/albums/update/5531598655613792241]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:11:16) [GET]
+  Parameters: {"id"=>"5531598655613792241"}
+Rendering albums/edit
+Rendered albums/_form (1.6ms)
+Completed in 509ms (View: 6 | 200 OK [http://localhost/albums/edit/5531598655613792241]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:11:25) [GET]
+Rendering albums/index
+Completed in 535ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:11:39) [GET]
+Rendering albums/index
+Completed in 860ms (View: 5 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:11:50) [GET]
+Rendering albums/index
+Completed in 722ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:14:18) [GET]
+Rendering albums/new
+Rendered albums/_form (1.5ms)
+Completed in 9ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 11:14:30) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"Album protegido", "access"=>"protected", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 896ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:14:31) [GET]
+Rendering albums/new
+Rendered albums/_form (1.5ms)
+Completed in 7ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:14:33) [GET]
+Rendering albums/index
+Completed in 622ms (View: 5 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:18:45) [GET]
+Rendering albums/new
+Rendered albums/_form (2.9ms)
+Completed in 42ms (View: 39 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 11:18:59) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"protected", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 1117ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:19:00) [GET]
+Rendering albums/new
+Rendered albums/_form (1.5ms)
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 11:20:23) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"protected", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 1070ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:20:24) [GET]
+Rendering albums/new
+Rendered albums/_form (2.7ms)
+Completed in 39ms (View: 37 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 11:22:19) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"TItle", "access"=>"protected", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 887ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:22:20) [GET]
+Rendering albums/new
+Rendered albums/_form (2.6ms)
+Completed in 40ms (View: 38 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:22:35) [GET]
+Rendering albums/index
+Completed in 690ms (View: 17 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:24:21) [GET]
+Rendering albums/index
+Completed in 633ms (View: 10 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:24:26) [GET]
+  Parameters: {"id"=>"5531602364983739009"}
+Redirected to http://localhost:3000/albums
+Completed in 1418ms | 302 Found [http://localhost/albums/destroy/5531602364983739009]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:24:28) [GET]
+Rendering albums/index
+Completed in 666ms (View: 7 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:24:30) [GET]
+  Parameters: {"id"=>"5531601873960629265"}
+Redirected to http://localhost:3000/albums
+Completed in 1562ms | 302 Found [http://localhost/albums/destroy/5531601873960629265]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:24:32) [GET]
+Rendering albums/index
+Completed in 957ms (View: 6 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:24:34) [GET]
+  Parameters: {"id"=>"5531601505932505633"}
+Redirected to http://localhost:3000/albums
+Completed in 1253ms | 302 Found [http://localhost/albums/destroy/5531601505932505633]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:24:35) [GET]
+Rendering albums/index
+Completed in 824ms (View: 6 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:24:37) [GET]
+  Parameters: {"id"=>"5531600354094734705"}
+Redirected to http://localhost:3000/albums
+Completed in 1710ms | 302 Found [http://localhost/albums/destroy/5531600354094734705]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:24:39) [GET]
+Rendering albums/index
+Completed in 753ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:24:41) [GET]
+  Parameters: {"id"=>"5531598655613792241"}
+Redirected to http://localhost:3000/albums
+Completed in 1591ms | 302 Found [http://localhost/albums/destroy/5531598655613792241]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:24:43) [GET]
+Rendering albums/index
+Completed in 675ms (View: 3 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:24:59) [GET]
+Rendering albums/new
+Rendered albums/_form (1.7ms)
+Completed in 9ms (View: 6 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 11:25:05) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"public", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 1067ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:25:06) [GET]
+Rendering albums/new
+Rendered albums/_form (1.7ms)
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:25:08) [GET]
+Rendering albums/index
+Completed in 627ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:25:20) [GET]
+  Parameters: {"id"=>"5531603077629453809"}
+Rendering albums/edit
+Rendered albums/_form (2.0ms)
+Completed in 518ms (View: 16 | 200 OK [http://localhost/albums/edit/5531603077629453809]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:25:25) [GET]
+Rendering albums/index
+Completed in 678ms (View: 5 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:25:28) [GET]
+  Parameters: {"id"=>"5531603077629453809"}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 770ms (View: 6 | 200 OK [http://localhost/albums/edit/5531603077629453809]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:25:32) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531603077629453809", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531603077629453809
+Completed in 1922ms | 302 Found [http://localhost/albums/update/5531603077629453809]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:25:34) [GET]
+  Parameters: {"id"=>"5531603077629453809"}
+Rendering albums/edit
+Rendered albums/_form (1.9ms)
+Completed in 756ms (View: 6 | 200 OK [http://localhost/albums/edit/5531603077629453809]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:25:36) [GET]
+Rendering albums/index
+Completed in 639ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:26:15) [GET]
+Rendering albums/index
+Completed in 598ms (View: 6 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:26:19) [GET]
+  Parameters: {"id"=>"5531603077629453809"}
+Rendering albums/edit
+Rendered albums/_form (2.7ms)
+Completed in 501ms (View: 12 | 200 OK [http://localhost/albums/edit/5531603077629453809]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:26:23) [GET]
+  Parameters: {"id"=>"5531603077629453809"}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 637ms (View: 6 | 200 OK [http://localhost/albums/edit/5531603077629453809]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:26:33) [GET]
+  Parameters: {"id"=>"5531603077629453809"}
+Redirected to http://localhost:3000/albums
+Completed in 974ms | 302 Found [http://localhost/albums/destroy/5531603077629453809]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:26:34) [GET]
+Rendering albums/index
+Completed in 615ms (View: 3 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:26:35) [GET]
+  Parameters: {"id"=>"5531598565444167137"}
+Redirected to http://localhost:3000/albums
+Completed in 1121ms | 302 Found [http://localhost/albums/destroy/5531598565444167137]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:26:37) [GET]
+Rendering albums/index
+Completed in 798ms (View: 2 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:26:38) [GET]
+  Parameters: {"id"=>"5531591747537957841"}
+Redirected to http://localhost:3000/albums
+Completed in 1009ms | 302 Found [http://localhost/albums/destroy/5531591747537957841]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:26:39) [GET]
+Rendering albums/index
+Completed in 502ms (View: 2 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:26:41) [GET]
+Rendering albums/new
+Rendered albums/_form (1.8ms)
+Completed in 8ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 11:26:47) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"Teste", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 788ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:26:48) [GET]
+Rendering albums/new
+Rendered albums/_form (1.8ms)
+Completed in 9ms (View: 6 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:26:53) [GET]
+Rendering albums/index
+Completed in 709ms (View: 3 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:26:56) [GET]
+  Parameters: {"id"=>"5531603519965631057"}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 708ms (View: 6 | 200 OK [http://localhost/albums/edit/5531603519965631057]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:27:01) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531603519965631057", "album"=>{"location"=>"Location", "title"=>"Teste", "access"=>"public", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531603519965631057
+Completed in 1618ms | 302 Found [http://localhost/albums/update/5531603519965631057]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:27:03) [GET]
+  Parameters: {"id"=>"5531603519965631057"}
+Rendering albums/edit
+Rendered albums/_form (1.9ms)
+Completed in 468ms (View: 7 | 200 OK [http://localhost/albums/edit/5531603519965631057]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:27:05) [GET]
+Rendering albums/index
+Completed in 661ms (View: 2 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:30:36) [GET]
+Rendering albums/index
+Completed in 5535ms (View: 42 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:30:45) [GET]
+Rendering albums/new
+Rendered albums/_form (2.9ms)
+Completed in 22ms (View: 19 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 11:30:51) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"public", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 1471ms | 302 Found [http://localhost/albums/create]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 11:30:53) [GET]
+Rendering albums/new
+Rendered albums/_form (1.7ms)
+Completed in 8ms (View: 6 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:30:54) [GET]
+Rendering albums/index
+Completed in 5542ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:31:01) [GET]
+  Parameters: {"id"=>"5531604571750744913"}
+Rendering albums/edit
+Rendered albums/_form (2.1ms)
+Completed in 466ms (View: 16 | 200 OK [http://localhost/albums/edit/5531604571750744913]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:31:04) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531604571750744913", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+Rendering albums/edit
+Rendered albums/_form (1.9ms)
+Completed in 980ms (View: 7 | 200 OK [http://localhost/albums/update/5531604571750744913]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:35:54) [GET]
+Rendering albums/index
+Completed in 636ms (View: 33 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:35:59) [GET]
+  Parameters: {"id"=>"5531605141850144721"}
+Redirected to http://localhost:3000/albums
+Completed in 1256ms | 302 Found [http://localhost/albums/destroy/5531605141850144721]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:36:00) [GET]
+Rendering albums/index
+Completed in 608ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 11:36:02) [GET]
+  Parameters: {"id"=>"5531604975860364833"}
+Redirected to http://localhost:3000/albums
+Completed in 1569ms | 302 Found [http://localhost/albums/destroy/5531604975860364833]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:36:03) [GET]
+Rendering albums/index
+Completed in 704ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:36:05) [GET]
+  Parameters: {"id"=>"5531604571750744913"}
+Rendering albums/edit
+Rendered albums/_form (2.7ms)
+Completed in 383ms (View: 20 | 200 OK [http://localhost/albums/edit/5531604571750744913]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:36:10) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531604571750744913", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"private", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531604571750744913
+Completed in 1843ms | 302 Found [http://localhost/albums/update/5531604571750744913]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:36:12) [GET]
+  Parameters: {"id"=>"5531604571750744913"}
+Rendering albums/edit
+Rendered albums/_form (1.7ms)
+Completed in 530ms (View: 6 | 200 OK [http://localhost/albums/edit/5531604571750744913]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:36:13) [GET]
+Rendering albums/index
+Completed in 555ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:36:16) [GET]
+  Parameters: {"id"=>"5531604571750744913"}
+Rendering albums/edit
+Rendered albums/_form (1.8ms)
+Completed in 754ms (View: 6 | 200 OK [http://localhost/albums/edit/5531604571750744913]
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-10-24 11:36:20) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531604571750744913", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"protected", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/edit/5531604571750744913
+Completed in 1674ms | 302 Found [http://localhost/albums/update/5531604571750744913]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 11:36:21) [GET]
+  Parameters: {"id"=>"5531604571750744913"}
+Rendering albums/edit
+Rendered albums/_form (2.0ms)
+Completed in 434ms (View: 6 | 200 OK [http://localhost/albums/edit/5531604571750744913]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:36:34) [GET]
+Rendering albums/index
+Completed in 553ms (View: 3 | 200 OK [http://localhost/albums]

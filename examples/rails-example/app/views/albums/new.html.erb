@@ -4,18 +4,7 @@
 <h1>New album</h1>
 
 <% form_tag :controller => :albums, :action => :create do %>
-  Title:<br/>
-  <%= text_field_tag 'album[title]' %><br/>
-  
-  Summary:<br/>
-  <%= text_field_tag 'album[summary]' %><br/>
-  
-  Location:<br/>
-  <%= text_field_tag 'album[location]' %><br/>
-  
-  Keywords:<br/>
-  <%= text_field_tag 'album[keywords]' %><br/>
-  
-  <br/>
-  <%= submit_tag 'Salvar' %>
+  <%= render :partial => 'form' %>
 <% end %>
+
+<%= link_to 'Back', :controller => :albums, :action => :index %>

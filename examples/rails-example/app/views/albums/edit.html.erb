@@ -1,2 +1,10 @@
-<h1>Albums#edit</h1>
-<p>Find me in app/views/albums/edit.html.erb</p>
+<%= flash[:notice] %>
+<%= flash[:error] %>
+
+<h1>Edit album</h1>
+
+<% form_tag :controller => :albums, :action => :update, :id => @album.picasa_id do %>
+  <%= render :partial => 'form' %>
+<% end %>
+
+<%= link_to 'Back', :controller => :albums, :action => :index %>

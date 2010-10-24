@@ -1,0 +1,7 @@
+- Verificar o esquema de atualização dos dados do album. Melhor usar o template?
+- Testar que o access está sendo setado no params ao atualizar um album
+- Testar que o access está sendo setado no params ao criar um novo album
+- Corrigir o problema do numero de parametros no method missing
+- Fazer o find lançar excessao caso não ache o registro.
+
+

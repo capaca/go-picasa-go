@@ -56,6 +56,11 @@ describe 'Picasa::Album' do
     album.user.should_not be_nil
     album.user.picasa_id.should_not be_nil
     album.user.picasa_id.should_not be_empty
+    
+    album.title.size.should > 0
+    album.summary.size.should > 0
+    album.location.size.should > 0
+    album.access.size.should > 0
   end
   
   it 'should get nil if album is not found' do
@@ -92,12 +97,13 @@ describe 'Picasa::Album' do
     title1 = "Another title1"
     title2 = "Another title2"
 
-    mock_update_album :title => title1
+    mock_update_album :title => title1, :access => 'private'
     
     album = create_album
 
-    album.picasa_update_attributes! :title => title1
+    album.picasa_update_attributes! :title => title1, :access => 'private'
     album.title.should == title1
+    album.access.should == 'private'
 
     mock_update_album :title => title2
 

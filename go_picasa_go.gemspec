@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
   s.email = %q{pedro.capaca@gmail.com}
   s.executables = ["go-picasa-go"]
   s.extra_rdoc_files = [
-    "README.rdoc"
+    "README.rdoc",
+     "TODO"
   ]
   s.files = [
     "README.rdoc",
@@ -76,11 +77,11 @@ Gem::Specification.new do |s|
      "examples/rails-example/test/performance/browsing_test.rb",
      "examples/rails-example/test/test_helper.rb",
      "examples/rails-example/test/unit/helpers/albums_helper_test.rb",
-     "generators/authentication_token_generator.rb",
-     "generators/template/user_class.erb",
-     "generators/user_class_generator.rb",
      "go_picasa_go.gemspec",
      "init.rb",
+     "lib/generators/authentication_token_generator.rb",
+     "lib/generators/template/user_class.erb",
+     "lib/generators/user_class_generator.rb",
      "lib/go_picasa_go.rb",
      "lib/patchs/object.rb",
      "lib/patchs/ssl.rb",
@@ -155,7 +156,8 @@ Gem::Specification.new do |s|
      "examples/rails-example/app/helpers/application_helper.rb",
      "examples/rails-example/app/helpers/albums_helper.rb",
      "examples/rails-example/app/controllers/albums_controller.rb",
-     "examples/rails-example/app/controllers/application_controller.rb"
+     "examples/rails-example/app/controllers/application_controller.rb",
+     "examples/rails-example/app/models/my_user.rb"
   ]
 
   if s.respond_to? :specification_version then

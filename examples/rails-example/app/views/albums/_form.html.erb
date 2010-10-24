@@ -1,0 +1,15 @@
+Title:<br/>
+<%= text_field_tag 'album[title]', @album.title %><br/>
+
+Summary:<br/>
+<%= text_field_tag 'album[summary]', @album.summary %><br/>
+
+Location:<br/>
+<%= text_field_tag 'album[location]', @album.location %><br/>
+
+Access:<br/>
+<%= select_tag 'album[access]', options_for_select(access_options, @album.access) %><br/>
+
+
+<br/>
+<%= submit_tag 'Salvar' %>

@@ -103,7 +103,8 @@ module Picasa::Album
       :title => title,
       :summary => summary,
       :location => location,
-      :keywords => keywords
+      :keywords => keywords,
+      :access => access
     }
     
     resp, data = Picasa::HTTP::Album.post_album(user_id, auth_token, params)
@@ -238,6 +239,10 @@ module Picasa::Album
     hash = {
       :picasa_id => doc.at_xpath('//gphoto:id').content,
       :title => doc.at_css('title').content,
+      :summary => doc.at_css('summary').content,
+      :location => doc.at_xpath('gphoto:location').content,
+      :keywords => doc.at_xpath('//media:keywords').content,
+      :access => doc.at_xpath('gphoto:access').content,
       :author_name => doc.at_css('author name').content,
       :author_uri => doc.at_css('author uri').content,
       :timestamp => Time.at(doc.at_xpath('gphoto:timestamp').content.slice(0..9).to_i),
@@ -247,8 +252,7 @@ module Picasa::Album
       :comment_count => doc.at_xpath('gphoto:commentCount').content.to_i,
       :media_content_url => doc.at_xpath('//media:content').attr('url'),
       :media_thumbnail_url => doc.at_xpath('//media:thumbnail').attr('url'),
-      :link_edit => doc.at_css('link[@rel="edit"]').attr('href'),
-      :access => doc.at_xpath('gphoto:access').content
+      :link_edit => doc.at_css('link[@rel="edit"]').attr('href')
     }
   end
   
