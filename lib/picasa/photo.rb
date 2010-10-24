@@ -40,7 +40,6 @@ module Picasa::Photo
     # If no album is found, then an exception is raised.
     
     def picasa_find_all user_id, album_id, auth_token
-      photos = []
       resp, data = Picasa::HTTP::Photo.get_photos user_id, album_id, auth_token
       
       if resp.code != "200" or resp.message != "OK"
@@ -48,15 +47,18 @@ module Picasa::Photo
           "#{user_id}, #{album_id}, #{auth_token}"
       end
       
+      photos = []
+      album = album_class.picasa_find user_id, album_id, auth_token
       doc = Nokogiri::XML(data)
-      doc.css('entry').each do |entry|
+      
+      doc.xpath('//xmlns:entry').each do |entry|
         photo = new
         photo.send(:populate_attributes, entry)
-        photo.album = album_class.picasa_find user_id, album_id, auth_token
+        photo.album = album
         photos << photo
       end
       photos
-    end    
+    end
   end
   
   def self.included(base)
@@ -158,19 +160,19 @@ module Picasa::Photo
 
   def doc_to_hash doc
     hash = {
-      :picasa_id => doc.at_xpath('gphoto:id').content,
-      :albumid => doc.at_xpath('gphoto:albumid').content,
-      :width => doc.at_xpath('gphoto:width').content.to_i,
-      :height => doc.at_xpath('gphoto:height').content.to_i,  
-      :size => doc.at_xpath('gphoto:size').content.to_i,
-      :timestamp => Time.at(doc.at_xpath('gphoto:timestamp').content.slice(0..9).to_i),
-      :comment_count => doc.at_xpath('gphoto:commentCount').content.to_i,
-      :media_title => doc.at_xpath('//media:title').content,
-      :media_description => doc.at_xpath('//media:description').content,
-      :media_content_url => doc.at_xpath('//media:content').attr('url'),
-      :media_thumbnail_url1 => doc.xpath('//media:thumbnail')[0].attr('url'),
-      :media_thumbnail_url2 => doc.xpath('//media:thumbnail')[1].attr('url'),
-      :media_thumbnail_url3 => doc.xpath('//media:thumbnail')[2].attr('url')
+      :picasa_id => doc.at_xpath('.//gphoto:id').content,
+      :albumid => doc.at_xpath('.//gphoto:albumid').content,
+      :width => doc.at_xpath('.//gphoto:width').content.to_i,
+      :height => doc.at_xpath('.//gphoto:height').content.to_i,  
+      :size => doc.at_xpath('./gphoto:size').content.to_i,
+      :timestamp => Time.at(doc.at_xpath('.//gphoto:timestamp').content.slice(0..9).to_i),
+      :comment_count => doc.at_xpath('.//gphoto:commentCount').content.to_i,
+      :media_title => doc.at_xpath('.//media:title').content,
+      :media_description => doc.at_xpath('.//media:description').content,
+      :media_content_url => doc.at_xpath('.//media:content').attr('url'),
+      :media_thumbnail_url1 => doc.xpath('.//media:thumbnail')[0].attr('url'),
+      :media_thumbnail_url2 => doc.xpath('.//media:thumbnail')[1].attr('url'),
+      :media_thumbnail_url3 => doc.xpath('.//media:thumbnail')[2].attr('url')
     }
   end
 

@@ -2023,3 +2023,1640 @@ Completed in 434ms (View: 6 | 200 OK [http://localhost/albums/edit/5531604571750
 Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 11:36:34) [GET]
 Rendering albums/index
 Completed in 553ms (View: 3 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:16:35) [GET]
+Rendering albums/index
+Completed in 745ms (View: 35 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 14:16:40) [GET]
+  Parameters: {"confirm"=>"Are you sure?", "id"=>"5531604571750744913"}
+Redirected to http://localhost:3000/albums
+Completed in 996ms | 302 Found [http://localhost/albums/destroy/5531604571750744913?confirm=Are+you+sure%3F]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:16:41) [GET]
+Rendering albums/index
+Completed in 564ms (View: 3 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:16:57) [GET]
+Rendering albums/index
+Completed in 506ms (View: 11 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:17:00) [GET]
+Rendering albums/index
+Completed in 762ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:18:23) [GET]
+Rendering albums/index
+Completed in 500ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:18:25) [GET]
+Rendering albums/index
+Completed in 473ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:18:35) [GET]
+Rendering albums/index
+Completed in 522ms (View: 4 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:21:14) [GET]
+Rendering albums/index
+
+ActionView::TemplateError (undefined local variable or method `album_edit_path' for #<ActionView::Base:0xb74f7600>) on line #40 of app/views/albums/index.html.erb:
+37:           <%= album.access %>
+38:         </td>
+39:         <td>
+40:           <%= link_to 'Edit', album_edit_path, :id => album.picasa_id %>
+41:         </td>
+42:         <td>
+43:           <%= link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' %>
+
+    app/views/albums/index.html.erb:40
+    app/views/albums/index.html.erb:25:in `each'
+    app/views/albums/index.html.erb:25
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.5ms)
+Rendered rescues/_request_and_response (2.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:21:24) [GET]
+Rendering albums/index
+
+ActionView::TemplateError (edit_album_url failed to generate from {:action=>"edit", :controller=>"albums"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["albums", :id, "edit"] - are they all satisfied?) on line #40 of app/views/albums/index.html.erb:
+37:           <%= album.access %>
+38:         </td>
+39:         <td>
+40:           <%= link_to 'Edit', edit_album_path, :id => album.picasa_id %>
+41:         </td>
+42:         <td>
+43:           <%= link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' %>
+
+    (eval):16:in `edit_album_path'
+    app/views/albums/index.html.erb:40
+    app/views/albums/index.html.erb:25:in `each'
+    app/views/albums/index.html.erb:25
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:22:04) [GET]
+Rendering albums/index
+
+ActionView::TemplateError (undefined local variable or method `edit_album' for #<ActionView::Base:0xb7799278>) on line #40 of app/views/albums/index.html.erb:
+37:           <%= album.access %>
+38:         </td>
+39:         <td>
+40:           <%= link_to 'Edit', edit_album, :id => album.picasa_id %>
+41:         </td>
+42:         <td>
+43:           <%= link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' %>
+
+    app/views/albums/index.html.erb:40
+    app/views/albums/index.html.erb:25:in `each'
+    app/views/albums/index.html.erb:25
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (54.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:22:20) [GET]
+Rendering albums/index
+
+ActionView::TemplateError (undefined local variable or method `edit_album' for #<ActionView::Base:0xb710a6a0>) on line #40 of app/views/albums/index.html.erb:
+37:           <%= album.access %>
+38:         </td>
+39:         <td>
+40:           <%= link_to 'Edit', edit_album, :id => album.picasa_id %>
+41:         </td>
+42:         <td>
+43:           <%= link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' %>
+
+    app/views/albums/index.html.erb:40
+    app/views/albums/index.html.erb:25:in `each'
+    app/views/albums/index.html.erb:25
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (118.1ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:22:30) [GET]
+Rendering albums/index
+
+ActionView::TemplateError (edit_album_url failed to generate from {:action=>"edit", :controller=>"albums"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["albums", :id, "edit"] - are they all satisfied?) on line #40 of app/views/albums/index.html.erb:
+37:           <%= album.access %>
+38:         </td>
+39:         <td>
+40:           <%= link_to 'Edit', edit_album_path, :id => album.picasa_id %>
+41:         </td>
+42:         <td>
+43:           <%= link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' %>
+
+    (eval):16:in `edit_album_path'
+    app/views/albums/index.html.erb:40
+    app/views/albums/index.html.erb:25:in `each'
+    app/views/albums/index.html.erb:25
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (64.4ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:23:12) [GET]
+Rendering albums/index
+ERROR: compiling _run_erb_app47views47albums47index46html46erb RAISED compile error
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/albums/index.html.erb:40: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+... 'Edit', edit_album_path album ).to_s); @output_buffer.conca...
+                              ^
+Function body:           def _run_erb_app47views47albums47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n  "
+; @output_buffer.concat(( link_to 'New album', :controller => :albums, :action => :new ).to_s); @output_buffer.concat "\n</p>\n\n"
+
+
+;  if @albums and @albums.size > 0 ; @output_buffer.concat "\n  <table>\n    <tr>\n      <th>\n        Title\n      </th>\n      <th>\n        Summary\n      </th>\n      <th>\n        Location\n      </th>\n      <th>\n        Access\n      </th>\n      <th>\n      </th>\n      <th>\n      </th>\n    </tr>\n    "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;  @albums.each do |album| ; @output_buffer.concat "\n      <tr>\n        <td>\n          "
+
+
+; @output_buffer.concat(( link_to album.title ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( album.summary ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( album.location ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( album.access ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( link_to 'Edit', edit_album_path album ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' ).to_s); @output_buffer.concat "\n        </td>\n      </tr>\n    "
+
+
+;  end; @output_buffer.concat "\n  </table>\n"
+
+;  else ; @output_buffer.concat "\n  <em>No albums found.</em>\n"
+
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/albums/index.html.erb:54:in `compile!'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/albums/index.html.erb:40: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+... 'Edit', edit_album_path album ).to_s); @output_buffer.conca...
+                              ^) on line #40 of app/views/albums/index.html.erb:
+37:           <%= album.access %>
+38:         </td>
+39:         <td>
+40:           <%= link_to 'Edit', edit_album_path album %>
+41:         </td>
+42:         <td>
+43:           <%= link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' %>
+
+    app/views/albums/index.html.erb:54:in `compile!'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (124.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:23:20) [GET]
+Rendering albums/index
+ERROR: compiling _run_erb_app47views47albums47index46html46erb RAISED compile error
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/albums/index.html.erb:40: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...nk_to 'Edit', edit_album album ).to_s); @output_buffer.conca...
+                              ^
+Function body:           def _run_erb_app47views47albums47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n  "
+; @output_buffer.concat(( link_to 'New album', :controller => :albums, :action => :new ).to_s); @output_buffer.concat "\n</p>\n\n"
+
+
+;  if @albums and @albums.size > 0 ; @output_buffer.concat "\n  <table>\n    <tr>\n      <th>\n        Title\n      </th>\n      <th>\n        Summary\n      </th>\n      <th>\n        Location\n      </th>\n      <th>\n        Access\n      </th>\n      <th>\n      </th>\n      <th>\n      </th>\n    </tr>\n    "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;  @albums.each do |album| ; @output_buffer.concat "\n      <tr>\n        <td>\n          "
+
+
+; @output_buffer.concat(( link_to album.title ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( album.summary ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( album.location ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( album.access ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( link_to 'Edit', edit_album album ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' ).to_s); @output_buffer.concat "\n        </td>\n      </tr>\n    "
+
+
+;  end; @output_buffer.concat "\n  </table>\n"
+
+;  else ; @output_buffer.concat "\n  <em>No albums found.</em>\n"
+
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/albums/index.html.erb:54:in `compile!'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/albums/index.html.erb:40: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...nk_to 'Edit', edit_album album ).to_s); @output_buffer.conca...
+                              ^) on line #40 of app/views/albums/index.html.erb:
+37:           <%= album.access %>
+38:         </td>
+39:         <td>
+40:           <%= link_to 'Edit', edit_album album %>
+41:         </td>
+42:         <td>
+43:           <%= link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' %>
+
+    app/views/albums/index.html.erb:54:in `compile!'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (50.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:23:54) [GET]
+Rendering albums/index
+ERROR: compiling _run_erb_app47views47albums47index46html46erb RAISED compile error
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/albums/index.html.erb:40: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...nk_to 'Edit', edit_album album ).to_s); @output_buffer.conca...
+                              ^
+Function body:           def _run_erb_app47views47albums47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n  "
+; @output_buffer.concat(( link_to 'New album', :controller => :albums, :action => :new ).to_s); @output_buffer.concat "\n</p>\n\n"
+
+
+;  if @albums and @albums.size > 0 ; @output_buffer.concat "\n  <table>\n    <tr>\n      <th>\n        Title\n      </th>\n      <th>\n        Summary\n      </th>\n      <th>\n        Location\n      </th>\n      <th>\n        Access\n      </th>\n      <th>\n      </th>\n      <th>\n      </th>\n    </tr>\n    "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;  @albums.each do |album| ; @output_buffer.concat "\n      <tr>\n        <td>\n          "
+
+
+; @output_buffer.concat(( link_to album.title ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( album.summary ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( album.location ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( album.access ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( link_to 'Edit', edit_album album ).to_s); @output_buffer.concat "\n        </td>\n        <td>\n          "
+
+
+; @output_buffer.concat(( link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' ).to_s); @output_buffer.concat "\n        </td>\n      </tr>\n    "
+
+
+;  end; @output_buffer.concat "\n  </table>\n"
+
+;  else ; @output_buffer.concat "\n  <em>No albums found.</em>\n"
+
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/albums/index.html.erb:54:in `compile!'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/albums/index.html.erb:40: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...nk_to 'Edit', edit_album album ).to_s); @output_buffer.conca...
+                              ^) on line #40 of app/views/albums/index.html.erb:
+37:           <%= album.access %>
+38:         </td>
+39:         <td>
+40:           <%= link_to 'Edit', edit_album album %>
+41:         </td>
+42:         <td>
+43:           <%= link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' %>
+
+    app/views/albums/index.html.erb:54:in `compile!'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (112.2ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:24:03) [GET]
+Rendering albums/index
+
+ActionView::TemplateError (undefined method `edit_album' for #<ActionView::Base:0xb7385808>) on line #40 of app/views/albums/index.html.erb:
+37:           <%= album.access %>
+38:         </td>
+39:         <td>
+40:           <%= link_to 'Edit', edit_album(album) %>
+41:         </td>
+42:         <td>
+43:           <%= link_to 'Destroy', {:controller => :albums, :action => :destroy, :id => album.picasa_id}, :confirm => 'Are you sure?' %>
+
+    app/views/albums/index.html.erb:40
+    app/views/albums/index.html.erb:25:in `each'
+    app/views/albums/index.html.erb:25
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:24:10) [GET]
+Rendering albums/index
+Completed in 631ms (View: 11 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:24:32) [GET]
+Rendering albums/index
+Completed in 1185ms (View: 10 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-10-24 14:24:37) [GET]
+  Parameters: {"id"=>"5531603519965631057"}
+Rendering albums/edit
+Rendered albums/_form (2.7ms)
+Completed in 491ms (View: 19 | 200 OK [http://localhost/albums/5531603519965631057/edit]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:24:46) [GET]
+Rendering albums/index
+Completed in 519ms (View: 3 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:25:41) [GET]
+Rendering albums/index
+Completed in 655ms (View: 14 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-10-24 14:25:47) [DELETE]
+  Parameters: {"authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "id"=>"5531603519965631057"}
+Redirected to http://localhost:3000/albums
+Completed in 1358ms | 302 Found [http://localhost/albums/5531603519965631057]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:25:49) [GET]
+Rendering albums/index
+Completed in 477ms (View: 1 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:26:16) [GET]
+Rendering albums/index
+Completed in 825ms (View: 9 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 14:26:18) [GET]
+Rendering albums/new
+Rendered albums/_form (1.5ms)
+Completed in 15ms (View: 12 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-10-24 14:26:41) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"+CzdqqUj6n7ATq+ji4TFBoEZowKDKncwY2oYqwzVz0g=", "album"=>{"location"=>"Location", "title"=>"New album", "access"=>"public", "summary"=>"Summary"}}
+Redirected to http://localhost:3000/albums/new
+Completed in 880ms | 302 Found [http://localhost/albums]
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-10-24 14:26:42) [GET]
+Rendering albums/new
+Rendered albums/_form (1.6ms)
+Completed in 9ms (View: 5 | 200 OK [http://localhost/albums/new]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:26:53) [GET]
+Rendering albums/index
+Completed in 1217ms (View: 7 | 200 OK [http://localhost/albums]
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-10-24 14:26:57) [GET]
+  Parameters: {"id"=>"5531649877186816193"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create, destroy, edit, index, new, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 14:27:58) [GET]
+Rendering albums/index
+Completed in 571ms (View: 14 | 200 OK [http://localhost/albums]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-24 14:28:01) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+
+NameError (uninitialized constant PhotosController):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (35.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-24 14:36:43) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+
+LoadError (Expected /home/pedro/workspace/go-picasa-go/examples/rails-example/app/controllers/photos_controller.rb to define PhotosController):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (110.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 14:40:16) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+
+ActionView::MissingTemplate (Missing template photos/index.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 14:43:59) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 3132ms (View: 8 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 14:44:34) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1712ms (View: 9 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 14:45:03) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1325ms (View: 7 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 14:46:51) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 35025ms (View: 4 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 14:48:46) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 3485ms (View: 10 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 14:49:31) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 5508ms (View: 11 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 14:53:12) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 3665ms (View: 4 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 14:56:20) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 3526ms (View: 31 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 15:08:19) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2426ms (View: 112 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 15:09:58) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2173ms (View: 4 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 15:16:26) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2521ms (View: 32 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-10-24 15:45:51) [GET]
+Rendering albums/index
+Completed in 840ms (View: 182 | 200 OK [http://localhost/albums]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 15:45:54) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2701ms (View: 63 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 15:58:51) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2464ms (View: 14 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:05:31) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2204ms (View: 17 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:07:38) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2600ms (View: 19 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:11:19) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2137ms (View: 20 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:14:27) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2502ms (View: 11 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:14:40) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 7138ms (View: 12 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:15:16) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2156ms (View: 15 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:19:15) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2562ms (View: 29 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:22:50) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2302ms (View: 31 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:27:33) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2254ms (View: 30 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:29:07) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2477ms (View: 31 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:30:20) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1687ms (View: 52 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:31:55) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1861ms (View: 29 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:41:31) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2152ms (View: 30 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 16:44:42) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 17166ms (View: 31 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 17:32:04) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2389ms (View: 33 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 17:40:06) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1992ms (View: 44 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 17:41:40) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 3955ms (View: 30 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:41:09) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2230ms (View: 32 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:42:12) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1734ms (View: 10 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:43:01) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1648ms (View: 10 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:43:55) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2108ms (View: 11 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:44:47) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1670ms (View: 11 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:45:05) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1770ms (View: 11 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:45:16) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1628ms (View: 12 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:45:44) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1757ms (View: 10 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:45:55) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2040ms (View: 11 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:46:08) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1702ms (View: 11 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:46:30) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1990ms (View: 12 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:46:36) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1643ms (View: 11 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:46:56) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1737ms (View: 12 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:47:52) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2855ms (View: 10 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:48:16) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2059ms (View: 11 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:50:01) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+
+ActionView::TemplateError (undefined method `photo_path' for #<ActionView::Base:0xb72aa9c4>) on line #8 of app/views/photos/index.html.erb:
+5:         <%= image_tag photo.media_thumbnail_url1 %><br/>
+6:       </div>
+7:       <%= photo.media_title %>
+8:       <%= link_to photo_path photo.picasa_id %>
+9:     </div>
+10:   <% end %>
+11: <% else %>
+
+    app/views/photos/index.html.erb:8
+    app/views/photos/index.html.erb:2:in `each'
+    app/views/photos/index.html.erb:2:in `each_with_index'
+    app/views/photos/index.html.erb:2
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (61.2ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:50:48) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1993ms (View: 17 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:51:17) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+ERROR: compiling _run_erb_app47views47photos47index46html46erb RAISED compile error
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/photos/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...Show', album_photo_path  photo.album.picasa_id, photo.picasa...
+                              ^
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/photos/index.html.erb:8: syntax error, unexpected ')', expecting '='
+...m.picasa_id, photo.picasa_id ).to_s); @output_buffer.concat ...
+                              ^
+Function body:           def _run_erb_app47views47photos47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ;  if @photos and @photos.size > 0 ; @output_buffer.concat "\n  "
+;  @photos.each_with_index do |photo, index| ; @output_buffer.concat "\n    <div style=\"text-align: center; float: left; height: 100px; background: #CCCCCC; margin: 5px; padding: 5px;\">\n      <div style=\"height: 80px;\">\n        "
+
+
+; @output_buffer.concat(( image_tag photo.media_thumbnail_url1 ).to_s); @output_buffer.concat "<br/>\n      </div>\n      "
+
+; @output_buffer.concat(( photo.media_title ).to_s); @output_buffer.concat "\n      "
+; @output_buffer.concat(( link_to 'Show', album_photo_path  photo.album.picasa_id, photo.picasa_id ).to_s); @output_buffer.concat "\n    </div>\n  "
+
+;  end ; @output_buffer.concat "\n"
+;  else ; @output_buffer.concat "\n  <em>No photos found on this album.</em>\n"
+
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/photos/index.html.erb:17:in `compile!'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/photos/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...Show', album_photo_path  photo.album.picasa_id, photo.picasa...
+                              ^
+/home/pedro/workspace/go-picasa-go/examples/rails-example/app/views/photos/index.html.erb:8: syntax error, unexpected ')', expecting '='
+...m.picasa_id, photo.picasa_id ).to_s); @output_buffer.concat ...
+                              ^) on line #8 of app/views/photos/index.html.erb:
+5:         <%= image_tag photo.media_thumbnail_url1 %><br/>
+6:       </div>
+7:       <%= photo.media_title %>
+8:       <%= link_to 'Show', album_photo_path  photo.album.picasa_id, photo.picasa_id %>
+9:     </div>
+10:   <% end %>
+11: <% else %>
+
+    app/views/photos/index.html.erb:17:in `compile!'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (52.7ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:51:37) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1649ms (View: 16 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:52:20) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+
+ActionView::TemplateError (undefined method `symbolize_keys!' for "/albums/5531649877186816193/photos/5531655021762031106":String) on line #5 of app/views/photos/index.html.erb:
+2:   <% @photos.each_with_index do |photo, index| %>
+3:     <div style="text-align: center; float: left; height: 100px; background: #CCCCCC; margin: 5px; padding: 5px;">
+4:       <div style="height: 80px;">
+5:         <%= link_to image_tag photo.media_thumbnail_url1, 
+6:               album_photo_path(photo.album.picasa_id, photo.picasa_id) 
+7:         %>
+8:         <br/>
+
+    app/views/photos/index.html.erb:5
+    app/views/photos/index.html.erb:2:in `each'
+    app/views/photos/index.html.erb:2:in `each_with_index'
+    app/views/photos/index.html.erb:2
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (124.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:52:39) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2087ms (View: 15 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 19:52:44) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+
+ActionController::UnknownAction (No action responded to show. Actions: index):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:54:22) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1656ms (View: 32 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#destroy (for 127.0.0.1 at 2010-10-24 19:54:29) [DELETE]
+  Parameters: {"album_id"=>"5531649877186816193", "authenticity_token"=>"LJRjf6xhqDgEvPvMp5+ZYmOpLJnyELshj7DIMK7KQ0o=", "id"=>"5531655021762031106"}
+
+ActionController::UnknownAction (No action responded to destroy. Actions: index):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:54:48) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1608ms (View: 33 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:55:10) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1609ms (View: 33 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:55:18) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2286ms (View: 36 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#destroy (for 127.0.0.1 at 2010-10-24 19:55:26) [DELETE]
+  Parameters: {"album_id"=>"5531649877186816193", "authenticity_token"=>"LJRjf6xhqDgEvPvMp5+ZYmOpLJnyELshj7DIMK7KQ0o=", "id"=>"5531655021762031106"}
+
+ActionController::UnknownAction (No action responded to destroy. Actions: index):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:55:52) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1682ms (View: 32 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:56:07) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1883ms (View: 35 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 19:57:53) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+
+ActionController::UnknownAction (No action responded to show. Actions: index):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:58:39) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1747ms (View: 36 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:58:49) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1850ms (View: 39 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 19:58:52) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+
+ActionController::UnknownAction (No action responded to show. Actions: index):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 19:58:57) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655033731444130"}
+
+ActionController::UnknownAction (No action responded to show. Actions: index):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:59:10) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1573ms (View: 38 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 19:59:14) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 2010ms (View: 31 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 19:59:17) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+
+ActionController::UnknownAction (No action responded to show. Actions: index):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 19:59:19) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655033731444130"}
+
+ActionController::UnknownAction (No action responded to show. Actions: index):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:00:45) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655035296848930"}
+
+ActionView::MissingTemplate (Missing template photos/show.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:03:06) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+Rendering photos/show
+
+ActionView::TemplateError (can't convert nil into String) on line #1 of app/views/photos/show.html.erb:
+1: <%= image_tag @foto.media_thumbail_url3 %>
+
+    app/views/photos/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (113.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:03:22) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+Rendering photos/show
+Completed in 3090ms (View: 8 | 200 OK [http://localhost/albums/5531649877186816193/photos/5531655021762031106]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:03:59) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+Rendering photos/show
+Completed in 3321ms (View: 8 | 200 OK [http://localhost/albums/5531649877186816193/photos/5531655021762031106]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:04:12) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+Rendering photos/show
+Completed in 3271ms (View: 9 | 200 OK [http://localhost/albums/5531649877186816193/photos/5531655021762031106]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:04:38) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+Rendering photos/show
+Completed in 2896ms (View: 9 | 200 OK [http://localhost/albums/5531649877186816193/photos/5531655021762031106]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:04:47) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+Rendering photos/show
+Completed in 2559ms (View: 8 | 200 OK [http://localhost/albums/5531649877186816193/photos/5531655021762031106]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:04:53) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+Rendering photos/show
+Completed in 3509ms (View: 9 | 200 OK [http://localhost/albums/5531649877186816193/photos/5531655021762031106]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:05:34) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655021762031106"}
+Rendering photos/show
+Completed in 2854ms (View: 12 | 200 OK [http://localhost/albums/5531649877186816193/photos/5531655021762031106]
+
+
+Processing PhotosController#index (for 127.0.0.1 at 2010-10-24 20:06:00) [GET]
+  Parameters: {"album_id"=>"5531649877186816193"}
+Rendering photos/index
+Completed in 1660ms (View: 80 | 200 OK [http://localhost/albums/5531649877186816193/photos]
+
+
+Processing PhotosController#show (for 127.0.0.1 at 2010-10-24 20:06:04) [GET]
+  Parameters: {"album_id"=>"5531649877186816193", "id"=>"5531655033731444130"}
+Rendering photos/show
+Completed in 2519ms (View: 8 | 200 OK [http://localhost/albums/5531649877186816193/photos/5531655033731444130]

@@ -25,7 +25,7 @@
     <% @albums.each do |album| %>
       <tr>
         <td>
-          <%= album.title %>
+          <%= link_to album.title, album_photos_path(album.picasa_id) %>
         </td>
         <td>
           <%= album.summary %>
@@ -37,10 +37,10 @@
           <%= album.access %>
         </td>
         <td>
-          <%= link_to 'Edit', :controller => :albums, :action => :edit, :id => album.picasa_id %>
+          <%= link_to 'Edit', edit_album_path(album.picasa_id) %>
         </td>
         <td>
-          <%= link_to 'Destroy', :controller => :albums, :action => :destroy, :id => album.picasa_id %>
+          <%= link_to 'Destroy', album_path(album.picasa_id), :method => :delete, :confirm => 'Are you sure?' %>
         </td>
       </tr>
     <% end%>

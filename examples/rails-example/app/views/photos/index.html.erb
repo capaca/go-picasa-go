@@ -1,0 +1,21 @@
+<% if @photos and @photos.size > 0 %>
+  <% @photos.each_with_index do |photo, index| %>
+    <div style="text-align: center; float: left; height: 120px; width: 120px; background: #CCCCCC; margin: 5px; padding: 5px;">
+      <div style="height: 80px;">
+        <%= link_to image_tag(photo.media_thumbnail_url1), 
+              album_photo_path(photo.album.picasa_id, photo.picasa_id) 
+        %>
+        <br/>
+      </div>
+      <%= link_to photo.media_title, album_photo_path(photo.album.picasa_id, photo.picasa_id) %>
+      
+      </br>
+      
+      <%= link_to 'Delete', album_photo_path(photo.album.picasa_id, photo.picasa_id),
+              :method => :delete, :confirm => 'Are you sure?'
+      %>
+    </div>
+  <% end %>
+<% else %>
+  <em>No photos found on this album.</em>
+<% end %>

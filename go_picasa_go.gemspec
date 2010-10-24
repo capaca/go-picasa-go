@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.files = [
     "README.rdoc",
      "Rakefile",
+     "TODO",
      "VERSION",
      "bin/go-picasa-go",
      "examples/rails-example/README",
@@ -29,6 +30,8 @@ Gem::Specification.new do |s|
      "examples/rails-example/app/controllers/application_controller.rb",
      "examples/rails-example/app/helpers/albums_helper.rb",
      "examples/rails-example/app/helpers/application_helper.rb",
+     "examples/rails-example/app/models/my_user.rb",
+     "examples/rails-example/app/views/albums/_form.html.erb",
      "examples/rails-example/app/views/albums/edit.html.erb",
      "examples/rails-example/app/views/albums/index.html.erb",
      "examples/rails-example/app/views/albums/new.html.erb",
@@ -157,6 +160,7 @@ Gem::Specification.new do |s|
      "examples/rails-example/app/helpers/albums_helper.rb",
      "examples/rails-example/app/controllers/albums_controller.rb",
      "examples/rails-example/app/controllers/application_controller.rb",
+     "examples/rails-example/app/controllers/photos_controller.rb",
      "examples/rails-example/app/models/my_user.rb"
   ]
 

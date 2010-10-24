@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+
   def index
     @user = MyUser.new
     @albums = @user.albums
