@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{go_picasa_go}
-  s.version = "0.1.1"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pedro Dias"]
-  s.date = %q{2010-10-24}
+  s.date = %q{2010-10-25}
   s.default_executable = %q{go-picasa-go}
   s.description = %q{Go Picasa go is intended as library written in ruby to manipulate Picasa albums and photos in a easy way. The idea is to provide behaviors to ordinary objects so they can create, retrieve, update and delete albums and photos in a more object oritented way, lefting behind all the HTTP talk that was necessary previouly to interect with this service provided by Google.}
   s.email = %q{pedro.capaca@gmail.com}
@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
      "examples/rails-example/app/views/albums/index.html.erb",
      "examples/rails-example/app/views/albums/new.html.erb",
      "examples/rails-example/app/views/photos/index.html.erb",
+     "examples/rails-example/app/views/photos/new.html.erb",
      "examples/rails-example/app/views/photos/show.html.erb",
      "examples/rails-example/config/boot.rb",
      "examples/rails-example/config/database.yml",
@@ -129,41 +130,41 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{API to easly manipulate picasa albums and photos}
   s.test_files = [
-    "spec/photo_spec.rb",
+    "spec/mock_helper.rb",
      "spec/default_classes_spec.rb",
-     "spec/spec_helper.rb",
-     "spec/generators/user_class_generator_spec.rb",
-     "spec/mock_helper.rb",
      "spec/user_spec.rb",
-     "spec/authentication_spec.rb",
-     "spec/album_spec.rb",
-     "spec/suites/all_mocked.rb",
-     "spec/suites/all.rb",
      "spec/http_response_helper.rb",
      "spec/http/photo_spec.rb",
      "spec/http/authentication_spec.rb",
      "spec/http/album_spec.rb",
+     "spec/generators/user_class_generator_spec.rb",
+     "spec/photo_spec.rb",
+     "spec/authentication_spec.rb",
+     "spec/spec_helper.rb",
+     "spec/album_spec.rb",
+     "spec/suites/all_mocked.rb",
+     "spec/suites/all.rb",
+     "examples/rails-example/db/seeds.rb",
+     "examples/rails-example/config/environments/production.rb",
+     "examples/rails-example/config/environments/test.rb",
+     "examples/rails-example/config/environments/development.rb",
      "examples/rails-example/config/routes.rb",
+     "examples/rails-example/config/boot.rb",
+     "examples/rails-example/config/initializers/session_store.rb",
      "examples/rails-example/config/initializers/new_rails_defaults.rb",
      "examples/rails-example/config/initializers/backtrace_silencers.rb",
-     "examples/rails-example/config/initializers/inflections.rb",
-     "examples/rails-example/config/initializers/session_store.rb",
      "examples/rails-example/config/initializers/mime_types.rb",
+     "examples/rails-example/config/initializers/inflections.rb",
      "examples/rails-example/config/environment.rb",
-     "examples/rails-example/config/boot.rb",
-     "examples/rails-example/config/environments/development.rb",
-     "examples/rails-example/config/environments/test.rb",
-     "examples/rails-example/config/environments/production.rb",
-     "examples/rails-example/db/seeds.rb",
+     "examples/rails-example/test/performance/browsing_test.rb",
      "examples/rails-example/test/test_helper.rb",
      "examples/rails-example/test/functional/albums_controller_test.rb",
      "examples/rails-example/test/unit/helpers/albums_helper_test.rb",
-     "examples/rails-example/test/performance/browsing_test.rb",
-     "examples/rails-example/app/helpers/application_helper.rb",
-     "examples/rails-example/app/helpers/albums_helper.rb",
-     "examples/rails-example/app/controllers/albums_controller.rb",
-     "examples/rails-example/app/controllers/application_controller.rb",
      "examples/rails-example/app/controllers/photos_controller.rb",
+     "examples/rails-example/app/controllers/application_controller.rb",
+     "examples/rails-example/app/controllers/albums_controller.rb",
+     "examples/rails-example/app/helpers/albums_helper.rb",
+     "examples/rails-example/app/helpers/application_helper.rb",
      "examples/rails-example/app/models/my_user.rb"
   ]
 
@@ -172,9 +173,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<nokogiri>, [">= 1.4.3.1"])
     else
+      s.add_dependency(%q<nokogiri>, [">= 1.4.3.1"])
     end
   else
+    s.add_dependency(%q<nokogiri>, [">= 1.4.3.1"])
   end
 end
 
