@@ -66,11 +66,11 @@ module Picasa::Photo
   end
   
   attr_reader :picasa_id, :albumid, :width, :height, :size, :timestamp, :comment_count,
-              :media_title, :media_description, :media_content_url,
+              :media_title, :media_content_url,
               :media_thumbnail_url1, :media_thumbnail_url2, 
               :media_thumbnail_url3, :album
   
-  attr_accessor :album, :summary, :file
+  attr_accessor :album, :description, :file
   
   # Post a photo into a picasa album.
   # If cannot post, an exception is raised.
@@ -80,7 +80,7 @@ module Picasa::Photo
       return picasa_update!
     end
     
-    resp, data = Picasa::HTTP::Photo.post_photo user_id, album_id, auth_token, summary, file
+    resp, data = Picasa::HTTP::Photo.post_photo user_id, album_id, auth_token, description, file
     
     if resp.code != "201" or resp.message != "Created"
       raise Exception, "Error posting photo: #{resp.message}."
@@ -103,7 +103,7 @@ module Picasa::Photo
   
   def picasa_update!
     resp, data = Picasa::HTTP::Photo.update_photo(
-      'bandmanagertest', album_id, picasa_id, auth_token, summary, file
+      'bandmanagertest', album_id, picasa_id, auth_token, description, file
     )
     
     if resp.code != "200" or resp.message != "OK"
@@ -168,7 +168,7 @@ module Picasa::Photo
       :timestamp => Time.at(doc.at_xpath('.//gphoto:timestamp').content.slice(0..9).to_i),
       :comment_count => doc.at_xpath('.//gphoto:commentCount').content.to_i,
       :media_title => doc.at_xpath('.//media:title').content,
-      :media_description => doc.at_xpath('.//media:description').content,
+      :description => doc.at_xpath('.//media:description').content,
       :media_content_url => doc.at_xpath('.//media:content').attr('url'),
       :media_thumbnail_url1 => doc.xpath('.//media:thumbnail')[0].attr('url'),
       :media_thumbnail_url2 => doc.xpath('.//media:thumbnail')[1].attr('url'),

@@ -1,4 +1,19 @@
-<div style="text-align: center;">
-  <%= image_tag @foto.media_thumbnail_url3 %><br/>
-  <%= @foto.description %>
+<div>
+  <%= flash[:notice] %>
+  <%= flash[:notice] %>
 </div>
+
+<div style="text-align: center;">
+  <%= image_tag @photo.media_thumbnail_url3 %><br/>
+  <%= @photo.description %>
+  <% form_tag album_photo_path(@album.picasa_id, @photo.picasa_id), :method => :put do %>
+    <%= hidden_field_tag 'album_id', @album.picasa_id %>
+    <%= hidden_field_tag 'id', @photo.picasa_id %>
+    <%= text_field_tag 'photo[description]', @photo.description %>
+
+    <br/><br/>
+    <%= submit_tag 'Save' %>
+  <% end %>
+</div>
+
+

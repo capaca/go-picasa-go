@@ -1,0 +1,8 @@
+<h1>New photo</h1>
+
+<% form_tag (album_photos_path(@album.picasa_id), :multipart => true) do %>
+  <%= file_field_tag 'photo[file]' %>
+  
+  <br/><br/>
+  <%= submit_tag 'Upload' %>
+<% end %>

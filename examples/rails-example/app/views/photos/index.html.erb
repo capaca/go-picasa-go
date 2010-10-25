@@ -1,3 +1,12 @@
+<div>
+<%= flash[:notice] %>
+<%= flash[:error] %>
+</div>
+
+<div>
+  <%= link_to 'Upload new photo', new_album_photo_path(@album.picasa_id) %>
+</div>
+
 <% if @photos and @photos.size > 0 %>
   <% @photos.each_with_index do |photo, index| %>
     <div style="text-align: center; float: left; height: 120px; width: 120px; background: #CCCCCC; margin: 5px; padding: 5px;">

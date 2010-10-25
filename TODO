@@ -1,3 +1,5 @@
+- Tentar melhorar o desempenho das operações
+- Implement the update_attributes method for Picasa::Photo
 - Testar o erro na forma de navegação no xml sem namespaces
 - Verificar o esquema de atualização dos dados do album. Melhor usar o template?
 - Testar que o access está sendo setado no params ao atualizar um album
