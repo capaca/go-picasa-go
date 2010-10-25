@@ -11,55 +11,27 @@ This library was implemented based on the
 Protocol Guide[http://code.google.com/intl/pt-BR/apis/picasaweb/docs/2.0/developers_guide_protocol.html] 
 version 2.0 of Picasa Web Albums Data API.
 
+Go Picasa go is still under heavy development but it's available for testing. 
+We will be glad if you can do some tests and give us your feedback. Thank you.
+
 ==Quick Start
 
-Just create a class to represent your picasa user and implement the methods picasa_id and auth_token:
+On the command line, run the user_class generator to create a file with the authentication token and other stuff you need:
 
-  # Your class must be subclass of Picasa::DefaultUser  
+  go-picasa-go user_class YourUserClass google_user_id, google_password
   
-  class MyUser < Picasa::DefaultUser
-    
-    # Implement the method that returns the picasa_id of the user the way you prefer.
-    
-    def picasa_id
-      "bandmanagertest"
-    end
-    
-    # Implement the method that returns the authentication token for a user.
-    #
-    #   Ps: In the usage section there's one example of 
-    #       how to generate the authentication token.
+After running the command above, a file called "your_user_class.rb" will be 
+generated at the current folder you're at. The google user id and google password 
+are only necessary to generate the authentication token for further operation 
+with Go-picasa-go. It's also important for you to know that the password is only 
+used on this single operation. All other operations executed by the gem uses only 
+the authentication token generated. 
 
-    def auth_token
-      "DQAAAHsAAAAdMyvdNfPg_iTFD-T_u6bBb...
-    end
-  end
-  
 ==Usage
-
-===Authenticating
-
-To generate the authentication token for the user picasauser@gmail.com:
-
-  Picasa::Authentication.authenticate 'picasauser', 'picasapassword'
-  => "DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrl...
-
-Or you can also do using the user class you implemented:
-
-  # Instantiate a new user
   
-  user = MyUser.new
-  user.picasa_id = 'picasauser'
-  user.password = 'picasapassword'
-  
-  # The authentication method return the authentication token .
-  # The token is also set on the auth_token variable of the user object
-  
-  user.authenticate
-  => "DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrl...
-  
-  @user.auth_token
-  => "DQAAAHsAAAASi_ADDIYHfjjeN5S3zxA3CTyrl...
+=== Your User
+
+  user = YourUserClass.new
   
 ===Working with albums
   
@@ -71,7 +43,7 @@ To create an album:
   album.summary = "Summary"
   album.location = "Location"
   album.keywords = "Keyword, another keyword"
-  album.access = 'private'
+  album.access = 'private' # Other options: public, protected
 
   album.picasa_save # Returns true or false
   album.picasa_save! # Raise exception in case of not being able to save the album
@@ -102,7 +74,7 @@ To create a new photo:
   
   photo = Picasa::DefaultPhoto.new
   photo.album = album
-  photo.summary = "Photo summary"
+  photo.description = "Photo summary"
   photo.file = File.open 'path/photo.jpg'
   
   photo.picasa_save # Returns true or false
@@ -111,7 +83,7 @@ To create a new photo:
 To update an existing photo:
 
   photo.title = "Updating title"
-  photo.summary = "Updating summary"
+  photo.description = "Updating summary"
   photo.file = File.open 'path/new_photo.jpg'
   
   photo.picasa_update # Returns true or false
@@ -138,8 +110,13 @@ If you need your own classes to interact to Picasa you can do it like this:
     act_as_picasa_user
     has_many_picasa_albums :class_name => "MyAlbum"
     
-    # The rest is the same as shown on the quick start
-    ...
+    def picasa_id
+      'your_google_user_id'
+    end
+    
+    def auth_token
+      'DQAAAHsAAAAdMyvdNfPg_iTFD-T_u6bBb-9Be...'
+    end
   end
 
   class MyAlbum
@@ -152,4 +129,7 @@ If you need your own classes to interact to Picasa you can do it like this:
     acts_as_picasa_photo
     belongs_to_picasa_album :class_name => "MyAlbum"
   end
+
+We provided this kind of configuration so your classes can interact with other 
+frameworks like Rails and inherit from ActiveRecord::Base for example.
 
