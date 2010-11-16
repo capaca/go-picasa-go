@@ -23,8 +23,6 @@ module Picasa
         
         data = template.result(binding)
         
-        puts data
-        
         return http.post(uri.path, data, headers)
       end
       

@@ -22,7 +22,7 @@ On the command line, run the user_class generator to create a file with the auth
   
 After running the command above, a file called "your_user_class.rb" will be 
 generated at the current folder you're at. The google user id and google password 
-are only necessary to generate the authentication token for further operation 
+are only necessary to generate the authentication token for further operations 
 with Go-picasa-go. It's also important for you to know that the password is only 
 used on this single operation. All other operations executed by the gem uses only 
 the authentication token generated. 
