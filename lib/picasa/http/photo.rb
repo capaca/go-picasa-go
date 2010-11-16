@@ -22,7 +22,7 @@ module Picasa
       
       # Do a post request to save a new photo.
       
-      def self.post_photo user_id, album_id, auth_token, summary, file
+      def self.post_photo user_id, album_id, auth_token, summary, file, auth_type = :login
         uri = photos_uri user_id, album_id
 
         template_path = File.dirname(__FILE__) + '/../template/'
@@ -34,7 +34,12 @@ module Picasa
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = body
         request["Content-Type"] = "multipart/related; boundary=\"END_OF_PART\""
-        request["Authorization"] = "GoogleLogin auth=#{auth_token}"
+        
+        authorization_header = Picasa::Util.generate_authorization_header auth_token, auth_type
+        
+        if authorization_header
+          request["Authorization"] = authorization_header
+        end
 
         http.request(request)
       end
@@ -51,7 +56,7 @@ module Picasa
       
       # Do a put request to update a photo from an album
       
-      def self.update_photo user_id, album_id, photo_id, auth_token, summary, file
+      def self.update_photo user_id, album_id, photo_id, auth_token, summary, file, auth_type = :login
         uri = photo_media_uri user_id, album_id, photo_id
         
         template_path = File.dirname(__FILE__) + '/../template/'
@@ -63,7 +68,11 @@ module Picasa
         request = Net::HTTP::Put.new(uri.request_uri)
         request.body = body
         request["Content-Type"] = "multipart/related; boundary=\"END_OF_PART\""
-        request["Authorization"] = "GoogleLogin auth=#{auth_token}"
+        authorization_header = Picasa::Util.generate_authorization_header auth_token, auth_type
+        
+        if authorization_header
+          request["Authorization"] = authorization_header
+        end
         request["If-Match"] = "*"
 
         http.request(request)
@@ -98,17 +107,26 @@ module Picasa
         URI.parse "http://picasaweb.google.com/data/media/api/user/#{user_id}/albumid/#{album_id}/photoid/#{photo_id}"
       end
       
-      def self.auth_header auth_token
-        headers = {
-          "Authorization" => "GoogleLogin auth=#{auth_token}"
-        }
+      def self.auth_header auth_token, auth_type = :login
+        headers = {}
+        authorization_header = Picasa::Util.generate_authorization_header auth_token, auth_type
+        
+        if authorization_header
+          headers["Authorization"] = authorization_header
+        end
+        headers
       end
       
-      def self.photos_headers auth_token, opts = {}
+      def self.photos_headers auth_token, opts = {}, auth_type = :login
         headers = {
-          "Authorization" => "GoogleLogin auth=#{auth_token}",
           "Content-Type" => "application/atom+xml"
         }
+        
+        authorization_header = Picasa::Util.generate_authorization_header auth_token, auth_type
+        
+        if authorization_header
+          headers["Authorization"] = authorization_header
+        end
         
         headers.merge opts
       end

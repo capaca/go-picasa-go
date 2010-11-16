@@ -4,6 +4,21 @@ module Picasa::Util
     body[/Auth=(.*)/, 1]
   end
   
+  def extract_auth_sub_token body
+    body[/Token=(.*)/, 1]
+  end
+  
+  def self.generate_authorization_header auth_token, auth_type
+    if auth_token and auth_token.length > 0
+      if auth_type == :login
+        return "GoogleLogin auth=#{auth_token}"
+      elsif auth_type == :auth_sub
+        return "AuthSub token=#{auth_token}"
+      end
+    end
+    nil
+  end
+  
   def raise_exception?
     begin
       yield

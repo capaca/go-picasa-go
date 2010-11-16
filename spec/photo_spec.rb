@@ -31,13 +31,13 @@ describe "Picasa::Photo" do
     mock_post_album
     mock_get_album
     mock_post_photo
-    mock_update_photo
+    mock_update_photo :description => 'Photo summary updated'
     
     photo = create_photo
     
-    photo.summary = "Photo summary updated"
+    photo.description = "Photo summary updated"
     photo.picasa_update!
-    photo.summary.should == "Photo summary updated" 
+    photo.description.should == "Photo summary updated" 
   end
   
   it "should destroy a photo" do

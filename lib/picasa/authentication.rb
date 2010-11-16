@@ -16,4 +16,14 @@ module Picasa::Authentication
     
     extract_auth_token body
   end
+  
+  def self.upgrade_token token
+    resp, body = Picasa::HTTP::Authentication.upgrade_token token
+    
+    if resp.code != '200' or resp.message != 'OK'
+      raise Exception, "Could not upgrade token. Code: #{resp.code}. Message: #{resp.message}"
+    end
+    
+    extract_auth_sub_token body
+  end
 end

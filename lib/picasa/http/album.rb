@@ -8,11 +8,9 @@ module Picasa
       #
       # title, summary, location, keywords
 
-      def self.post_album user_id, auth_token, params
+      def self.post_album user_id, auth_token, params, auth_type = :login
         
-        puts params.inspect
-        
-        headers = albums_headers auth_token
+        headers = albums_headers auth_token, {}, auth_type
         
         uri = albums_uri user_id
         http = Net::HTTP.new(uri.host, uri.port)
@@ -28,14 +26,14 @@ module Picasa
       
       # Do a put request to update album data
       
-      def self.update_album user_id, album_id, auth_token, params
+      def self.update_album user_id, album_id, auth_token, params, auth_type = :login
         resp, data = get_album user_id, album_id, auth_token
         
         raise Exception, "Album not found." unless resp.code == "200"
 
         data = update_album_xml data, params 
         
-        headers = albums_headers auth_token, "If-Match" => "*"
+        headers = albums_headers(auth_token, {"If-Match" => "*"}, auth_type)
         
         uri = album_uri user_id, album_id
         http = Net::HTTP.new(uri.host, uri.port)
@@ -44,19 +42,18 @@ module Picasa
       
       # Do a delete request to delete an album from a user
       
-      def self.delete_album user_id, album_id, auth_token
-        headers = albums_headers auth_token, "If-Match" => "*"
+      def self.delete_album user_id, album_id, auth_token, auth_type = :login
+        headers = albums_headers(auth_token, {"If-Match" => "*"}, auth_type)
         
         uri = album_uri user_id, album_id
         http = Net::HTTP.new(uri.host, uri.port)
         http.send_request('DELETE',uri.path, nil, headers)
       end
       
-      
       # Do a get request to retrieve all the albums from a user using the user_id. 
 
-      def self.get_albums user_id, auth_token
-        headers = albums_headers auth_token
+      def self.get_albums user_id, auth_token, auth_type = :login
+        headers = albums_headers auth_token, {}, auth_type
         
         uri = albums_uri user_id
         
@@ -66,8 +63,8 @@ module Picasa
       
       # Do a get request to retrieve one specific album from a user
       
-      def self.get_album user_id, album_id, auth_token = nil
-        headers = albums_headers auth_token
+      def self.get_album user_id, album_id, auth_token = nil, auth_type = :login
+        headers = albums_headers auth_token, {}, auth_type
         
         uri = album_uri user_id, album_id
         
@@ -87,12 +84,14 @@ module Picasa
         doc.to_xml
       end
       
-      def self.albums_headers auth_token, opts = {}
+      def self.albums_headers auth_token, opts = {}, auth_type = :login
         headers = {}
         headers["Content-Type"] = "application/atom+xml"
         
-        if auth_token and auth_token.length > 0
-          headers["Authorization"] = "GoogleLogin auth=#{auth_token}"
+        authorization_header = Picasa::Util.generate_authorization_header auth_token, auth_type
+        
+        if authorization_header
+          headers["Authorization"] = authorization_header
         end
         
         headers.merge opts

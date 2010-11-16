@@ -25,6 +25,19 @@ module Picasa
         resp, data = http.post(uri.path, data, headers)
       end
       
+      def self.upgrade_token token
+        uri = URI.parse 'https://www.google.com/accounts/AuthSubSessionToken'
+
+        http = Net::HTTP.new uri.host, uri.port
+        http.use_ssl = true
+
+        headers = {
+          'Authorization' => "AuthSub token=\"#{token}\""
+        }
+
+        http.get uri.path, headers
+      end
+      
       private 
         
       def self.login_data email, password
