@@ -14,6 +14,10 @@ version 2.0 of Picasa Web Albums Data API.
 Go Picasa go is still under heavy development but it's available for testing. 
 We will be glad if you can do some tests and give us your feedback. Thank you.
 
+== Install
+
+  gem install go-picasa-go
+
 ==Quick Start
 
 On the command line, run the user_class generator to create a file with the authentication token and other stuff you need:
@@ -132,4 +136,9 @@ If you need your own classes to interact to Picasa you can do it like this:
 
 We provided this kind of configuration so your classes can interact with other 
 frameworks like Rails and inherit from ActiveRecord::Base for example.
+
+=== Rails example
+In the folder examples/rails-example there's simple rails application that implements 
+the CRUD of Album and Photo using Go-picasa-go. Enjoy!
+
 
