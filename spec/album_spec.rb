@@ -27,15 +27,13 @@ describe 'Picasa::Album' do
   end
   
   it 'should not save a new album if cannot authenticate' do
-    mock_authentication_failure
+    mock_post_album_failure
     
     album = AlbumObject.new
     album.title = "Album Title"
     album.summary = "Album Summary"
     album.location = "Album location"
     album.keywords = "Album keywords"
-    
-    album.stub!(:auth_token).and_return("invalid_token")
     
     lambda { album.picasa_save! }.should raise_error
     album.picasa_save.should be_false

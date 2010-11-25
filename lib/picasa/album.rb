@@ -31,11 +31,16 @@ module Picasa::Album
       define_dependent_class_methods :photo_class, params[:class_name]      
     end
     
+    def picasa_auth_sub user_id, sub_token
+      @@user_id = user_id
+      @@sub_token = sub_token
+    end
+    
     # Find an album by user_id and album_id. It's mandatory to inform the 
     # authentication token. If no album is found, then an exception is raised.
     
     def picasa_find user_id, album_id, auth_token
-      resp, data = Picasa::HTTP::Album.get_album user_id, album_id, auth_token
+      resp, data = client.get_album album_id
       
       if resp.code != "200" or resp.message != "OK"
         return nil
@@ -52,7 +57,7 @@ module Picasa::Album
     
     def picasa_find_all user_id, auth_token
       albums = []
-      resp, data = Picasa::HTTP::Album.get_albums user_id, auth_token
+      resp, data = client.get_albums
       
       if resp.code != "200" or resp.message != "OK"
         return nil
@@ -69,6 +74,10 @@ module Picasa::Album
     end
     
     private
+    
+    def client
+      @@client ||= Picasa::AuthSub.new @@user_id, @@sub_token
+    end
     
     def create_user picasa_id, auth_token
       user = user_class.new
@@ -99,18 +108,12 @@ module Picasa::Album
       return self.picasa_update!
     end
     
-    params = {
-      :title => title,
-      :summary => summary,
-      :location => location,
-      :keywords => keywords,
-      :access => access
-    }
+    params = build_params_hash
     
-    resp, data = Picasa::HTTP::Album.post_album(user_id, auth_token, params)
+    resp, data = client.post_album params
     
     if resp.code != "201" or resp.message != "Created"
-      raise Exception, "Error creating album: #{resp.message}."
+      raise "Error creating album: #{resp.message}."
     end
     
     populate_attributes_from_xml data
@@ -130,7 +133,7 @@ module Picasa::Album
   # If cannot update, an exception is raised.
   
   def picasa_update_attributes! params
-    resp, data = Picasa::HTTP::Album.update_album user_id, self.picasa_id, auth_token, params
+    resp, data = client.update_album self.picasa_id, params
 
     if resp.code != "200" or resp.message != "OK"
       raise Exception, "Error updating album."
@@ -152,12 +155,7 @@ module Picasa::Album
   # If cannot update, an exception is raised.
   
   def picasa_update!
-    params = {
-      :title => title,
-      :summary => summary,
-      :location => location,
-      :keywords => keywords
-    }
+    params = build_params_hash
     picasa_update_attributes! params
   end
 
@@ -175,7 +173,7 @@ module Picasa::Album
   # If cannot destroy it, an exception is raised.
   
   def picasa_destroy!
-    resp, data = Picasa::HTTP::Album.delete_album user_id, self.picasa_id, auth_token
+    resp, data = client.delete_album self.picasa_id
     
     if resp.code != "200" or resp.message != "OK"
       raise Exception, "Error destroying album."
@@ -256,12 +254,33 @@ module Picasa::Album
     }
   end
   
+  def build_params_hash
+    {
+      :title => title,
+      :summary => summary,
+      :location => location,
+      :keywords => keywords,
+      :access => access
+    }
+  end
+  
   def user_id
     @user.picasa_id
   end
   
   def auth_token
     @user.auth_token
+  end
+  
+  def client
+    unless @client
+      if defined? auth_sub and auth_sub
+        @client = Picasa::AuthSub.new auth_sub[0], auth_sub[1]
+      else
+        @client = self.class.send :client
+      end
+    end
+    @client
   end
 
 end

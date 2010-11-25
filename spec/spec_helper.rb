@@ -22,8 +22,13 @@ end
 
 class AlbumObject
   acts_as_picasa_album
+  picasa_auth_sub 'bandmanagertest', "1/lpcSMKlbwYy28vORo2yks0G1FQYclgBgHgH3ac8613Y"
   belongs_to_picasa_user :class_name => "UserObject"
   has_many_picasa_photos :class_name => 'PhotoObject'
+  
+  def auth_sub
+    ['bandmanagertest', "1/lpcSMKlbwYy28vORo2yks0G1FQYclgBgHgH3ac8613Y"]
+  end
 end
 
 class PhotoObject
