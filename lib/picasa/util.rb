@@ -8,6 +8,14 @@ module Picasa::Util
     body[/Token=(.*)/, 1]
   end
   
+  def auth_sub_header token
+    {"Authorization" => "AuthSub token=#{token}"}
+  end
+  
+  def client_login_header token
+    {"Authorization" => "GoogleLogin auth=#{token}"}
+  end
+  
   def self.generate_authorization_header token_hash
     if token_hash and token_hash.length > 0
       if token_hash[:sub_token]

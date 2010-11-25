@@ -16,7 +16,8 @@ describe 'Picasa::HTTP::Album' do
     }
     
     auth_token = login
-    resp, body = Picasa::HTTP::Album.post_album 'bandmanagertest', auth_token, params
+    header = client_login_header(auth_token)
+    resp, body = Picasa::HTTP::Album.post_album 'bandmanagertest', params, header
     resp.success?.should be_true
     resp.message.should == "Created"
     
@@ -34,7 +35,8 @@ describe 'Picasa::HTTP::Album' do
     }
     
     auth_token = login
-    resp, body = Picasa::HTTP::Album.post_album 'bandmanagertest', auth_token, params
+    header = client_login_header(auth_token)
+    resp, body = Picasa::HTTP::Album.post_album 'bandmanagertest', params, header
     resp.success?.should be_true
     resp.message.should == "Created"
     
@@ -45,6 +47,7 @@ describe 'Picasa::HTTP::Album' do
   it 'should do a post request to update an album' do
     album_id = post_album
     auth_token = login
+    header = client_login_header auth_token
 
     params = {
       :title => 'testing title2',
@@ -54,8 +57,7 @@ describe 'Picasa::HTTP::Album' do
     }
 
     album_id = post_album
-
-    resp, body = Picasa::HTTP::Album.update_album "bandmanagertest", album_id, auth_token, params
+    resp, body = Picasa::HTTP::Album.update_album "bandmanagertest", album_id, params, header
     resp.success?.should be_true
     resp.message_OK?.should be_true
     
@@ -72,7 +74,8 @@ describe 'Picasa::HTTP::Album' do
   
   it 'should do a get to retrieve all albums from user' do
     auth_token = login
-    resp, body = Picasa::HTTP::Album.get_albums 'bandmanagertest', auth_token
+    header = client_login_header auth_token
+    resp, body = Picasa::HTTP::Album.get_albums 'bandmanagertest', header
     resp.success?.should be_true
     resp.message.should == "OK"
     
@@ -84,7 +87,8 @@ describe 'Picasa::HTTP::Album' do
     album_id = post_album
     
     auth_token = login
-    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, auth_token
+    header = client_login_header auth_token
+    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, header
     resp.success?.should be_true
     resp.message_OK?.should be_true
     
@@ -96,7 +100,8 @@ describe 'Picasa::HTTP::Album' do
     album_id = post_album :access => 'public'
     
     auth_token = login
-    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id
+    header = client_login_header auth_token
+    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, header
     resp.success?.should be_true
     resp.message_OK?.should be_true
     
@@ -107,8 +112,7 @@ describe 'Picasa::HTTP::Album' do
   it 'should get 404 if try to retrieve an private album without authorization' do
     album_id = post_album :access => 'private'
     
-    auth_token = login
-    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id
+    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, {}
     resp.should_not be_success
     resp.code.should == '404'
   end
@@ -117,11 +121,12 @@ describe 'Picasa::HTTP::Album' do
     album_id = post_album
     
     auth_token = login
-    resp, body = Picasa::HTTP::Album.delete_album "bandmanagertest", album_id, auth_token
+    header = client_login_header auth_token
+    resp, body = Picasa::HTTP::Album.delete_album "bandmanagertest", album_id, header
     resp.success?.should be_true
     resp.message_OK?.should be_true
     
-    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, auth_token
+    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, header
     resp.success?.should_not be_true
     resp.message.should == "Not Found"
   end
