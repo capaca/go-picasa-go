@@ -8,12 +8,12 @@ module Picasa::Util
     body[/Token=(.*)/, 1]
   end
   
-  def self.generate_authorization_header auth_token, auth_type
-    if auth_token and auth_token.length > 0
-      if auth_type == :login
-        return "GoogleLogin auth=#{auth_token}"
-      elsif auth_type == :auth_sub
-        return "AuthSub token=#{auth_token}"
+  def self.generate_authorization_header token_hash
+    if token_hash and token_hash.length > 0
+      if token_hash[:sub_token]
+        return {"Authorization" => "AuthSub token=#{token_hash[:sub_token]}"}
+      elsif token_hash[:auth_key]
+        return {"Authorization" => "GoogleLogin auth=#{token_hash[:auth_key]}"}
       end
     end
     nil

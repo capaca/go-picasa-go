@@ -52,7 +52,8 @@ def post_album opts = {}
   }
   
   auth_token = login
-  resp, body = Picasa::HTTP::Album.post_album 'bandmanagertest', auth_token, params.merge(opts)
+  headers = {"Authorization" => "GoogleLogin auth=#{auth_token}"}
+  resp, body = Picasa::HTTP::Album.post_album 'bandmanagertest', params.merge(opts), headers
   resp.success?.should be_true
   resp.message.should == "Created"
 
@@ -65,14 +66,17 @@ end
 
 def delete_album album_id
   auth_token = login
-  resp, body = Picasa::HTTP::Album.delete_album "bandmanagertest", album_id, auth_token
-  resp.success?.should be_true
-  resp.message_OK?.should be_true
+  
+  header = {"Authorization" => "GoogleLogin auth=\"#{auth_token}\""}
+  resp, body = Picasa::HTTP::Album.delete_album "bandmanagertest", album_id, header
+  resp.code.should == '200'
+  resp.message.should == 'OK'
 end
 
 def albums_ids
   auth_token = login
-  resp, body = Picasa::HTTP::Album.get_albums('bandmanagertest', auth_token)
+  header = {"Authorization" => "GoogleLogin auth=#{auth_token}"}
+  resp, body = Picasa::HTTP::Album.get_albums('bandmanagertest', header)
   
   resp.should_not be_nil
   body.should_not be_nil
