@@ -89,6 +89,10 @@ module Picasa::Album
 
   def self.included(base)
     base.extend(ClassMethods)
+    self.class.define_dependent_class_methods :user_class, 'Picasa::DefaultUser'
+    self.class.define_dependent_class_methods :photo_class, 'Picasa::DefaultPhoto'
+    define_dependent_class_methods :user_class, 'Picasa::DefaultUser'
+    define_dependent_class_methods :photo_class, 'Picasa::DefaultPhoto'
   end
   
   attr_reader :picasa_id, :author_name, :author_uri, :timestamp, :num_photos, 
@@ -274,8 +278,8 @@ module Picasa::Album
   
   def client
     unless @client
-      if defined? auth_sub and auth_sub
-        @client = Picasa::AuthSub.new auth_sub[0], auth_sub[1]
+      if defined? user_id and defined? auth_sub_token
+        @client = Picasa::AuthSub.new(user_id, auth_sub_token)
       else
         @client = self.class.send :client
       end

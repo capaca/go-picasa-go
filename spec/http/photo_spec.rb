@@ -10,7 +10,8 @@ describe 'Picasa::HTTP::Photo' do
     auth_token = login
     album_id = post_album
     
-    resp, data = Picasa::HTTP::Photo.get_photos 'bandmanagertest', album_id, auth_token
+    header = client_login_header auth_token
+    resp, data = Picasa::HTTP::Photo.get_photos 'bandmanagertest', album_id, header
     
     resp.should be_success
     data.should_not be_nil
@@ -21,7 +22,8 @@ describe 'Picasa::HTTP::Photo' do
     auth_token = login
     album_id, photo_id = post_photo
     
-    resp, data = Picasa::HTTP::Photo.get_photo 'bandmanagertest', album_id, photo_id, auth_token
+    header = client_login_header auth_token
+    resp, data = Picasa::HTTP::Photo.get_photo 'bandmanagertest', album_id, photo_id, header
     
     resp.should be_success
     data.should_not be_nil
@@ -34,8 +36,9 @@ describe 'Picasa::HTTP::Photo' do
     
     file = File.open 'spec/fixture/photo.jpg'
       
+    header = client_login_header auth_token
     resp, data = Picasa::HTTP::Photo.post_photo(
-      'bandmanagertest', album_id, auth_token, "Summary", file
+      'bandmanagertest', album_id, "Summary", file, header
     )
     
     resp.code.should == "201"
@@ -51,7 +54,8 @@ describe 'Picasa::HTTP::Photo' do
   it 'should do a delete request to delete a photo from an album' do
     album_id, photo_id, auth_token = post_photo
     
-    resp, data = Picasa::HTTP::Photo.delete_photo('bandmanagertest', album_id, photo_id, auth_token)
+    header = client_login_header auth_token
+    resp, data = Picasa::HTTP::Photo.delete_photo 'bandmanagertest', album_id, photo_id, header
     resp.should be_success
   end
   
@@ -60,9 +64,9 @@ describe 'Picasa::HTTP::Photo' do
     
     file = File.open 'spec/fixture/photo2.jpg'
       
-
+    header = client_login_header auth_token
     resp, data = Picasa::HTTP::Photo.update_photo(
-      'bandmanagertest', album_id, photo_id, auth_token, "SummaryUpdated", file
+      'bandmanagertest', album_id, photo_id, "SummaryUpdated", file, header
     )
     
     resp.code.should == "200"

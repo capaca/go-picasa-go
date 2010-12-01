@@ -6,23 +6,23 @@ module Picasa
       
       # Do a get request to retrieve all the photos from an album
       
-      def self.get_photos user_id, album_id, auth_token
+      def self.get_photos user_id, album_id, header
         uri = photos_uri user_id, album_id
         http = Net::HTTP.new(uri.host)
-        http.get uri.path, auth_header(auth_token)
+        http.get(uri.path, photos_headers(header))
       end
       
       # Do a get request to retrieve one photo from an album
       
-      def self.get_photo user_id, album_id, photo_id, auth_token
+      def self.get_photo user_id, album_id, photo_id, header
         uri = photo_uri user_id, album_id, photo_id
         http = Net::HTTP.new(uri.host)
-        http.get uri.path, auth_header(auth_token)
+        http.get(uri.path, photos_headers(header))
       end
       
       # Do a post request to save a new photo.
       
-      def self.post_photo user_id, album_id, auth_token, summary, file, auth_type = :login
+      def self.post_photo user_id, album_id, summary, file, header
         uri = photos_uri user_id, album_id
 
         template_path = File.dirname(__FILE__) + '/../template/'
@@ -35,28 +35,25 @@ module Picasa
         request.body = body
         request["Content-Type"] = "multipart/related; boundary=\"END_OF_PART\""
         
-        authorization_header = Picasa::Util.generate_authorization_header auth_token, auth_type
-        
-        if authorization_header
-          request["Authorization"] = authorization_header
-        end
-
+        request["Authorization"] = header["Authorization"] if header
+          
         http.request(request)
       end
       
       # Do a delete request to delete a photo from an album
       
-      def self.delete_photo user_id, album_id, photo_id, auth_token
+      def self.delete_photo user_id, album_id, photo_id, header
         uri = photo_uri user_id, album_id, photo_id
-        headers = photos_headers auth_token, "If-Match" => "*"
-        
+        headers = photos_headers header
+        headers["If-Match"] = "*"
+
         http = Net::HTTP.new(uri.host, uri.port)
         http.send_request('DELETE',uri.path, nil, headers)
       end
       
       # Do a put request to update a photo from an album
       
-      def self.update_photo user_id, album_id, photo_id, auth_token, summary, file, auth_type = :login
+      def self.update_photo user_id, album_id, photo_id, summary, file, header
         uri = photo_media_uri user_id, album_id, photo_id
         
         template_path = File.dirname(__FILE__) + '/../template/'
@@ -68,10 +65,9 @@ module Picasa
         request = Net::HTTP::Put.new(uri.request_uri)
         request.body = body
         request["Content-Type"] = "multipart/related; boundary=\"END_OF_PART\""
-        authorization_header = Picasa::Util.generate_authorization_header auth_token, auth_type
         
-        if authorization_header
-          request["Authorization"] = authorization_header
+        if header and header["Authorization"]
+          request["Authorization"] = header["Authorization"]
         end
         request["If-Match"] = "*"
 
@@ -117,16 +113,10 @@ module Picasa
         headers
       end
       
-      def self.photos_headers auth_token, opts = {}, auth_type = :login
+      def self.photos_headers opts = {}
         headers = {
           "Content-Type" => "application/atom+xml"
         }
-        
-        authorization_header = Picasa::Util.generate_authorization_header auth_token, auth_type
-        
-        if authorization_header
-          headers["Authorization"] = authorization_header
-        end
         
         headers.merge opts
       end
