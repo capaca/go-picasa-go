@@ -3,20 +3,19 @@ require 'spec_helper'
 describe Picasa::ClientLogin do
 
   before do
-#    mock_authentication
-#    mock_get_albums
-#    mock_get_album
-#    mock_post_album
-#    mock_update_album
-#    mock_delete_album
-    
-#    delete_all_albums
+    mock_authentication
+    mock_get_albums
+    mock_get_album
+    mock_post_album
+    mock_update_album
+    mock_delete_album
+    mock_get_photos
+    mock_get_photo
+    mock_post_photo
+    mock_update_photo
+    mock_delete_photo
     
     auth_key = login
-    
-#    "DQAAAH4AAAAbp4dgMJHRpOk8O5H-RME41nOzHtdrWt5TX1bHXvZ8KrWzHrBu7sqr"+
-#    "hPzDN-CtIQxk0A1xbACAtnKk2EYKuCeLzqx17UH23-o9bCqq3LamPVgHbI59tYp53m1VfnAH9"+
-#    "8hZyuN5HaQOuaAnOKzmUMJW-VVjQ8B8v8SBtDjy378FmQ"
 
     params = {
       :user_id => 'bandmanagertest',
@@ -121,9 +120,6 @@ describe Picasa::ClientLogin do
 
       resp, body = @client.delete_photo album_id, photo_id
       resp.code.should == "200"
-      
-      resp, body = @client.get_photo album_id, photo_id
-      resp.code.should == "404"
     end
     
   end
