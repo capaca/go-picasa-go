@@ -10,6 +10,8 @@ require 'picasa/http/photo'
 require 'picasa/http/album_client'
 require 'picasa/http/photo_client'
 require 'picasa/http/auth_sub'
+require 'picasa/http/auth_sub_photo'
+require 'picasa/http/auth_sub_album'
 require 'picasa/http/client_login'
 require 'picasa/util'
 require 'picasa/missing'
@@ -21,6 +23,8 @@ require 'picasa/exceptions'
 require 'patchs/object'
 require 'singleton'
 require 'generators/user_class_generator'
+require 'picasa/session'
+require 'picasa/auth_sub_session'
 
 include Picasa::Util
 

@@ -1,6 +1,13 @@
 module Picasa
   class DefaultUser
     acts_as_picasa_user
-    has_many_picasa_albums :class_name => "Picasa::DefaultAlbum"
+    
+    def album_class
+      Picasa::DefaultAlbum
+    end
+    
+    def self.album_class
+      Picasa::DefaultAlbum
+    end
   end
 end

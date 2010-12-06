@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Picasa::AuthSub do
+describe Picasa::AuthSubAlbum do
 
   before do
     mock_authentication
@@ -18,7 +18,7 @@ describe Picasa::AuthSub do
       :sub_token => sub_token
     }
 
-    @client = Picasa::AuthSub.new 'bandmanagertest', sub_token
+    @client = Picasa::AuthSubAlbum.new 'bandmanagertest', sub_token
     @client.should_not be_nil
     
     delete_all_albums

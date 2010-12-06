@@ -79,48 +79,7 @@ describe Picasa::ClientLogin do
   
   context 'when dealing with photos' do
 
-    it 'should get all from an album' do
-      album_id = post_album
-      
-      resp, body = @client.get_photos album_id
-      resp.code.should == "200"
-      body.should_not be_empty
-    end
-    
-    it 'should get one specific photo from album' do
-      album_id, photo_id = post_photo
-
-      resp, body = @client.get_photo album_id, photo_id
-      resp.code.should == "200"
-      body.should_not be_empty
-    end
-    
-    it 'should post a photo in an album' do
-      album_id = post_album
-
-      file = File.open 'spec/fixture/photo.jpg'
-
-      resp, body = @client.post_photo album_id, "Summary", file
-      resp.code.should == "201"
-      body.should_not be_empty
-    end
-    
-    it 'should update a photo' do
-      album_id, photo_id = post_photo
-
-      file = File.open 'spec/fixture/photo.jpg'
-
-      resp, body = @client.update_photo album_id, photo_id, "changed", file
-      resp.code.should == "200"
-      body.should_not be_empty
-    end
-    
-    it 'should delete a photo' do
-      album_id, photo_id = post_photo
-
-      resp, body = @client.delete_photo album_id, photo_id
-      resp.code.should == "200"
-    end
+ 
     
   end
 

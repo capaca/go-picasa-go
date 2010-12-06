@@ -30,7 +30,7 @@ module Picasa::Util
   def raise_exception?
     begin
       yield
-    rescue
+    rescue Picasa::Exception => e
       return false
     end
     true

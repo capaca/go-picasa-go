@@ -9,16 +9,6 @@ module Picasa::Photo
     
   module ClassMethods
   
-    # Sets the user class configured so it can be used later.
-  
-    def belongs_to_picasa_album params
-      unless params[:class_name] and params[:class_name].class == String
-        raise Exception, 'You should pass the string of the class name that includes Picasa::Album.'
-      end
-      
-      define_dependent_class_methods :album_class, params[:class_name]
-    end
-    
     # Find a photo by user_id, album_id and photo_id
     # If no album is found, then an exception is raised.
     
@@ -26,7 +16,7 @@ module Picasa::Photo
       resp, data = Picasa::HTTP::Photo.get_photo user_id, album_id, photo_id, auth_token
       
       if resp.code != "200" or resp.message != "OK"
-        raise Exception, "Photo not found"
+        raise Picasa::Exception, "Photo not found"
       end
       
       photo = new
@@ -43,7 +33,7 @@ module Picasa::Photo
       resp, data = Picasa::HTTP::Photo.get_photos user_id, album_id, auth_token
       
       if resp.code != "200" or resp.message != "OK"
-        raise Exception, "Error while retrieving photos. Code: #{resp.code}, Message: #{resp.message}\n"+
+        raise Picasa::Exception, "Error while retrieving photos. Code: #{resp.code}, Message: #{resp.message}\n"+
           "#{user_id}, #{album_id}, #{auth_token}"
       end
       
@@ -80,10 +70,10 @@ module Picasa::Photo
       return picasa_update!
     end
     
-    resp, data = Picasa::HTTP::Photo.post_photo user_id, album_id, auth_token, description, file
+    resp, data = client.post_photo description, file
     
     if resp.code != "201" or resp.message != "Created"
-      raise Exception, "Error posting photo: #{resp.message}."
+      raise Picasa::Exception, "Error posting photo: #{resp.message}."
     end
     
     populate_attributes_from_xml data
@@ -102,12 +92,10 @@ module Picasa::Photo
   # If cannot update, an exception is raised.
   
   def picasa_update!
-    resp, data = Picasa::HTTP::Photo.update_photo(
-      'bandmanagertest', album_id, picasa_id, auth_token, description, file
-    )
+    resp, data = client.update_photo picasa_id, description, file
     
     if resp.code != "200" or resp.message != "OK"
-      raise Exception, "Error updating photo: #{resp.message}."
+      raise Picasa::Exception, "Error updating photo: #{resp.message}."
     end
     
     populate_attributes_from_xml data
@@ -129,7 +117,7 @@ module Picasa::Photo
     resp, data = Picasa::HTTP::Photo.delete_photo user_id, album_id, picasa_id, auth_token
     
     if resp.code != "200" or resp.message != "OK"
-      raise Exception, "Error destroying photo: #{resp.message}."
+      raise Picasa::Exception, "Error destroying photo: #{resp.message}."
     end
   end
   
@@ -138,7 +126,7 @@ module Picasa::Photo
   
   def destroy
     raise_exception? do
-      self.destroy
+      self.destroy!
     end
   end
   
@@ -176,8 +164,10 @@ module Picasa::Photo
     }
   end
 
-  def user_id
-    @album.user.picasa_id
+
+  #FIXME Duplicated implementation (also in album).
+  def client
+    @client ||= Picasa::AuthSubPhoto.new(user_id, album_id, auth_sub_token)
   end
   
   def album_id

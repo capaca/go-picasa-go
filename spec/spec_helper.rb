@@ -7,7 +7,6 @@ include MockHelper
 
 class UserObject
   acts_as_picasa_user
-  has_many_picasa_albums :class_name => "AlbumObject"
   
   def picasa_id
     "bandmanagertest"
@@ -18,11 +17,18 @@ class UserObject
     "2zFLXaSzp3oe4mB9lJexTpxxM-CmChSTs-9OBd6nAwNji5yWnLUFv_Q7-ibXMx7820aFdnU7mr6"+
     "qqvHUhXESdhBEnD1QP_o8dqsP-6T-oig"
   end
+  
+  def album_class
+    Picasa::DefaultAlbum
+  end
+  
+  def self.album_class
+    Picasa::DefaultAlbum
+  end
 end
 
 class AlbumObject
   acts_as_picasa_album
-  picasa_auth_sub 'bandmanagertest', "1/lpcSMKlbwYy28vORo2yks0G1FQYclgBgHgH3ac8613Y"
   
   def user_id
     'bandmanagertest'
@@ -35,7 +41,18 @@ end
 
 class PhotoObject
   acts_as_picasa_photo
-  belongs_to_picasa_album :class_name => 'AlbumObject'
+  
+  def self.album_class
+    AlbumObject
+  end
+  
+  def user_id
+    'bandmanagertest'
+  end
+  
+  def auth_sub_token
+    "1/lpcSMKlbwYy28vORo2yks0G1FQYclgBgHgH3ac8613Y"
+  end
 end
 
 def login(email = 'bandmanagertest@gmail.com', password = '$bandmanager$')
@@ -113,11 +130,7 @@ def delete_all_albums
 end
 
 def create_album
-  user = UserObject.new
-  user.picasa_id = "bandmanagertest"
-  
   album = AlbumObject.new
-  album.user = user
   album.title = "Album Title"
   album.summary = "Album Summary"
   album.location = "Album location"
