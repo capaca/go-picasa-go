@@ -62,32 +62,7 @@ describe "Picasa::Photo" do
     
     lambda { photo.picasa_save! }.should raise_error
   end
-  
-  it "should find all photos from an album" do
-    photo = create_photo
     
-    photos = PhotoObject.picasa_find_all photo.album.user.picasa_id, 
-      photo.album.picasa_id, photo.album.user.auth_token
-    
-    photos.should_not be_nil
-    photos.each do |p|
-      p.album.picasa_id.should == photo.album.picasa_id
-    end
-  end
-  
-  it "should find a photo" do
-    photo1 = create_photo
-    user_id = photo1.album.user.picasa_id
-    album_id = photo1.album.picasa_id
-    photo_id = photo1.picasa_id
-    auth_token = photo1.album.user.auth_token
-    
-    photo2 = PhotoObject.picasa_find user_id, album_id, photo_id, auth_token
-    
-    photo2.picasa_id.should == photo1.picasa_id
-    photo2.album.should_not be_nil
-  end
-  
   it "should retrieve the file when retrieving the photo" do
     photo1 = create_photo
     album = photo1.album

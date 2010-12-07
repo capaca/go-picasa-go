@@ -4,57 +4,7 @@
 module Picasa::Photo
   
   include Picasa::Missing
-  
-  # Class methods to be added to the class that will include this module.
-    
-  module ClassMethods
-  
-    # Find a photo by user_id, album_id and photo_id
-    # If no album is found, then an exception is raised.
-    
-    def picasa_find user_id, album_id, photo_id, auth_token
-      resp, data = Picasa::HTTP::Photo.get_photo user_id, album_id, photo_id, auth_token
-      
-      if resp.code != "200" or resp.message != "OK"
-        raise Picasa::Exception, "Photo not found"
-      end
-      
-      photo = new
-      photo.send(:populate_attributes_from_xml, data)
-      photo.album = album_class.picasa_find user_id, album_id, auth_token
-      photo.file = Picasa::HTTP::Photo.download_image photo.media_content_url
-      photo
-    end
-    
-    # Find all photos from an album using user_id, album_id
-    # If no album is found, then an exception is raised.
-    
-    def picasa_find_all user_id, album_id, auth_token
-      resp, data = Picasa::HTTP::Photo.get_photos user_id, album_id, auth_token
-      
-      if resp.code != "200" or resp.message != "OK"
-        raise Picasa::Exception, "Error while retrieving photos. Code: #{resp.code}, Message: #{resp.message}\n"+
-          "#{user_id}, #{album_id}, #{auth_token}"
-      end
-      
-      photos = []
-      album = album_class.picasa_find user_id, album_id, auth_token
-      doc = Nokogiri::XML(data)
-      
-      doc.xpath('//xmlns:entry').each do |entry|
-        photo = new
-        photo.send(:populate_attributes, entry)
-        photo.album = album
-        photos << photo
-      end
-      photos
-    end
-  end
-  
-  def self.included(base)
-    base.extend(ClassMethods)
-  end
-  
+
   attr_reader :picasa_id, :albumid, :width, :height, :size, :timestamp, :comment_count,
               :media_title, :media_content_url,
               :media_thumbnail_url1, :media_thumbnail_url2, 
@@ -164,17 +114,8 @@ module Picasa::Photo
     }
   end
 
-
   #FIXME Duplicated implementation (also in album).
   def client
     @client ||= Picasa::AuthSubPhoto.new(user_id, album_id, auth_sub_token)
-  end
-  
-  def album_id
-    @album.picasa_id
-  end
-  
-  def auth_token
-    @album.user.auth_token
   end
 end

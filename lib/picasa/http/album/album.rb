@@ -99,7 +99,6 @@ module Picasa
       def self.album_uri user_id, album_id
         URI.parse "http://picasaweb.google.com/data/entry/api/user/#{user_id}/albumid/#{album_id}"
       end
-      
     end
   end
 end

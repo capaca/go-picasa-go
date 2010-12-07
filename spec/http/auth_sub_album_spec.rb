@@ -3,14 +3,6 @@ require 'spec_helper'
 describe Picasa::AuthSubAlbum do
 
   before do
-    mock_authentication
-    mock_get_albums
-    mock_get_album
-    mock_post_album
-    mock_update_album
-    mock_delete_album
-
-    
     sub_token = "1/lpcSMKlbwYy28vORo2yks0G1FQYclgBgHgH3ac8613Y"
 
     params = {
@@ -70,7 +62,37 @@ describe Picasa::AuthSubAlbum do
     resp.code.should == "200"
     resp.message.should == "OK"    
   end 
- 
+  
+  it 'should post a private album' do
+    params = {
+      :title => 'testing title',
+      :summary => 'testing summary',
+      :location => 'testing location',
+      :keywords => 'testing keywords',
+      :access => 'private'
+    }
+    
+    auth_token = login
+    header = client_login_header(auth_token)
+    resp, body = @client.post_album params
+    resp.success?.should be_true
+    resp.message.should == "Created"
+    
+    body.should_not be_nil
+    body.should_not be_empty
+  end
+  
+  it 'should not retrieve a album with no authentication token' do
+    album_id = post_album :access => 'public'
+    
+    client = Picasa::AuthSubAlbum.new 'bandmanagertest', ''
+    
+    auth_token = login
+    header = client_login_header auth_token
+    resp, body = client.get_album album_id
+    resp.success?.should be_false
+    resp.message_OK?.should be_false
+  end
 end
 
 

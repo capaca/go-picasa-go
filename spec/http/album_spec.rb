@@ -25,25 +25,6 @@ describe 'Picasa::HTTP::Album' do
     body.should_not be_empty
   end
   
-  it 'should create a private album' do
-    params = {
-      :title => 'testing title',
-      :summary => 'testing summary',
-      :location => 'testing location',
-      :keywords => 'testing keywords',
-      :access => 'private'
-    }
-    
-    auth_token = login
-    header = client_login_header(auth_token)
-    resp, body = Picasa::HTTP::Album.post_album 'bandmanagertest', params, header
-    resp.success?.should be_true
-    resp.message.should == "Created"
-    
-    body.should_not be_nil
-    body.should_not be_empty
-  end
-  
   it 'should do a post request to update an album' do
     album_id = post_album
     auth_token = login
@@ -96,27 +77,6 @@ describe 'Picasa::HTTP::Album' do
     body.should_not be_empty
   end
 
-  it 'should retrieve a public album with no authentication token' do
-    album_id = post_album :access => 'public'
-    
-    auth_token = login
-    header = client_login_header auth_token
-    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, header
-    resp.success?.should be_true
-    resp.message_OK?.should be_true
-    
-    body.should_not be_nil
-    body.should_not be_empty
-  end
-  
-  it 'should get 404 if try to retrieve an private album without authorization' do
-    album_id = post_album :access => 'private'
-    
-    resp, body = Picasa::HTTP::Album.get_album "bandmanagertest", album_id, {}
-    resp.should_not be_success
-    resp.code.should == '404'
-  end
-  
   it 'should do a delete request to delete an album from a user' do
     album_id = post_album
     

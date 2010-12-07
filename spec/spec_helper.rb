@@ -174,3 +174,11 @@ def create_photo
   photo.picasa_save.should be_true
   photo
 end
+
+def debug_log
+  unless @log
+    @log = Logger.new(STDOUT)
+    @log.level = Logger::DEBUG
+  end
+  @log
+end
