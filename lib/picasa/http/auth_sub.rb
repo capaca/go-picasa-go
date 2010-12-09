@@ -26,7 +26,7 @@ class Picasa::AuthSub
 
   private
 
-  def auth_header
-    return {"Authorization" => "AuthSub token=\"#{@token}\""}
+  def auth_header opts = {}
+    {"Authorization" => "AuthSub token=\"#{@token}\""}.merge opts
   end
 end
